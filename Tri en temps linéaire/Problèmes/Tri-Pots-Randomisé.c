@@ -8,13 +8,12 @@ typedef struct _POT{
         char * couleur;
         int contenance;
         int rang;
-        }POT;
+}POT;
         
 typedef struct _PAIRE_POT{
         int premier;
         int second;
-        }PAIREPOT;
-
+}PAIREPOT;
         
 POT * creer_pot(char* coul , int contenance){
     POT * pot = (POT *) malloc(sizeof(POT));
@@ -28,96 +27,94 @@ POT ** creer_tableau_pots(int n, char* coul){
     POT ** p =(POT **)malloc(n*sizeof(POT *));
     int i;
     for(i=0;i<n;i++){
-                     p[i] = creer_pot(coul,0);
-                     p[i]->rang = i+1;
-                     }
+        p[i] = creer_pot(coul,0);
+        p[i]->rang = i+1;
+    }
     return p;
 }
 
 PAIREPOT * creer_paire_pot(){
-         PAIREPOT * p = (PAIREPOT *)malloc(sizeof(PAIREPOT));
-         return p;
+    PAIREPOT * p = (PAIREPOT *)malloc(sizeof(PAIREPOT));
+    return p;
 }
 
 PAIREPOT ** creer_tableau_paire(int n){
-         PAIREPOT ** P = (PAIREPOT **)malloc(n*sizeof(PAIREPOT *));
-         int i;
-         for(i=0;i<n;i++){
-                          P[i] = creer_paire_pot();
-                          }
-         return P;
+    PAIREPOT ** P = (PAIREPOT **)malloc(n*sizeof(PAIREPOT *));
+    int i;
+    for(i=0;i<n;i++){
+        P[i] = creer_paire_pot();
+    }
+    return P;
 }
-
-
-
 
 int Random(int a, int b){
     int i;
-    if((a==0)&&(b==1))
-                      return rand()%2;
+    if(a==0 && b==1)
+        return rand()%2;
     int acc=0;
     for(i=a;i<b;i++){
-                     acc += Random(0,1);
-                     }
+        acc += Random(0,1);
+    }
     return a + acc;
 }
 
 POT** tri_denombrement_pots(POT ** A, int n, int k){
-     POT ** B = creer_tableau_pots(n,"rouge");
-     int i;
-     int * C = (int *) malloc(k*sizeof(int));
-     for(i=0;i<k;i++){
-                      C[i] = 0;
-                      }
-     int j;
-     for(j=0;j<n;j++){
-                      C[A[j]->contenance]++;
-                      //C[i] contient maintenant le nombre d'éléments égaux à i.
-                      }
-     for(i=1;i<k;i++){
-                      C[i] += C[i-1];
-                      //C[i] contient maintenant le nombre d'éléments inférieurs ou égaux à i.
-                      }
-     for(j=n-1;j>=0;j--){
-                         B[C[A[j]->contenance]-1]->contenance = A[j]->contenance;
-                         B[C[A[j]->contenance]-1]->rang = A[j]->rang;
-                         C[A[j]->contenance]--;
-                         }
-     return B;
+    POT ** B = creer_tableau_pots(n,"rouge");
+    int i;
+    int * C = (int *) malloc(k*sizeof(int));
+    for(i=0;i<k;i++){
+        C[i] = 0;
+    }
+    int j;
+    for(j=0;j<n;j++){
+        C[A[j]->contenance]++;
+    }
+    // C[i] contient maintenant le nombre d'Ã©lÃ©ments Ã©gaux Ã  i.
+    for(i=1;i<k;i++){
+        C[i] += C[i-1];
+    }
+    // C[i] contient maintenant le nombre d'Ã©lÃ©ments infÃ©rieurs ou Ã©gaux Ã  i.
+    for(j=n-1;j>=0;j--){
+        B[C[A[j]->contenance]-1]->contenance = A[j]->contenance;
+        B[C[A[j]->contenance]-1]->rang = A[j]->rang;
+        C[A[j]->contenance]--;
+    }
+    return B;
 }
 
 int recherche_dichotomique_pots(POT ** A, int deb, int fin, int cle){
     if(deb>fin){
-                if(A[deb]->contenance==cle)
-                               return deb;
-                else return -1;
-                }
+        if(A[deb]->contenance==cle)
+           return deb;
+        else
+            return -1;
+    }
     int mil = (deb + fin)/2;
     if(A[mil]->contenance==cle)
-                   return mil;
+        return mil;
     if(A[mil]->contenance<cle)
-                  return recherche_dichotomique_pots(A,mil+1,fin,cle);
+        return recherche_dichotomique_pots(A,mil+1,fin,cle);
     else
-                  return recherche_dichotomique_pots(A,deb,mil-1,cle);
+        return recherche_dichotomique_pots(A,deb,mil-1,cle);
 }
 
 PAIREPOT ** tri_pots_randomise(POT ** A, POT ** B, int n){
-         POT ** B2 = tri_denombrement_pots(B,n,K);
-         PAIREPOT ** C = creer_tableau_paire(n);
-         int k = 0;
-         int i,l,m,r;
-         for(i=0;i<n;i++){
-                          l = A[i]->contenance;
-                          r = Random(0,n-1);
-                          if(B2[r]->contenance>l)
-                                                m = recherche_dichotomique_pots(B2,0,r-1,l);
-                          else
-                              m = recherche_dichotomique_pots(B2,r,n-1,l);
-                          C[k]->premier = A[i]->rang;
-                          C[k]->second = B2[m]->rang;
-                          k++;
-                          }
-         return C;
+    POT ** B2 = tri_denombrement_pots(B,n,K);
+    PAIREPOT ** C = creer_tableau_paire(n);
+    int k = 0;
+    int i,l,m,r;
+    for(i=0;i<n;i++){
+        l = A[i]->contenance;
+        r = Random(0,n-1);
+        if(B2[r]->contenance>l)
+            m = recherche_dichotomique_pots(B2,0,r-1,l);
+        else
+            m = recherche_dichotomique_pots(B2,r,n-1,l);
+        C[k]->premier = A[i]->rang;
+        C[k]->second = B2[m]->rang;
+        k++;
+    }
+    return C;
 }
 
 int main(){
@@ -153,19 +150,17 @@ int main(){
 
     int i;
     for(i=0;i<N;i++){
-                     printf("%d\t", A[i]->contenance);
-                     }
+        printf("%d\t", A[i]->contenance);
+    }
     printf("\n\n\n");
     for(i=0;i<N;i++){
-                     printf("%d\t", B[i]->contenance);
-                     }
+        printf("%d\t", B[i]->contenance);
+    }
     printf("\n\n\n");
     for(i=0;i<N;i++){
-                     printf("( %d ; %d )\n", P[i]->premier,P[i]->second);
-                     }
+        printf("( %d ; %d )\n", P[i]->premier,P[i]->second);
+    }
     printf("\n\n\n");
     return 0;
 }
 
-                          
-                 

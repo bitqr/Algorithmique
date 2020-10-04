@@ -64,7 +64,6 @@ int * ordonnancement(int *t, int *d, int *p, int n){
 	return solution_ordonnancement(C,n,T,t);
 }
 
-
 void afficherTable(int *s, int n){
 	int i;
 	for(i=0;i<n;i++)
@@ -78,18 +77,14 @@ int main(int argc, char **argv){
 	int p[NORDO] = {3,6,4,20,10,1,5};
 	int *s = ordonnancement(t,d,p,NORDO);
 	int i;
-	printf("Considerons l'instance de probleme suivante:\n\n");
+	printf("Considérons l'instance de problème suivante:\n\n");
 	afficherTable(t,NORDO);
 	afficherTable(d,NORDO);
 	afficherTable(p,NORDO);
 	printf("\n\n\n\n");
-	printf("L'ordonnancement optimal pour ce probleme est le suivant:\n\n");
+	printf("L'ordonnancement optimal pour ce problème est le suivant:\n\n");
 	afficherTable(s,NORDO);
 	printf("\n\n");
 	return 0;
 }
-
-
-
-
 

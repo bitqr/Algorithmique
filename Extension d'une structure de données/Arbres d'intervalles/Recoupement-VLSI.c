@@ -25,7 +25,6 @@ NOEUD_VLSI *rn_successeur(ARN_VLSI *T, NOEUD_VLSI *x){
 	return y;
 }
 
-
 void afficherRect(ARN_VLSI *T, NOEUD_VLSI *n){
 	if(n != T->nil)
 		printf("%d %d %d %d\n\n",n->rect->minx,n->rect->miny,n->rect->maxx,n->rect->maxy);
@@ -34,15 +33,20 @@ void afficherRect(ARN_VLSI *T, NOEUD_VLSI *n){
 int recoupement(ARN_VLSI *T, NOEUD_VLSI *n){
 	NOEUD_VLSI *x = T->racine;
 	while(x != T->nil){
-		if(x != n && ( (x->intx->debut >= n->intx->debut 
-		&& x->intx->debut <= n->intx->fin && x->inty->debut <= n->inty->fin 
-		&& n->inty->debut <= x->inty->fin) || ( (n->intx->debut >= x->intx->debut 
-		&& n->intx->debut <= x->intx->fin && x->inty->debut <= n->inty->fin 
-		&& n->inty->debut <= x->inty->fin) ) ) )
+		if(x != n && ((x->intx->debut >= n->intx->debut
+			&& x->intx->debut <= n->intx->fin 
+			&& x->inty->debut <= n->inty->fin 
+			&& n->inty->debut <= x->inty->fin) 
+			|| ( (n->intx->debut >= x->intx->debut 
+			&& n->intx->debut <= x->intx->fin 
+			&& x->inty->debut <= n->inty->fin 
+			&& n->inty->debut <= x->inty->fin))))
 				return 1;
-		if(x->droite == T->nil || x->droite->rect->minx > n->intx->fin 
-		|| x->cle > n->intx->fin || x->droite->rect->miny > n->inty->fin 
-		|| x->droite->rect->maxy < n->inty->debut)
+		if(x->droite == T->nil
+			|| x->droite->rect->minx > n->intx->fin 
+			|| x->cle > n->intx->fin 
+			|| x->droite->rect->miny > n->inty->fin 
+			|| x->droite->rect->maxy < n->inty->debut)
 			x = x->gauche;
 		else
 			x = x->droite;
@@ -55,9 +59,8 @@ void ppref(ARN_VLSI *T,NOEUD_VLSI *n){
 		printf("%d %d %d %d\n\n",n->rect->minx,n->rect->miny,n->rect->maxx,n->rect->maxy);
 		ppref(T,n->gauche);
 		ppref(T,n->droite);
-		}
+	}
 }
-
 	
 int recoupement_vlsi(ARN_VLSI *T){
 	NOEUD_VLSI * m = rn_minimum(T,T->racine);
@@ -66,10 +69,9 @@ int recoupement_vlsi(ARN_VLSI *T){
 			return 1;
 		m = rn_successeur(T,m);
 		afficherRect(T,m);
-		}
+	}
 	return 0;
 }
-
 
 NOEUD_VLSI *creerNoeudVLSI(INTERVALLE *intx, INTERVALLE *inty, NOEUD_VLSI *g, NOEUD_VLSI *d, int couleur){
 	NOEUD_VLSI *node = (NOEUD_VLSI *)malloc(sizeof(NOEUD_VLSI));
@@ -99,7 +101,6 @@ ARN_VLSI * creerARN_VLSI(NOEUD_VLSI *racine, NOEUD_VLSI *nil){
 	return a;
 }
 
-
 int main(int argc, char **argv){
 	NOEUD_VLSI *nl = (NOEUD_VLSI *)malloc(sizeof(NOEUD_VLSI));
 	nl->rect = (RECTANGLE *)malloc(sizeof(RECTANGLE));
@@ -121,18 +122,14 @@ int main(int argc, char **argv){
 	n12->p = n34->p = rac; rac->p = nl;f->p = f3;
 	
 	ARN_VLSI *T = creerARN_VLSI(rac,nl);
-	
-	//ppref(T,T->racine);
-	
+		
 	int r = recoupement_vlsi(T);
-	
+
 	if(r==1)
 		printf("Il y a au moins un recoupement de circuits dans cette puce VLSI\n\n");
 	else
 		printf("Il n'y a aucun recoupement de circuits dans cette puce VLSI\n\n");
-	
+
 	return 0;
 }
-
-
 

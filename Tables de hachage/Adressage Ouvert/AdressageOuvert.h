@@ -11,6 +11,5 @@ int rechercher_hachage(int *T, int k, int m);
 int supprimer_hachage(int *T, int k, int m);
 int inserer_hachage_modifie(int *T, int m, int k);
 
-
 #endif
 

@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include"ABR.h"
 
-
 ABR * creer_abr(int cle, ABR *g, ABR *d){
 	ABR * x = (ABR *)malloc(sizeof(ABR));
 	x->cle = cle; 
@@ -16,7 +15,7 @@ void parcours_infixe(ABR * x){
 		parcours_infixe(x->gauche);
 		printf("%d\n",x->cle);
 		parcours_infixe(x->droite);
-		}
+	}
 }
 
 void arbre_inserer(ABR *T, ABR *z){
@@ -28,7 +27,7 @@ void arbre_inserer(ABR *T, ABR *z){
 			x = x->gauche;
 		else
 			x = x->droite;
-		}
+	}
 	z->p = y;
 	if(y == NULL)
 		T = z;	//arbre T etait vide
@@ -36,13 +35,12 @@ void arbre_inserer(ABR *T, ABR *z){
 		if(z->cle < y->cle){
 			printf("Insertion a gauche\n");
 			y->gauche = z;
-			}
+		}
 		else{
 			printf("Insertion a droite\n");
 			y->droite = z;
-			}
+		}
 }
-
 
 int main(int argc, char **argv){
 	ABR *x; ABR *x1; ABR *x2; ABR *f1; ABR *f2; ABR *f3; ABR *f4; ABR *f5;
@@ -54,8 +52,14 @@ int main(int argc, char **argv){
 	x1 = creer_abr(5,f1,f2);
 	x2 = creer_abr(18,f4,f3);
 	x = creer_abr(12,x1,x2);
-	x->p = NULL; x1->p = x; x2->p = x; f1->p = x1; f2->p = x1; f3->p = x2;
-	f4->p = x2; f5->p = f4; 
+	x->p = NULL;
+	x1->p = x;
+	x2->p = x;
+	f1->p = x1;
+	f2->p = x1;
+	f3->p = x2;
+	f4->p = x2;
+	f5->p = f4; 
 	ABR * z = creer_abr(13,NULL,NULL);
 	ABR * w = creer_abr(27,NULL,NULL);
 	ABR *T = x;
@@ -81,5 +85,4 @@ int main(int argc, char **argv){
 	printf("\n");
 	return 0;
 }
-
 

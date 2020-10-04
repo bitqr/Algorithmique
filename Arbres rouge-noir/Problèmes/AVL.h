@@ -10,24 +10,20 @@ struct noeud{
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
 struct arbreAVL{
 	NOEUD *racine;
 	NOEUD *nil;
-	};
+};
 
 typedef struct arbreAVL AVL;
-
 
 NOEUD * creerNoeudAVL(int cle, int h, NOEUD *g, NOEUD *d);
 int max(int a, int b);
 void avl_inserer(AVL *T, NOEUD *x, NOEUD *z);
 
 #endif
-
-
-
 

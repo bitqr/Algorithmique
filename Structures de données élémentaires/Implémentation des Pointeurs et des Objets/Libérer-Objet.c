@@ -2,18 +2,15 @@
 #include<stdlib.h>
 #include"ImplementationObjets.h"
 
-
 int libre = 4;
 int L = 7;
 int succ[TAILLE] = {-1,3,-1,8,2,1,5,6};
 int cle[TAILLE] = {-1,4,1,-1,16,-1,9,-1};
 int pred[TAILLE] = {-1,5,2,-1,7,-1,-1,-1};
 
-int unique[H*TAILLE] =
-{17,5,11,11,8,20,23,-1,-1,2,19,5,20,13,-1,-1,11,2,5,4,14,-1,-1,-1};
+int unique[H*TAILLE] = {17,5,11,11,8,20,23,-1,-1,2,19,5,20,13,-1,-1,11,2,5,4,14,-1,-1,-1};
 int L2 = 14;
 int libre2 = 8;
-
 
 void liberer_objet(int x){
 	succ[x-1] = libre;
@@ -26,21 +23,24 @@ void afficherObjet(){
 	printf("\nsucc:\t");
 	for(i=0;i<TAILLE;i++){
 		if(succ[i]!=-1)
-		printf("%d\t",succ[i]);
-		else printf("\\\t");
-		}
+			printf("%d\t",succ[i]);
+		else
+			printf("\\\t");
+	}
 	printf("\ncle:\t");
 	for(i=0;i<TAILLE;i++){
 		if(cle[i]!=-1)
-		printf("%d\t",cle[i]);
-		else printf("\\\t");
-		}
+			printf("%d\t",cle[i]);
+		else
+			printf("\\\t");
+	}
 	printf("\npred:\t");
 	for(i=0;i<TAILLE;i++){
 		if(pred[i]!=-1)
-		printf("%d\t",pred[i]);
-		else printf("\\\t");
-		}
+			printf("%d\t",pred[i]);
+		else
+			printf("\\\t");
+	}
 	printf("\n\n\n");
 }
 
@@ -51,10 +51,10 @@ void afficherObjet2(){
 	for(i=0;i<H*TAILLE;i++)
 		if(unique[i] != -1)
 			printf("%d ",unique[i]);
-		else printf("/ ");
+		else
+			printf("/ ");
 	printf("\n\n");
 }
-
 
 int main(int argc,char ** argv){
 	afficherObjet();
@@ -63,7 +63,7 @@ int main(int argc,char ** argv){
 	for(j=libre;j<TAILLE;j++){
 		succ[j-1] = j+1;
 		pred[j-1] = -1;
-		}
+	}
 	succ[j-1] = -1;
 	pred[j-1] = -1;
 	afficherObjet();
@@ -94,12 +94,6 @@ int main(int argc,char ** argv){
 	unique[X] = -1;
 	liberer_objet_2(X,unique,&libre2);
 	afficherObjet2();
-	
-	
-	
 	return 0;
 }
 
-
-
-	

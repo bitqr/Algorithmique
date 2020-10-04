@@ -43,5 +43,3 @@ int predecesseur_B_arbre(B_ARBRE *T, int k){
 	}
 }
 
-
-

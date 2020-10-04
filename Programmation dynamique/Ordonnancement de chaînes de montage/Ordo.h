@@ -9,3 +9,4 @@
 void afficher_postes(int *l1, int *l2, int n, int *l_opt);
 
 #endif
+

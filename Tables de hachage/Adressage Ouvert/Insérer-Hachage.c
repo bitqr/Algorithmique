@@ -18,7 +18,7 @@ int inserer_hachage(int *T, int m, int k){
 			}
 		else i++;
 	}while(i!=m);
-	fprintf(stderr,"debordement de la table de hachage\n");
+	fprintf(stderr,"débordement de la table de hachage\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -29,10 +29,9 @@ void afficherTable(int *T, int m){
 			printf("%d\t",T[i]);
 		else 
 			printf("/\t");
-		}
+	}
 	printf("\n");
 }
-
 
 int main(int argc, char **argv){
 	int T[M] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
@@ -50,6 +49,3 @@ int main(int argc, char **argv){
 	return 0;
 }
 
-
-
-	

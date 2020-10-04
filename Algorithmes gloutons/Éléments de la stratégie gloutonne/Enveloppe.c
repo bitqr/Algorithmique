@@ -1,9 +1,9 @@
 #include"Glouton.h"
 
 void permuterReels(double*A,int i, int j){
-     double tmp = A[i];
-     A[i]=A[j];
-     A[j]=tmp;
+	double tmp = A[i];
+	A[i]=A[j];
+	A[j]=tmp;
 }
 
 int partitionReels(double * A, int p, int r){
@@ -11,24 +11,22 @@ int partitionReels(double * A, int p, int r){
     int i = p-1;
     int j;
     for(j=p;j<r;j++){
-                     if(A[j]<=x){
-                                 i++;
-                                 permuterReels(A,i,j);
-                                 }
-                     }
+		if(A[j]<=x){
+			i++;
+			permuterReels(A,i,j);
+		}
+	}
     permuterReels(A,i+1,r);
     return i+1;
 }
 
-
 void tri_rapideReels(double*A, int p, int r){
-     if(p<r){
-             int q=partitionReels(A,p,r);
-             tri_rapideReels(A,p,q-1);
-             tri_rapideReels(A,q+1,r);
-             }
+	if(p<r){
+		int q=partitionReels(A,p,r);
+		tri_rapideReels(A,p,q-1);
+		tri_rapideReels(A,q+1,r);
+	}
 }
-
 
 double *enveloppe(double *x, int n){
 	if(x==NULL || n==0)
@@ -49,7 +47,6 @@ double *enveloppe(double *x, int n){
 	return E;
 }
 
-
 int main(int argc, char **argv){
 	double x[N2] = {-1.3,0,0.75,-2.4,1.65,3.45,3.3,6.38,2.95,1.2};
 	double *x2 = NULL;
@@ -63,10 +60,7 @@ int main(int argc, char **argv){
 			i++;
 		}
 		printf("[%.2f,%.2f]\n",E[i],E[i]+1);
-
 	}
 	return 0;
-
 }
-
 

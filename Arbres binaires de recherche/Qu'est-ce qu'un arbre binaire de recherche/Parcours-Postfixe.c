@@ -7,5 +7,6 @@ void parcours_postfixe(ABR *x){
 		parcours_postfixe(x->gauche);
 		parcours_postfixe(x->droite);
 		printf("%d\t",x->cle);
-		}
+	}
 }
+

@@ -17,5 +17,3 @@ int recuperer_chaine(DIM *p, int i, int j,int **m){
 	return m[i][j];
 }
 
-
-

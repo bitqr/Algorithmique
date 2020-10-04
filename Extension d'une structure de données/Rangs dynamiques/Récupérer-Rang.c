@@ -12,7 +12,6 @@ NOEUD * recuperer_rang(NOEUD *x, int i){
 			return recuperer_rang(x->droite,i-r);
 }
 
-
 NOEUD *creerNoeudRN(int cle, NOEUD *g, NOEUD *d, int couleur){
 	NOEUD * node = (NOEUD *) malloc(sizeof(NOEUD));
 	node->cle = cle;
@@ -29,7 +28,6 @@ ARN * creerARN(NOEUD *racine, NOEUD *nil){
 	a->nil = nil;
 	return a;
 }
-
 
 int main(int argc, char **argv){
 	NOEUD *nl = (NOEUD *) malloc(sizeof(NOEUD));
@@ -54,20 +52,23 @@ int main(int argc, char **argv){
 	NOEUD * x1 = creerNoeudRN(17,x11,x12,ROUGE);
 	NOEUD * x2 = creerNoeudRN(41,x21,x22,NOIR);
 	NOEUD * x = creerNoeudRN(26,x1,x2,NOIR);
-	x11111->p = x1111; x1111->p = x1112->p = x111; x1121->p = x112;
-	x1212->p = x121; x121->p = x122->p = x12; x2121->p = x2122->p = x212;
-	x211->p = x212->p = x21; x21->p = x22->p = x2; x111->p = x112->p = x11;
-	x11->p = x12->p = x1; x1->p = x2->p = x; x->p = nl;
+	x11111->p = x1111;
+	x1111->p = x1112->p = x111;
+	x1121->p = x112;
+	x1212->p = x121;
+	x121->p = x122->p = x12;
+	x2121->p = x2122->p = x212;
+	x211->p = x212->p = x21;
+	x21->p = x22->p = x2;
+	x111->p = x112->p = x11;
+	x11->p = x12->p = x1;
+	x1->p = x2->p = x;
+	x->p = nl;
 	ARN *T = creerARN(x,nl);
 	int i;
-	for(i=1;i<= T->racine->taille;i++)
+	for(i=1;i<=T->racine->taille;i++)
 		printf("Le noeud de rang %d a pour cle %d\n\n",determiner_rang(T,recuperer_rang(T->racine,i)),recuperer_rang_iteratif(T->racine,i)->cle);
 	printf("La cle %d est de rang %d\n\n",35,rechercher_rang_cle(T->racine,35));
 	return 0;
 }
-
-
-
-
-
 

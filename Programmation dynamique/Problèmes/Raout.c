@@ -1,6 +1,5 @@
 #include"VDCB.h"
 
-
 SOLUTION *creerSol(NOEUD *x){
 	SOLUTION *S = (SOLUTION*)malloc(sizeof(SOLUTION));
 	S->employe = x;
@@ -71,7 +70,6 @@ NOEUD * creerNoeud(NOEUD *fils, char *nom, double note){
 	x->note = note;
 	x->nom = strdup(nom);
 	return x;
-	
 }
 
 ARBRE * creerArbre(NOEUD * racine, NOEUD *nl){
@@ -128,10 +126,7 @@ int main(int argc, char **argv){
 	 
 	SOLUTION **C = raout(A,NB);
 
-	printf("\n\nLa solution optimale de convivialite pour ce raout a pour cout %f\n\n",C[0]->cout);
+	printf("\n\nLa solution optimale de convivialité pour ce raout a pour coût %f\n\n",C[0]->cout);
 	return 0;
 }
-
-
-
 

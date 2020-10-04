@@ -40,3 +40,4 @@ LISTE_CHAINEE * ordonnancement_preemptif(int *A, int *P, int *R, int n){
 	}
 	return L->tete->suiv;
 }
+

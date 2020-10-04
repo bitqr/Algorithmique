@@ -9,7 +9,6 @@ NOEUD * minimum(ABR *A, NOEUD *x){
 	return x;
 }
 
-
 NOEUD * successeur(ABR *A, NOEUD *x){
 	if(x->droit != A->nil)
 		return minimum(A, x->droit);
@@ -60,7 +59,6 @@ ABR *equilibrer(ABR *A){
 	else
 		return A;
 }
-
 
 void afficherArbre(ABR *A, NOEUD *x){
 	if(x!=A->nil){

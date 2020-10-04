@@ -6,12 +6,12 @@
 typedef struct _POT{
         char * couleur;
         int contenance;
-        }POT;
+}POT;
         
 typedef struct _PAIRE_POT{
         int premier;
         int second;
-        }PAIREPOT;
+}PAIREPOT;
 
         
 POT * creer_pot(char* coul , int contenance){
@@ -28,30 +28,29 @@ PAIREPOT * creer_paire_pot(){
 }
 
 PAIREPOT ** creer_tableau_paire(int n){
-         PAIREPOT ** P = (PAIREPOT **)malloc(n*sizeof(PAIREPOT *));
-         int i;
-         for(i=0;i<n;i++){
-                          P[i] = creer_paire_pot();
-                          }
-         return P;
+        PAIREPOT ** P = (PAIREPOT **)malloc(n*sizeof(PAIREPOT *));
+        int i;
+        for(i=0;i<n;i++){
+            P[i] = creer_paire_pot();
+        }
+    return P;
 }
 
-
 PAIREPOT ** tri_pots_quadratique(POT ** A, POT ** B, int n){
-         int i,j,k=0,l;
-         PAIREPOT ** P = creer_tableau_paire(n);
-         for(i=0;i<n;i++){
-                          l=A[i]->contenance;
-                          for(j=0;j<n;j++){
-                                           if(l==B[j]->contenance){
-                                                                   P[k]->premier=i;
-                                                                   P[k]->second =j;
-                                                                   k++;
-                                                                   break;
-                                                                   }
-                                           }
-                          }
-         return P;
+    int i,j,k=0,l;
+    PAIREPOT ** P = creer_tableau_paire(n);
+    for(i=0;i<n;i++){
+        l=A[i]->contenance;
+        for(j=0;j<n;j++){
+            if(l==B[j]->contenance){
+                P[k]->premier=i;
+                P[k]->second =j;
+                k++;
+                break;
+            }
+        }
+    }
+    return P;
 }
 
 int main(){
@@ -74,8 +73,9 @@ int main(){
     int i;
 
     for(i=0;i<N;i++){
-                     printf("( %d ; %d )\n", P[i]->premier+1,P[i]->second+1);
-                     }
+        printf("( %d ; %d )\n", P[i]->premier+1,P[i]->second+1);
+    }
     printf("\n\n\n");
     return 0;
 }
+

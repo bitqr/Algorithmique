@@ -9,8 +9,7 @@ void afficher_postes(int *l1, int *l2, int n, int *l_opt){
 			i = l1[j-1];
 		else 
 			i = l2[j-1];
-		printf("chaine %d, poste %d \n",i,j-1);
+		printf("chaîne %d, poste %d \n",i,j-1);
 	}
 }
-
 

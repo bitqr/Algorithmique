@@ -13,7 +13,7 @@ struct noeud{
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
@@ -21,15 +21,11 @@ struct arbreRN{
 	NOEUD *racine;
 	NOEUD *nil;
 	int hn;
-	};
+};
 
 typedef struct arbreRN ARN;
-
 
 NOEUD * creerNoeudRN(int cle, NOEUD *g, NOEUD *d,int couleur);
 
 #endif
-
-
-
 

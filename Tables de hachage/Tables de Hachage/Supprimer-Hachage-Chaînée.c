@@ -13,8 +13,6 @@ void supprimer_hachage_chainee(LSC **T,LSC *x,int m){
 			t = t->suiv;
 		if(t != NULL)
 			t->suiv = t->suiv->suiv;
-		}
+	}
 }
-
-
 

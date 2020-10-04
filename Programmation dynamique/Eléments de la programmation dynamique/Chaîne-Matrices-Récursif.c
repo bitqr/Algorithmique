@@ -1,6 +1,5 @@
 #include"Mat.h"
 
-
 MATRICE *creerMatrice(int nl, int nc){
 	int ** m = (int **)malloc(nl*sizeof(int *));
 	int i;
@@ -12,8 +11,6 @@ MATRICE *creerMatrice(int nl, int nc){
 	mat->tab = m;
 	return mat;
 }
-
-
 
 MATRICE * multiplier_matrices(MATRICE *A, MATRICE *B){
 	if(A->colonnes != B->lignes){
@@ -52,7 +49,6 @@ DIM * creerDim(int n, int *t){
 	return m;
 }
 
-
 int ** initTable(int n){
 	int **t = (int **)malloc(n*sizeof(int*));
 	int i,j;
@@ -70,7 +66,7 @@ int ** ordre_chaine_matrices(DIM *p, int **s){
 	int i,l,j,k,q;
 	for(i=0;i<n;i++)
 		m[i][i]=0;
-	for(l=2;l<=n;l++){ //l est la longueur de la chaine.
+	for(l=2;l<=n;l++){ // l est la longueur de la chaîne.
 		for(i=0;i<n-l+1;i++){
 			j = i+l-1;
 			m[i][j] = INFINI;
@@ -85,7 +81,6 @@ int ** ordre_chaine_matrices(DIM *p, int **s){
 	}
 	return m;
 }
-
 
 void afficherTable(int **A, int n){
 	int i,j;
@@ -103,8 +98,7 @@ void initMatrice(MATRICE *A){
 			A->tab[i][j] = rand()%LIM - LIM/2;
 	}
 }
-	
-	
+
 int chaine_matrices_recursif(DIM *p, int i, int j, int **m){
 	if(i==j)
 		return 0;
@@ -119,7 +113,6 @@ int chaine_matrices_recursif(DIM *p, int i, int j, int **m){
 	return m[i][j];
 }
 
-
 int main(int *argc, char **argv){
 	srand(time(NULL));
 	int ** s = initTable(N);
@@ -128,8 +121,6 @@ int main(int *argc, char **argv){
 	int **m = ordre_chaine_matrices(dm,s);
 	afficherTable(m,N);
 	printf("\n\n\n Le nombre minimal de multiplications pour cette instance est de %d\n\n\n", m[0][N-1]);
-	//printf("Voici le parenthesage optimal induisant ce cout: \n\n");
-	//affichage_parenthesage_optimal(s,0,N-1);
 	printf("\n\n\n");
 	int **m2 = initTable(N);
 	int c = chaine_matrices_recursif(dm,I,J,m2);
@@ -141,5 +132,3 @@ int main(int *argc, char **argv){
 	return 0;
 }
 
-
- 

@@ -6,7 +6,7 @@
 struct Liste_Simplement_Chainee{
 	int cle;
 	struct Liste_Simplement_Chainee * suiv;
-	};
+};
 
 typedef struct Liste_Simplement_Chainee LSC;
 

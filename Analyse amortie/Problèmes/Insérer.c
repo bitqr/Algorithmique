@@ -73,5 +73,3 @@ void inserer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x){
 	}
 }
 
-
-

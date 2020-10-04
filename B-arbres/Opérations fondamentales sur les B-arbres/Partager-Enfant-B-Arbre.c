@@ -33,3 +33,4 @@ void partager_enfant_B_arbre(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y){
 	ecrireDisque(z);
 	ecrireDisque(x);
 }
+

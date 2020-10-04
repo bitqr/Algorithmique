@@ -9,5 +9,3 @@ memorisation_chaine_matrices(DIM *p, int **m){
 	return recuperer_chaine(p,0,n-1,m);
 }
 
-
-

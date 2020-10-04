@@ -6,7 +6,7 @@
 
 struct objet{
 	int cle;
-	};
+};
 
 typedef struct objet OBJET;
 

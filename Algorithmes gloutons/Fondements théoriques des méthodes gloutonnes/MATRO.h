@@ -12,7 +12,7 @@ struct ensemble{
 	int taille;
 	int longueur;
 	int *elements;
-	};
+};
 
 typedef struct ensemble ENSEMBLE;
 
@@ -20,7 +20,7 @@ struct independants{
 	int taille;
 	int longueur;
 	ENSEMBLE **ensembles;
-	};
+};
 
 typedef struct independants INDEPENDANTS;
 
@@ -28,9 +28,9 @@ struct matroide{
 	ENSEMBLE *E;
 	ENSEMBLE *S;
 	INDEPENDANTS *I;
-	};
+};
 
 typedef struct matroide MATROIDE;
 
-
 #endif
+

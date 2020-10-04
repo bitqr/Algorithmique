@@ -12,6 +12,5 @@ struct TABLEDYNAMIQUE {
 
 typedef struct TABLEDYNAMIQUE TABLEDYNAMIQUE;
 
-
-
 #endif
+

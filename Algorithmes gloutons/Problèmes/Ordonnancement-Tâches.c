@@ -1,9 +1,9 @@
 #include "PROB.h"
 
 void permuter(int* A, int i, int j){
-     int tmp = A[i];
-     A[i]=A[j];
-     A[j]=tmp;
+	int tmp = A[i];
+	A[i]=A[j];
+	A[j]=tmp;
 }
 
 int partition_taches(int * A, int *P, int a, int b){
@@ -11,12 +11,12 @@ int partition_taches(int * A, int *P, int a, int b){
     int i = a-1;
     int j;
     for(j=a;j<b;j++){
-                     if(P[j]<=x){
-                                 i++;
-                                 permuter(A,i,j);
-				 permuter(P,i,j);
-                                 }
-                     }
+		if(P[j]<=x){
+			i++;
+			permuter(A,i,j);
+			permuter(P,i,j);
+		}
+	}
     permuter(A,i+1,b);
     permuter(P,i+1,b);
     
@@ -24,18 +24,17 @@ int partition_taches(int * A, int *P, int a, int b){
 }
 
 void tri_rapide_taches(int* A, int *P, int a, int b){
-     if(a<b){
-             int q=partition_taches(A,P,a,b);
-             tri_rapide_taches(A,P,a,q-1);
-             tri_rapide_taches(A,P,q+1,b);
-             }
+	if(a<b){
+			int q=partition_taches(A,P,a,b);
+			tri_rapide_taches(A,P,a,q-1);
+			tri_rapide_taches(A,P,q+1,b);
+	}
 }
 
 int * ordonnancement_taches(int *A, int *P, int n){
 	tri_rapide_taches(A,P,0,n-1);
 	return A;
 }
-
 
 int main(int argc, char ** argv){
 	int A[8] = {1,2,3,4,5,6,7,8};
@@ -52,8 +51,7 @@ int main(int argc, char ** argv){
 		while(j!=0){
 			printf("_");
 			j--;
-		}
-		
+		}		
 	}
 	printf("|\n\nLe cout de l'ordonnancement optimal est de %f.\n\n",(double)(sd/8.0));
 	

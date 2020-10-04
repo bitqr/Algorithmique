@@ -13,4 +13,3 @@ void affichage_parenthesage_optimal(int **s, int i, int j){
 	}
 }
 
-

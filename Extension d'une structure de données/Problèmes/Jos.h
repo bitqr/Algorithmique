@@ -9,13 +9,12 @@ struct Liste_Doublement_Chaine_Circulaire{
 	struct Liste_Doublement_Chaine_Circulaire * suiv;
 	struct Liste_Doublement_Chaine_Circulaire * pred;	
 	struct Liste_Doublement_Chaine_Circulaire * tete;
-	};
+};
 
 typedef struct Liste_Doublement_Chaine_Circulaire LDCC;
 
 #define ROUGE 0
 #define NOIR 1
-
 
 struct noeud{
 	int cle;
@@ -24,17 +23,16 @@ struct noeud{
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
 struct arbreRN{
 	NOEUD *racine;
 	NOEUD *nil;
-	};
+};
 
 typedef struct arbreRN ARN;
-
 
 int *josephus_efficace(int n, int m);
 NOEUD * recuperer_rang(NOEUD *x, int i);
@@ -49,7 +47,5 @@ NOEUD * arbre_minimum(NOEUD *x, NOEUD *nl);
 NOEUD * arbre_successeur(NOEUD *x, NOEUD *nl);
 NOEUD * rn_supprimer(ARN *T, NOEUD *z);
 
-
 #endif
-
 

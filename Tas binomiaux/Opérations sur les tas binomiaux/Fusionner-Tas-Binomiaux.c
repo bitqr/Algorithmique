@@ -35,4 +35,3 @@ NOEUD_TAS_BINOMIAL *fusionner_tas_binomiaux(TAS_BINOMIAL *T1, TAS_BINOMIAL *T2){
 	return h;
 }
 
-

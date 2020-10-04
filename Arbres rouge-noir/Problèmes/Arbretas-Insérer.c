@@ -1,12 +1,11 @@
 #include"AT.h"
 
-
 void rotation_gauche(ARBRETAS *T, NOEUD *x){
 	NOEUD *y = x->droite; //initialise y.
 	x->droite = y->gauche; //sous-arbre gauche de y devient sous-arbre droit de x.
 	if(y->gauche != T->nil)
 		y->gauche->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -14,7 +13,7 @@ void rotation_gauche(ARBRETAS *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->gauche = x; //place x Ã gauche de y.
+	y->gauche = x; //place x ï¿½ gauche de y.
 	x->p = y;
 }
 
@@ -35,13 +34,12 @@ ARBRETAS * creerARBRETAS(NOEUD *racine, NOEUD *nil){
 	return a;
 }
 
-
 void rotation_droite(ARBRETAS *T, NOEUD *x){
 	NOEUD *y = x->gauche; //initialise y.
 	x->gauche = y->droite; //sous-arbre droit de y devient sous-arbre gauche de x.
 	if(y->droite != T->nil)
 		y->droite->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -49,17 +47,16 @@ void rotation_droite(ARBRETAS *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->droite = x; //place x Ã droite de y.
+	y->droite = x; //place x ï¿½ droite de y.
 	x->p = y;
 }
-
 
 void parcoursPrefixeAT(NOEUD *x,NOEUD *nl){
 	if(x != nl){
 		printf("%d(%d)\t",x->cle,x->priorite);
 		parcoursPrefixeAT(x->gauche,nl);
 		parcoursPrefixeAT(x->droite,nl);
-		}
+	}
 }
 
 void arbretas_inserer(ARBRETAS *T, NOEUD *z){
@@ -89,7 +86,6 @@ void arbretas_inserer(ARBRETAS *T, NOEUD *z){
 		T->racine = x;
 }
 
-
 int main(int argc, char **argv){
 	NOEUD *nl;
 	NOEUD *I = creerNoeudARBRETAS(9,73,nl,nl);
@@ -117,8 +113,4 @@ int main(int argc, char **argv){
 	printf("\n\n");
 	return 0;
 }
-
-
-
-	
 

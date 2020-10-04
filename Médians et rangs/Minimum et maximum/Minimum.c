@@ -5,9 +5,9 @@
 int minimum(int * A, int n){
     int i,min = A[0];
     for(i=1;i<n;i++){
-                     if(min>A[i])
-                                 min = A[i];
-                     }
+        if(min>A[i])
+            min = A[i];
+    }
     return min;
 }
 
@@ -16,3 +16,4 @@ int main(){
     printf("Le minimum est %d.\n\n", minimum(A,N));
     return 0;
 }
+

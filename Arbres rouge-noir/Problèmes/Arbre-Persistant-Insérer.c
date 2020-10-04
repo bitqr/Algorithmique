@@ -16,13 +16,12 @@ ABRP * creerABRP(NOEUD *racine, NOEUD *nil){
 	return a;
 }
 
-
 void parcoursPrefixeABRP(NOEUD *x,NOEUD *nl){
 	if(x != nl){
 		printf("%d\t",x->cle);
 		parcoursPrefixeABRP(x->gauche,nl);
 		parcoursPrefixeABRP(x->droite,nl);
-		}
+	}
 }
 
 ABRP * arbre_persistant_inserer(ABRP *T, int k){
@@ -32,7 +31,7 @@ ABRP * arbre_persistant_inserer(ABRP *T, int k){
 		n->cle = k;
 		n->gauche = n->droite = T->nil;
 		return creerABRP(n,T->nil);
-		}
+	}
 	n->cle = x->cle;
 	ABRP * Tprim = creerABRP(n,T->nil);
 	while(x != T->nil){ 
@@ -44,10 +43,10 @@ ABRP * arbre_persistant_inserer(ABRP *T, int k){
 			else{
 				nf->cle = k;
 				nf->gauche = nf->droite = Tprim->nil;
-				}
+			}
 			n->gauche = nf;
 			x = x->gauche;
-			}
+		}
 		else{
 			n->gauche = x->gauche;
 			if(x->droite != T->nil)
@@ -55,16 +54,14 @@ ABRP * arbre_persistant_inserer(ABRP *T, int k){
 			else{
 				nf->cle = k;
 				nf->gauche = nf->droite = Tprim->nil;
-				}
+			}
 			n->droite = nf;
 			x = x->droite;
-			}
-		n = nf;
 		}
+		n = nf;
+	}
 	return Tprim;
 }
-
-
 
 int main(int argc, char ** argv){
 	NOEUD *nl = (NOEUD *)malloc(sizeof(NOEUD));
@@ -84,6 +81,3 @@ int main(int argc, char ** argv){
 	return 0;
 }
 
-
-
-		

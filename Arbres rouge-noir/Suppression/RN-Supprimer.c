@@ -1,6 +1,5 @@
 #include"ARN.h"
 
-
 NOEUD * arbre_minimum(NOEUD *x, NOEUD *nl){
 	while(x->gauche != nl)
 		x = x->gauche;
@@ -14,7 +13,7 @@ NOEUD * arbre_successeur(NOEUD *x, NOEUD *nl){
 	while(y != nl && x == y->droite){
 		x = y;
 		y = y->p;
-		}
+	}
 	return y;
 }
 
@@ -39,19 +38,18 @@ NOEUD * rn_supprimer(ARN *T, NOEUD *z){
 	if(y != z){
 		z->cle = y->cle;
 		z->couleur = y->couleur;
-		}
+	}
 	if(y->couleur == NOIR)
 		rn_supprimer_correction(T,x);
 	return y;
 }
-
 
 void rotation_droite(ARN *T, NOEUD *x){
 	NOEUD *y = x->gauche; //initialise y.
 	x->gauche = y->droite; //sous-arbre droit de y devient sous-arbre gauche de x.
 	if(y->droite != T->nil)
 		y->droite->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -59,11 +57,9 @@ void rotation_droite(ARN *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->droite = x; //place x Ã droite de y.
+	y->droite = x; //place x ï¿½ droite de y.
 	x->p = y;
-	
 }
-
 
 NOEUD *creerNoeudRN(int cle, NOEUD *g, NOEUD *d, int couleur){
 	NOEUD * node = (NOEUD *) malloc(sizeof(NOEUD));
@@ -81,13 +77,12 @@ ARN * creerARN(NOEUD *racine, NOEUD *nil){
 	return a;
 }
 
-
 void rotation_gauche(ARN *T, NOEUD *x){
 	NOEUD *y = x->droite; //initialise y.
 	x->droite = y->gauche; //sous-arbre gauche de y devient sous-arbre droit de x.
 	if(y->gauche != T->nil)
 		y->gauche->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -95,10 +90,9 @@ void rotation_gauche(ARN *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->gauche = x; //place x Ã gauche de y.
+	y->gauche = x; //place x ï¿½ gauche de y.
 	x->p = y;
 }
-
 
 void parcoursPrefixeRN(NOEUD *x,NOEUD *nl){
 	if(x != nl){
@@ -109,11 +103,8 @@ void parcoursPrefixeRN(NOEUD *x,NOEUD *nl){
 			printf("NOIR)\n");
 		parcoursPrefixeRN(x->gauche,nl);
 		parcoursPrefixeRN(x->droite,nl);
-		}
+	}
 }
-
-
-
 
 int main(int argc, char ** argv){
 	NOEUD *nl = (NOEUD *)malloc(sizeof(NOEUD));
@@ -141,6 +132,3 @@ int main(int argc, char ** argv){
 	return 0;
 }
 
-
-
-		

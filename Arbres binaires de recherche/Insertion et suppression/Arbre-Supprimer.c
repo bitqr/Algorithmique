@@ -8,8 +8,6 @@ ABR * arbre_minimum(ABR *x){
 	return x;
 }
 
-
-
 ABR * arbre_successeur(ABR *x){
 	if(x->droite != NULL)
 		return arbre_minimum(x->droite);
@@ -17,11 +15,9 @@ ABR * arbre_successeur(ABR *x){
 	while(y != NULL && x == y->droite){
 		x = y;
 		y = y->p;
-		}
+	}
 	return y;
 }
-
-
 
 ABR * arbre_supprimer(ABR *T, ABR *z){
 	ABR *y; ABR *x;
@@ -46,7 +42,4 @@ ABR * arbre_supprimer(ABR *T, ABR *z){
 		z->cle = y->cle;
 	return y;
 }
-
-
-
 

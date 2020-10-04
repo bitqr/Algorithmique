@@ -11,7 +11,6 @@ NOEUD * recuperer_rang(NOEUD *x, int i){
 			return recuperer_rang(x->droite,i-r);
 }
 
-
 NOEUD *creerNoeudRN(int cle, NOEUD *g, NOEUD *d, int couleur){
 	NOEUD * node = (NOEUD *) malloc(sizeof(NOEUD));
 	node->cle = cle;
@@ -34,39 +33,38 @@ void rotation_gauche(ARN *T, NOEUD *x){
 	x->droite = y->gauche; //sous-arbre gauche de y devient sous-arbre droit de x.
 	if(y->gauche != T->nil)
 		y->gauche->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil){
 		T->racine = y;
-		}
+	}
 	else 
 		if(x == x->p->gauche)
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->gauche = x; //place x Ã gauche de y.
+	y->gauche = x; //place x ï¿½ gauche de y.
 	x->p = y;
 	y->taille = x->taille;
 	x->taille = x->gauche->taille + x->droite->taille + 1;
 	T->racine->taille = T->racine->gauche->taille + T->racine->droite->taille + 1;
 }
 
-
 void rotation_droite(ARN *T, NOEUD *x){
 	NOEUD *y = x->gauche; //initialise y.
 	x->gauche = y->droite; //sous-arbre droit de y devient sous-arbre gauche de x.
 	if(y->droite != T->nil)
 		y->droite->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil){
 		T->racine = y;
 		y->taille = y->gauche->taille + y->droite->taille + 1;
-		}
+	}
 	else 
 		if(x == x->p->gauche)
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->droite = x; //place x Ã droite de y.
+	y->droite = x; //place x ï¿½ droite de y.
 	x->p = y;
 	y->taille = x->taille;
 	x->taille = x->gauche->taille + x->droite->taille + 1;
@@ -83,17 +81,17 @@ void rn_inserer_correction(ARN * T, NOEUD *z){
 				y->couleur = NOIR; //Cas 1
 				z->p->p->couleur = ROUGE; //Cas 1
 				z = z->p->p; //Cas 1
-				}
+			}
 			else{ 
 				if(z == z->p->droite){ 
 					z = z->p; //Cas 2
 					rotation_gauche(T,z); //Cas 2
-					}
+				}
 				z->p->couleur = NOIR; //Cas 3
 				z->p->p->couleur = ROUGE; //Cas 3
 				rotation_droite(T,z->p->p); //Cas 3
-				}
 			}
+		}
 		else{
 			y = z->p->p->gauche;
 			if(y->couleur == ROUGE){ 
@@ -101,19 +99,19 @@ void rn_inserer_correction(ARN * T, NOEUD *z){
 				y->couleur = NOIR; //Cas 1
 				z->p->p->couleur = ROUGE; //Cas 1
 				z = z->p->p; //Cas 1
-				}
+			}
 			else{ 
 				if(z == z->p->gauche){ 
 					z = z->p; //Cas 2
 					rotation_droite(T,z); //Cas 2
-					}
+				}
 				z->p->couleur = NOIR; //Cas 3
 				z->p->p->couleur = ROUGE; //Cas 3
 				rotation_gauche(T,z->p->p); //Cas 3
-				}
 			}
 		}
-		T->racine->couleur = NOIR;
+	}
+	T->racine->couleur = NOIR;
 }
 
 void rn_inserer(ARN *T, NOEUD *z){
@@ -124,12 +122,12 @@ void rn_inserer(ARN *T, NOEUD *z){
 		if(z->cle < x->cle){
 			x->taille++;
 			x = x->gauche;
-			}
+		}
 		else{
 			x->taille++;
 			x = x->droite;
-			}
 		}
+	}
 	z->p = y;
 	if(y == T->nil)
 		T->racine = z;
@@ -145,7 +143,6 @@ void rn_inserer(ARN *T, NOEUD *z){
 	rn_inserer_correction(T,z);
 }
 
-
 void rn_supprimer_correction(ARN *T, NOEUD *x){
 	NOEUD *w;
 	while(x != T->racine && x->couleur == NOIR){
@@ -156,25 +153,25 @@ void rn_supprimer_correction(ARN *T, NOEUD *x){
 				x->p->couleur = ROUGE; //Cas 1
 				rotation_gauche(T,x->p); //Cas 1
 				w = x->p->droite; //Cas 1
-				}
+			}
 			if(w->gauche->couleur == NOIR && w->droite->couleur == NOIR){
 				w->couleur = ROUGE; //Cas 2
 				x = x->p; //Cas 2
-				}
+			}
 			else{
 				if(w->droite->couleur == NOIR){ 
 					w->gauche->couleur = NOIR; //Cas 3
 					w->couleur = ROUGE; //Cas 3
 					rotation_droite(T,w); //Cas 3
 					w = x->p->droite; //Cas 3
-					}
+				}
 				w->couleur = x->p->couleur; //Cas 4
 				x->p->couleur = NOIR; //Cas 4
 				w->droite->couleur = NOIR; //Cas 4
 				rotation_gauche(T,x->p); //Cas 4
 				x = T->racine; //Cas 4
-				}
 			}
+		}
 		else{
 			w = x->p->gauche;
 			if(w->couleur == ROUGE){
@@ -182,35 +179,34 @@ void rn_supprimer_correction(ARN *T, NOEUD *x){
 				x->p->couleur = ROUGE; //Cas 1
 				rotation_droite(T,x->p); //Cas 1
 				w = x->p->gauche; //Cas 1
-				}
+			}
 			if(w->gauche->couleur == NOIR && w->droite->couleur == NOIR){
 				w->couleur = ROUGE; //Cas 2
 				x = x->p; //Cas 2
-				}
+			}
 			else{
 				if(w->gauche->couleur == NOIR){ 
 					w->droite->couleur = NOIR; //Cas 3
 					w->couleur = ROUGE; //Cas 3
 					rotation_gauche(T,w); //Cas 3
 					w = x->p->gauche; //Cas 3
-					}
+				}
 				w->couleur = x->p->couleur; //Cas 4
 				x->p->couleur = NOIR; //Cas 4
 				w->gauche->couleur = NOIR; //Cas 4
 				rotation_droite(T,x->p); //Cas 4
 				x = T->racine; //Cas 4
-				}
 			}
 		}
+	}
 	x->couleur = NOIR;
 }
-
 
 NOEUD * arbre_minimumTaille(NOEUD *x, NOEUD *nl){
 	while(x->gauche != nl){
 		x->taille--;
 		x = x->gauche;
-		}
+	}
 	return x;
 }
 
@@ -221,7 +217,7 @@ NOEUD * arbre_successeurTaille(NOEUD *x, NOEUD *nl){
 	while(y != nl && x == y->droite){
 		x = y;
 		y = y->p;
-		}
+	}
 	return y;
 }
 
@@ -246,7 +242,7 @@ NOEUD * rn_supprimer(ARN *T, NOEUD *z){
 	if(y != z){
 		z->cle = y->cle;
 		z->couleur = y->couleur;
-		}
+	}
 	z->taille = z->gauche->taille + z->droite->taille + 1;
 	if(y->couleur == NOIR)
 		rn_supprimer_correction(T,x);
@@ -269,7 +265,7 @@ void parcoursPrefixe(ARN *A, NOEUD *x){
 		parcoursPrefixe(A,x->gauche);
 		printf("droite:\n");
 		parcoursPrefixe(A,x->droite);
-		}
+	}
 }
 
 int *josephus_efficace(int n, int m){
@@ -300,8 +296,7 @@ int *josephus_efficace(int n, int m){
 			if(e == 0)
 				rang = m%(nd-1)==0?(nd-1):m%(nd-1);
 			else
-				rang = (m-e)%(nd-1)==0?(nd-1):(m-e)%(nd-1);
-				
+				rang = (m-e)%(nd-1)==0?(nd-1):(m-e)%(nd-1);				
 		}
 		nd--;
 	}
@@ -310,5 +305,4 @@ int *josephus_efficace(int n, int m){
 	printf("%d\n",T[k]);
 	return T;
 }
-
 

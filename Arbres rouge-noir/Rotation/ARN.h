@@ -4,21 +4,20 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 struct noeud{
 	int cle;
 	int couleur;
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
 struct arbreRN{
 	NOEUD *racine;
 	NOEUD *nil;
-	};
+};
 
 typedef struct arbreRN ARN;
 
@@ -29,7 +28,4 @@ ARN * creerARN(NOEUD *racine, NOEUD *nil);
 void parcoursInfixe(NOEUD *x);
 
 #endif
-
-
-
 

@@ -19,4 +19,3 @@ NOEUD *rechercher_intervalle_avant(ARN *T, INTERVALLE *i){
 	return z;
 }
 
-

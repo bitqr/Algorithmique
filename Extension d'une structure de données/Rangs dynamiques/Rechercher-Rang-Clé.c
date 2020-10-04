@@ -10,6 +10,3 @@ int rechercher_rang_cle(NOEUD *x, int k){
 			return 1 + x->gauche->taille + rechercher_rang_cle(x->droite,k);
 }
 
-
-
-	

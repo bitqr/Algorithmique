@@ -5,7 +5,7 @@ void rotation_gauche(ARN *T, NOEUD *x){
 	x->droite = y->gauche; //sous-arbre gauche de y devient sous-arbre droit de x.
 	if(y->gauche != T->nil)
 		y->gauche->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -13,10 +13,9 @@ void rotation_gauche(ARN *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->gauche = x; //place x Ã gauche de y.
+	y->gauche = x; //place x ï¿½ gauche de y.
 	x->p = y;
 }
-
 
 NOEUD *creerNoeud(int cle, NOEUD *g, NOEUD *d){
 	NOEUD * node = (NOEUD *) malloc(sizeof(NOEUD));
@@ -38,7 +37,7 @@ void parcoursInfixe(NOEUD *x){
 		parcoursInfixe(x->gauche);
 		printf("%d\t",x->cle);
 		parcoursInfixe(x->droite);
-		}
+	}
 }
 
 void parcoursPrefixe(NOEUD *x){
@@ -46,11 +45,8 @@ void parcoursPrefixe(NOEUD *x){
 		printf("%d\t",x->cle);
 		parcoursPrefixe(x->gauche);
 		parcoursPrefixe(x->droite);
-		}
+	}
 }
-
-
-
 
 int main(int argc, char ** argv){
 	NOEUD * nl;
@@ -61,7 +57,10 @@ int main(int argc, char ** argv){
 	NOEUD * f12 = creerNoeud(15,f1,f2);
 	NOEUD * f34 = creerNoeud(35,f3,f4);
 	NOEUD * r = creerNoeud(28,f12,f34);
-	r->p = nl; f1->p = f2->p = f12; f3->p = f4->p = f34; f12->p = f34->p = r;
+	r->p = nl;
+	f1->p = f2->p = f12;
+	f3->p = f4->p = f34;
+	f12->p = f34->p = r;
 	ARN * T = creerARN(r,nl);
 	parcoursPrefixe(T->racine);
 	printf("\nApres rotation gauche de la racine:\n");
@@ -73,8 +72,3 @@ int main(int argc, char ** argv){
 	return 0;
 }
 
-
-
-		
-		
-	

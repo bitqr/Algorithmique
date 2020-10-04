@@ -7,7 +7,7 @@ void parcours_infixe(ABR * x){
 		parcours_infixe(x->gauche);
 		printf("%d\t",x->cle);
 		parcours_infixe(x->droite);
-		}
+	}
 }
 
 ABR * creer_abr(int cle, ABR* p, ABR *g, ABR *d){
@@ -18,7 +18,6 @@ ABR * creer_abr(int cle, ABR* p, ABR *g, ABR *d){
 	x->gauche = g;
 	return x;
 }
-
 
 int main(int argc, char ** argv){
 	ABR *x; ABR *x1; ABR *x2;
@@ -35,6 +34,4 @@ int main(int argc, char ** argv){
 	printf("\n");
 	return 0;
 }
-
-
 

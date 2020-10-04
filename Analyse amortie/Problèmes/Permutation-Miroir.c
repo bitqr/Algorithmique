@@ -23,7 +23,6 @@ int rev(int k, int a){
 	return reva;
 }
 
-
 int * permutation_miroir(int *A, int k){
 	int i;
 	int n = pow(2,k);
@@ -206,5 +205,4 @@ int main(int argc, char **argv){
 
 	return 0;
 }
-
 

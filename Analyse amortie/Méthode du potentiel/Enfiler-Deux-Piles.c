@@ -40,5 +40,3 @@ void afficher_file_deux_piles(FILEDEUXPILES *F){
 	printf("\n\n");
 }
 
-
-

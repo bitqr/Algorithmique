@@ -24,8 +24,6 @@ struct arbreRN{
 
 typedef struct arbreRN ARN;
 
-
-
 void rotation_gauche(ARN *T, NOEUD *x);
 void rotation_droite(ARN *T, NOEUD *x);
 void rn_inserer(ARN *T, NOEUD *z);
@@ -35,7 +33,4 @@ ARN * creerARN(NOEUD *racine, NOEUD *nil);
 void parcoursPrefixeRN(NOEUD *x, NOEUD *nl);
 
 #endif
-
-
-
 

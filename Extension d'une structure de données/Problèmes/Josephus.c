@@ -18,12 +18,12 @@ LDCC * creerListeDepart(int n){
 	LDCC *c = t;
 	LDCC *w;
 	for(i=2;i<=n;i++){
-		 c->suiv = CreerElement(i);
-		 w = c;
-		 c = c->suiv;
-		 c->pred = w;
-		 c->tete = t;
-		}
+		c->suiv = CreerElement(i);
+		w = c;
+		c = c->suiv;
+		c->pred = w;
+		c->tete = t;
+	}
 	c->suiv = t;
 	c->tete = t;
 	t->pred = c;
@@ -39,7 +39,6 @@ LDCC *supprimerElement(LDCC *x){
 	free(x);
 	return apres;
 }
-
 
 int *josephus(int n,int m){
 	int *T = (int *)malloc(n*sizeof(int));
@@ -61,7 +60,6 @@ int *josephus(int n,int m){
 	return T;
 }
 
-
 int main(int *argc, char **argv){
 	printf("Permutation de Josephus(%d,%d) par la methode lineaire supposant que m est une constante:\n",N,M);
 	int *T = josephus(N,M);
@@ -72,5 +70,3 @@ int main(int *argc, char **argv){
 	return 0;
 }
 
-
- 

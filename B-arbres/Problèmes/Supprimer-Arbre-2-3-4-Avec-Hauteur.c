@@ -436,7 +436,3 @@ void supprimer_arbre_2_3_4_avec_hauteur_incomplet(NOEUD_ARBRE_2_3_4 *x, int k){
 	}
 }
 
-
-
-
-

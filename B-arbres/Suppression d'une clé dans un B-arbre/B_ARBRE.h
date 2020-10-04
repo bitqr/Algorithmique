@@ -43,5 +43,5 @@ int cle_minimale(NOEUD_B_ARBRE *x);
 void fusionner(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y, NOEUD_B_ARBRE *z);
 void echanger_frere(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *z, NOEUD_B_ARBRE *y);
 
-
 #endif
+

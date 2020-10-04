@@ -7,7 +7,6 @@
 #define ROUGE 0
 #define NOIR 1
 
-
 struct noeud{
 	int cle;
 	int couleur;
@@ -15,14 +14,14 @@ struct noeud{
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
 struct arbreRN{
 	NOEUD *racine;
 	NOEUD *nil;
-	};
+};
 
 typedef struct arbreRN ARN;
 
@@ -36,14 +35,14 @@ struct noeudpoint{
 	struct noeudpoint *gauche;
 	struct noeudpoint *droite;
 	struct noeudpoint *jumeau;
-	};
+};
 	
 typedef struct noeudpoint NOEUDPOINT;	
 
 struct arbreRNP{
 	NOEUDPOINT *racine;
 	NOEUDPOINT *nil;
-	};
+};
 
 typedef struct arbreRNP ARNP;
 
@@ -52,7 +51,4 @@ NOEUD *recuperer_rang_iteratif(NOEUD *x, int i);
 int rechercher_rang_cle(NOEUD *x, int k);
 
 #endif
-
-
-
 

@@ -5,7 +5,7 @@ void rotation_gauche(AVL *T, NOEUD *x){
 	x->droite = y->gauche; //sous-arbre gauche de y devient sous-arbre droit de x.
 	if(y->gauche != T->nil)
 		y->gauche->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -13,7 +13,7 @@ void rotation_gauche(AVL *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->gauche = x; //place x Ã gauche de y.
+	y->gauche = x; //place x ï¿½ gauche de y.
 	x->p = y;
 }
 
@@ -33,13 +33,12 @@ AVL * creerAVL(NOEUD *racine, NOEUD *nil){
 	return a;
 }
 
-
 void rotation_droite(AVL *T, NOEUD *x){
 	NOEUD *y = x->gauche; //initialise y.
 	x->gauche = y->droite; //sous-arbre droit de y devient sous-arbre gauche de x.
 	if(y->droite != T->nil)
 		y->droite->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -47,9 +46,8 @@ void rotation_droite(AVL *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->droite = x; //place x Ã droite de y.
+	y->droite = x; //place x ï¿½ droite de y.
 	x->p = y;
-	
 }
 
 void parcoursPrefixeAVL(NOEUD *x,NOEUD *nl){
@@ -57,14 +55,12 @@ void parcoursPrefixeAVL(NOEUD *x,NOEUD *nl){
 		printf("%d(%d)\t",x->cle,x->h);
 		parcoursPrefixeAVL(x->gauche,nl);
 		parcoursPrefixeAVL(x->droite,nl);
-		}
+	}
 }
-
 
 int max(int a, int b){
 	return a>b?a:b;
 }
-
 
 void equilibre(AVL *T, NOEUD *x){
 	NOEUD *y;
@@ -76,7 +72,7 @@ void equilibre(AVL *T, NOEUD *x){
 			rotation_gauche(T,x);
 			x->h = 1 + max(x->gauche->h,x->droite->h);
 			z->h = 1 + max(z->gauche->h,z->droite->h);
-			}
+		}
 		else{
 			z = y->gauche;
 			rotation_droite(T,y);
@@ -86,8 +82,8 @@ void equilibre(AVL *T, NOEUD *x){
 			rotation_gauche(T,x);
 			x->h = 1 + max(x->gauche->h,x->droite->h);
 			z->h = 1 + max(z->gauche->h,z->droite->h);
-			}
 		}
+	}
 	if(x->droite->h - x->gauche->h < -1){
 		y = x->gauche;
 		if(y->gauche->h >= y->droite->h){
@@ -95,7 +91,7 @@ void equilibre(AVL *T, NOEUD *x){
 			rotation_droite(T,x);
 			x->h = 1 + max(x->gauche->h,x->droite->h);
 			z->h = 1 + max(z->gauche->h,z->droite->h);
-			}
+		}
 		else{
 			z = y->droite;
 			rotation_gauche(T,y);
@@ -105,10 +101,9 @@ void equilibre(AVL *T, NOEUD *x){
 			rotation_droite(T,x);
 			x->h = 1 + max(x->gauche->h,x->droite->h);
 			z->h = 1 + max(z->gauche->h,z->droite->h);
-			}
 		}
+	}
 }
-
 
 int main(int argc, char **argv){
 	NOEUD *nl = creerNoeudAVL(0,0,NULL,NULL);
@@ -129,10 +124,17 @@ int main(int argc, char **argv){
 	NOEUD * x22 = creerNoeudAVL(36,3,x221,x222);
 	NOEUD * x2 = creerNoeudAVL(29,4,x21,x22);
 	NOEUD * x = creerNoeudAVL(17,5,x1,x2);
-	x121->p = x12; x12->p = x11->p = x1; x1->p = x2->p = x;
-	x22->p = x21->p = x2; x211->p = x212->p = x21; x222->p = x221->p = x22;
-	x2122->p = x212; x2212->p = x221; x2221->p = x2222->p = x222; 
-	x22212->p = x2221; x->p = nl;
+	x121->p = x12;
+	x12->p = x11->p = x1;
+	x1->p = x2->p = x;
+	x22->p = x21->p = x2;
+	x211->p = x212->p = x21;
+	x222->p = x221->p = x22;
+	x2122->p = x212;
+	x2212->p = x221;
+	x2221->p = x2222->p = x222; 
+	x22212->p = x2221;
+	x->p = nl;
 	AVL *T = creerAVL(x,nl);
 	parcoursPrefixeAVL(T->racine,T->nil);
 	printf("\n\n");
@@ -146,6 +148,3 @@ int main(int argc, char **argv){
 	return 0;
 }
 
-
-
-	

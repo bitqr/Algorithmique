@@ -6,4 +6,3 @@ void inserer_adressage_direct(OBJET ** T,OBJET *x){
 	T[x->cle] = x;
 }
 
-

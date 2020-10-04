@@ -70,5 +70,3 @@ void supprimer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x){
 	}
 }
 
-
-

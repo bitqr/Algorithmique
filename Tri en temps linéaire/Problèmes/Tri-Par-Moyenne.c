@@ -3,7 +3,6 @@
 #define N 11
 #define K 5
 
-
 void permuter(int*A,int i, int j){
      int tmp = A[i];
      A[i]=A[j];
@@ -63,18 +62,15 @@ int* tri_par_moyenne(int * A, int n, int k){
 
 
 int main(){
-    int A[N] = {3,8,5,6,1,2,9,0,4,7,10};
-    
-    int * R = tri_par_moyenne(A,N,K);
-    
-    int i;
-    for(i=0;i<N;i++){
-                     printf("%d\t",R[i]);
-                     }
-    printf("\n\n\n");
-    return 0;
+     int A[N] = {3,8,5,6,1,2,9,0,4,7,10};
+
+     int * R = tri_par_moyenne(A,N,K);
+
+     int i;
+     for(i=0;i<N;i++){
+          printf("%d\t",R[i]);
+     }
+     printf("\n\n\n");
+     return 0;
 }
-                               
-                                   
-                 
-     
+

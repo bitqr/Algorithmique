@@ -15,4 +15,3 @@ multidep : Multidép.o
 clean : 
 	rm -rf *.o multidep incrementer
 
-

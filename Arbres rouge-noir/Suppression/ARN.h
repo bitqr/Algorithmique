@@ -13,18 +13,16 @@ struct noeud{
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
 struct arbreRN{
 	NOEUD *racine;
 	NOEUD *nil;
-	};
+};
 
 typedef struct arbreRN ARN;
-
-
 
 void rotation_gauche(ARN *T, NOEUD *x);
 void rotation_droite(ARN *T, NOEUD *x);
@@ -35,7 +33,4 @@ ARN * creerARN(NOEUD *racine, NOEUD *nil);
 void parcoursPrefixeRN(NOEUD *x, NOEUD *nl);
 
 #endif
-
-
-
 

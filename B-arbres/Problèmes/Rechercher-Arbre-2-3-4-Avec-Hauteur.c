@@ -140,7 +140,6 @@ int main(int argc, char **argv){
 	ARBRE_2_3_4 *A3=jointure_arbres_2_3_4(A,k,A2);
 	printf("Adresse de la racine de l'arbre 2-3-4 résultant de la jointure : %p.234\n",A3->racine);
 
-
 	NOEUD_ARBRE_2_3_4 *g1=allouerNoeud();
 	g1->n=1;
 	g1->cle=(int *)malloc(rac2->n*sizeof(int));
@@ -180,6 +179,4 @@ int main(int argc, char **argv){
 
 	return 0;
 }
-
-
 

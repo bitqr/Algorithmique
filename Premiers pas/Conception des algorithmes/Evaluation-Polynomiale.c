@@ -3,21 +3,19 @@
 #define N 3
 #define X 0.5
 
-
-
 float evaluation_polynomiale(int *A, int n, float x){
-      float y=0;
-      int i;
-      for(i=0;i<n;i++){
-                  if(i==0){
-                           y=A[i];
-                           }
-                  else{
-                       y = y + A[i]*x;
-                       x=x*x;
-                       }
-                  }
-      return y;
+    float y=0;
+    int i;
+    for(i=0;i<n;i++){
+        if(i==0){
+            y=A[i];
+        }
+        else{
+            y = y + A[i]*x;
+            x=x*x;
+        }
+    }
+    return y;
 }
 
 int main(){
@@ -27,3 +25,4 @@ int main(){
     printf("\n\n\n");
     return 0;
 }
+

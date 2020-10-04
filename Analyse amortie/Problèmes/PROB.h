@@ -7,8 +7,6 @@
 #define NINS 20
 #define NSUPP 5
 
-
-
 typedef struct {
 	unsigned int longueur;
 	int * val;
@@ -36,8 +34,6 @@ typedef struct {
 	NOEUD *nil;
 	} ABR;
 
-
-
 int rev(int k, int a);
 int * permutation_miroir(int *A, int k);
 void afficherTableau(int *A, int n);
@@ -57,7 +53,5 @@ ABR *equilibrer(ABR *A);
 void afficherArbre(ABR *A, NOEUD *x);
 NOEUD * creerNoeud(int cle, NOEUD *g, NOEUD *d);
 
-
-
-
 #endif
+

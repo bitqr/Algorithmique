@@ -4,7 +4,6 @@
 #define ENTREE 5
 #define K 34
 
-
 int h(int cle,int m){
 	return cle%m;
 }
@@ -30,7 +29,7 @@ LSC ** creerTableHachage(int taille){
 	for(i=0;i<taille;i++){
 		T[i] = (LSC *)malloc(sizeof(LSC));
 		T[i] = NULL;
-		}
+	}
 	return T;
 }
 	
@@ -45,12 +44,11 @@ void afficherTableHachage(LSC **T, int m){
 			while(x){
 				printf("%d\t",x->cle);
 				x = x->suiv;
-				}
-			printf("/ \n");
 			}
+			printf("/ \n");
 		}
+	}
 }
-
 
 int main(int argc, char **argv){
 	int tab[ENTREE] = {34,42,33,21,8};
@@ -67,6 +65,4 @@ int main(int argc, char **argv){
 	afficherTableHachage(T,M);
 	return 0;
 }
-
-
 

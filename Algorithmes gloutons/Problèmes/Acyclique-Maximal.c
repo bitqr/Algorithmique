@@ -9,12 +9,12 @@ LISTE_ARETE *creerArete(ARETE ar){
 
 
 void permuter_arete(ARETE* A, int i, int j){
-     int tmp1 = A[i].a;
-     int tmp2 = A[i].b;
-     A[i].a = A[j].a;
-     A[i].b = A[j].b;
-     A[j].a=tmp1;
-     A[j].b=tmp2;
+	int tmp1 = A[i].a;
+	int tmp2 = A[i].b;
+	A[i].a = A[j].a;
+	A[i].b = A[j].b;
+	A[j].a=tmp1;
+	A[j].b=tmp2;
 }
 
 int partition_arete(ARETE * A, int *w, int a, int b){
@@ -22,14 +22,14 @@ int partition_arete(ARETE * A, int *w, int a, int b){
     int i = a-1;
     int j,tmp;
     for(j=a;j<b;j++){
-                     if(w[j]>=x){
-                                 i++;
-                                 permuter_arete(A,i,j);
-				 tmp=w[i];
-				 w[i]=w[j];
-				 w[j]=tmp;
-                                 }
-                     }
+		if(w[j]>=x){
+			i++;
+			permuter_arete(A,i,j);
+			tmp=w[i];
+			w[i]=w[j];
+			w[j]=tmp;
+		}
+	}
     permuter_arete(A,i+1,b);
     tmp=w[i+1];
     w[i+1]=w[b];
@@ -38,11 +38,11 @@ int partition_arete(ARETE * A, int *w, int a, int b){
 }
 
 void tri_rapide_arete(ARETE* A, int *w, int a, int b){
-     if(a<b){
-             int q=partition_arete(A,w,a,b);
-             tri_rapide_arete(A,w,a,q-1);
-             tri_rapide_arete(A,w,q+1,b);
-             }
+	if(a<b){
+		int q=partition_arete(A,w,a,b);
+		tri_rapide_arete(A,w,a,q-1);
+		tri_rapide_arete(A,w,q+1,b);
+	}
 }
 
 
@@ -79,8 +79,7 @@ LISTE_ARETE *acyclique_maximal(GRAPHE_NO *G, int *w){
 					
 				}
 				else{
-					cycle[A[i].b] = cycle[A[i].a];
-					
+					cycle[A[i].b] = cycle[A[i].a];					
 				}
 				arete.a = A[i].a;
 				arete.b = A[i].b;
@@ -103,7 +102,6 @@ LISTE_ARETE *acyclique_maximal(GRAPHE_NO *G, int *w){
 	}
 	return L->tete->suiv;
 }
-
 
 int main(int argc, char **argv){
 	int w[M] = {10,5,3,4,1,1,2,3,8,3};
@@ -137,3 +135,4 @@ int main(int argc, char **argv){
 	printf("\n\n");
 	return 0;
 }
+

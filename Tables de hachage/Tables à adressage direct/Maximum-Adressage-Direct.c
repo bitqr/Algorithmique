@@ -7,16 +7,12 @@ int maximum_adressage_direct(OBJET ** T,int m){
 	while(T[i] == NULL && i>=0)
 		i--;
 	if(i>=0){
-		fprintf(stdout,"L'element maximal est %d\n",i);
+		fprintf(stdout,"L'élément maximal est %d\n",i);
 		return i;
-		}
+	}
 	else{
-		fprintf(stderr,"Table a adressage direct vide !!!\n");
+		fprintf(stderr,"Table à adressage direct vide !!!\n");
 		exit(EXIT_FAILURE);
-		}
+	}
 }
-
-
-
-
 

@@ -14,7 +14,6 @@ void incrementer_miroir(TABLEAU *A){
 		A->val[k-1-i] = 1;
 }
 
-
 TABLEAU * inventerTableau(unsigned int l){
 	TABLEAU * tab = (TABLEAU *) malloc(sizeof(TABLEAU));
 	tab->longueur = l;
@@ -28,5 +27,4 @@ void ecrireTableau(TABLEAU *A){
 		printf("%d",A->val[A->longueur-i-1]);
 	printf("\n\n");
 }
-
 

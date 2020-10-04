@@ -10,6 +10,3 @@ void parcours_prefixe(ABR *x){
 		}
 }
 
-
-
-

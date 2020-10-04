@@ -56,9 +56,9 @@ int intersection_meme_branche(NOEUDPOINT *x1, NOEUDPOINT *x2){
 				if(x1 != x2->p)
 					n++;
 				x2 = x2->p;
-				}
 			}
 		}
+	}
 	else{
 		while(x1 != x2){
 			if(x2 == x2->p->droite)
@@ -75,9 +75,9 @@ int intersection_meme_branche(NOEUDPOINT *x1, NOEUDPOINT *x2){
 				if(x1 != x2->p)
 					n++;
 				x2 = x2->p;
-				}
 			}
 		}
+	}
 	return n - 2 * x2->doublon;
 }
 
@@ -99,9 +99,9 @@ int intersection_branches_diff(ARNP *T, NOEUDPOINT *x1, NOEUDPOINT *x2){
 				if(T->racine !=	x1->p)
 					n++;
 				x1 = x1->p;
-				}
 			}
 		}
+	}
 	else{
 		while(x1 != T->racine){
 			if(x1 == x1->p->droite)
@@ -117,16 +117,16 @@ int intersection_branches_diff(ARNP *T, NOEUDPOINT *x1, NOEUDPOINT *x2){
 				if(T->racine != x1->p)
 					n++;
 				x1 = x1->p;
-				}
 			}
 		}
+	}
 	if(s1->cle > T->racine->cle)
 		return intersection_meme_branche(T->racine,x2) - n;
 	if(s1->cle < T->racine->cle && x2->cle < T->racine->cle)
 		return n - intersection_meme_branche(T->racine,x2);
 	else{
 		return n + intersection_meme_branche(T->racine,x2);
-		}
+	}
 }
 
 int intersections(ARNP *T, NOEUDPOINT *x1, NOEUDPOINT *x2){
@@ -136,10 +136,9 @@ int intersections(ARNP *T, NOEUDPOINT *x1, NOEUDPOINT *x2){
 		return intersection_meme_branche(x1,x2);
 	if(x1 == x2)
 		return 0;
-	
 	else{
 		return intersection_branches_diff(T,x1,x2);
-		}
+	}
 }
 	
 int intersection_cordes(ARNP *T){
@@ -149,7 +148,7 @@ int intersection_cordes(ARNP *T){
 		if(x->cle < x->jumeau->cle)
 			n += intersections(T,x,x->jumeau);
 		x = rn_successeur(T,x);
-		}
+	}
 	return n/2;
 }
 
@@ -158,22 +157,21 @@ void rotation_gauchePoint(ARNP *T, NOEUDPOINT *x){
 	x->droite = y->gauche; //sous-arbre gauche de y devient sous-arbre droit de x.
 	if(y->gauche != T->nil)
 		y->gauche->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x Ã  y.
 	if(x->p == T->nil){
 		T->racine = y;
-		}
+	}
 	else 
 		if(x == x->p->gauche)
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->gauche = x; //place x Ã gauche de y.
+	y->gauche = x; //place x Ã  gauche de y.
 	x->p = y;
 	y->taille = x->taille;
 	x->taille = x->gauche->taille + x->droite->taille + 1;
 	T->racine->taille = T->racine->gauche->taille + T->racine->droite->taille + 1;
 }
-
 
 NOEUDPOINT *creerNoeudRNP(float cle, int etiq, NOEUDPOINT *g, NOEUDPOINT *d, int couleur){
 	NOEUDPOINT * node = (NOEUDPOINT *) malloc(sizeof(NOEUDPOINT));
@@ -197,17 +195,17 @@ void rotation_droitePoint(ARNP *T, NOEUDPOINT *x){
 	x->gauche = y->droite; //sous-arbre droit de y devient sous-arbre gauche de x.
 	if(y->droite != T->nil)
 		y->droite->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x Ã  y.
 	if(x->p == T->nil){
 		T->racine = y;
 		y->taille = y->gauche->taille + y->droite->taille + 1;
-		}
+	}
 	else 
 		if(x == x->p->gauche)
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->droite = x; //place x Ã droite de y.
+	y->droite = x; //place x Ã  droite de y.
 	x->p = y;
 	y->taille = x->taille;
 	x->taille = x->gauche->taille + x->droite->taille + 1;
@@ -224,17 +222,17 @@ void rn_inserer_correctionPoint(ARNP * T, NOEUDPOINT *z){
 				y->couleur = NOIR; //Cas 1
 				z->p->p->couleur = ROUGE; //Cas 1
 				z = z->p->p; //Cas 1
-				}
+			}
 			else{ 
 				if(z == z->p->droite){ 
 					z = z->p; //Cas 2
 					rotation_gauchePoint(T,z); //Cas 2
-					}
+				}
 				z->p->couleur = NOIR; //Cas 3
 				z->p->p->couleur = ROUGE; //Cas 3
 				rotation_droitePoint(T,z->p->p); //Cas 3
-				}
 			}
+		}
 		else{
 			y = z->p->p->gauche;
 			if(y->couleur == ROUGE){ 
@@ -242,19 +240,19 @@ void rn_inserer_correctionPoint(ARNP * T, NOEUDPOINT *z){
 				y->couleur = NOIR; //Cas 1
 				z->p->p->couleur = ROUGE; //Cas 1
 				z = z->p->p; //Cas 1
-				}
+			}
 			else{ 
 				if(z == z->p->gauche){ 
 					z = z->p; //Cas 2
 					rotation_droitePoint(T,z); //Cas 2
-					}
+				}
 				z->p->couleur = NOIR; //Cas 3
 				z->p->p->couleur = ROUGE; //Cas 3
 				rotation_gauchePoint(T,z->p->p); //Cas 3
-				}
 			}
 		}
-		T->racine->couleur = NOIR;
+	}
+	T->racine->couleur = NOIR;
 }
 
 void rn_insererPoint(ARNP *T, NOEUDPOINT *z){
@@ -265,12 +263,12 @@ void rn_insererPoint(ARNP *T, NOEUDPOINT *z){
 		if(z->cle < x->cle){
 			x->taille++;
 			x = x->gauche;
-			}
+		}
 		else{
 			x->taille++;
 			x = x->droite;
-			}
 		}
+	}
 	z->p = y;
 	if(y == T->nil)
 		T->racine = z;
@@ -293,7 +291,7 @@ void parcoursPrefixePoint(ARNP *T, NOEUDPOINT *z){
 		parcoursPrefixePoint(T,z->gauche);
 		printf("Droite:\n");
 		parcoursPrefixePoint(T,z->droite);
-		}
+	}
 }
 
 int main(int argc, char **argv){
@@ -331,11 +329,7 @@ int main(int argc, char **argv){
 	a1->doublon= a2->doublon = 2;
 	d1->doublon= d2->doublon = 0;
 	e1->doublon= e2->doublon = 0;
-	//parcoursPrefixePoint(cordes,cordes->racine);
 	printf("Le nombre de paires de cordes ayant une intersection est de %d\n\n",intersection_cordes(cordes));
-	//printf("%d\n\n",intersections(cordes,c1,c1->jumeau));
 	return 0;
 }
-
-
 

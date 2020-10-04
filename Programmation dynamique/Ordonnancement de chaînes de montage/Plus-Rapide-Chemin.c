@@ -12,33 +12,29 @@ void plus_rapide_chemin(int a[2][N], int t[2][N-1], int *e, int *x, int n, int *
 		if(f1[j-1] + a[0][j] <= f2[j-1] + t[1][j-1] + a[0][j]){
 			f1[j] = f1[j-1] + a[0][j];
 			*(l1+j) = 1;
-			}
+		}
 		else{
 			f1[j] = f2[j-1] + t[1][j-1] + a[0][j];
 			*(l1+j) = 2;
-			}
+		}
 		if(f2[j-1] + a[1][j] <= f1[j-1] + t[0][j-1] + a[1][j]){
 			f2[j] = f2[j-1] + a[1][j];
 			*(l2+j) = 2;
-			}
+		}
 		else{
 			f2[j] = f1[j-1] + t[0][j-1] + a[1][j];
 			*(l2+j) = 1;
-			}
+		}
 	}
 	if(f1[n-1] + x[0] <= f2[n-1] + x[1]){
 		*f_opt = f1[n-1] + x[0];
 		*l_opt = 1;
-		}
+	}
 	else{
 		*f_opt = f2[n-1] + x[1];
 		*l_opt = 2;
-		}
-		
-		
-
+	}
 }
-
 
 int main(int *argc, char **argv){
 	int e[2] = {2,4};
@@ -54,5 +50,4 @@ int main(int *argc, char **argv){
 	afficher_postes(l1,l2,N,&l_opt);
 	return 0;
 }
-
 

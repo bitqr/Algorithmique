@@ -30,4 +30,3 @@ void ecrireDisque(NOEUD_B_ARBRE *x){
 	fclose(f);
 }
 
-

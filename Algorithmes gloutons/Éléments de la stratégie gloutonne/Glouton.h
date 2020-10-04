@@ -9,7 +9,6 @@
 #define N2 10
 #define N3 5
 
-
 void permuter(int*A,int i, int j);
 int partition(int * A, int p, int r);
 void tri_rapide(int*A, int p, int r);
@@ -22,6 +21,4 @@ double *enveloppe(double *x, int n);
 long long int indemnite_produit_maximal(int *A, int *B, int n);
 
 #endif
-
-
 

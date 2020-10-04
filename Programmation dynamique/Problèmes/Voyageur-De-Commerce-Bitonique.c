@@ -13,7 +13,6 @@ POINT ** creerPoints(float *entree, int n){
 	return sortie;
 }
 
-
 float distance_euclidienne(POINT *a, POINT *b){
 	return sqrt((a->x - b->x)*(a->x - b->x) + (a->y - b->y)*(a->y - b->y));
 }
@@ -26,14 +25,11 @@ float ** matrice_distances(POINT ** entree, int n){
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			if(i>=j)
-				m[i][j] = 0;
-				
+				m[i][j] = 0;				
 			else
 				m[i][j] = distance_euclidienne(entree[i],entree[j]);
 	return m;
 }
-
-
 
 void afficher_couts(float **c, int n){
 	int i,j;
@@ -47,7 +43,6 @@ void afficher_couts(float **c, int n){
 	}
 }
 			
-
 float voyageur_de_commerce_bitonique(POINT **points, float **dist, int **S, int n){
 	int i,j;
 	float k,l;
@@ -74,8 +69,6 @@ float voyageur_de_commerce_bitonique(POINT **points, float **dist, int **S, int 
 	return k;
 }
 
-
-
 int main(int argc, char **argv){
 	float entree[2*N] = {0,6,1,0,2,3,5,4,6,1,7,5,8,2};
 	POINT **sortie = creerPoints(entree,2*N);
@@ -100,9 +93,7 @@ int main(int argc, char **argv){
 	
 	printf("\n\n");
 	
-	printf("Le cout d'une tournee bitonique optimale est de %.2f...\n\n",ct);
+	printf("Le cout d'une tournée bitonique optimale est de %.2f...\n\n",ct);
 	return 0;
 }
-
-
 

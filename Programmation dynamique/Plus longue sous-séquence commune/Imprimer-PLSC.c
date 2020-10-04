@@ -15,6 +15,3 @@ void imprimer_plsc(char **b, SEQUENCE *X, int i, int j){
 	}
 }
 
-
-
-

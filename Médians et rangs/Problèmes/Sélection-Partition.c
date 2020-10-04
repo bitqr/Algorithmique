@@ -3,8 +3,6 @@
 #define N 14
 #define I 3
 
-
-
 void permuter(int*A,int i, int j){
      int tmp = A[i];
      A[i]=A[j];
@@ -16,11 +14,11 @@ int partition(int * A, int p, int r){
     int i = p-1;
     int j;
     for(j=p;j<r;j++){
-                     if(A[j]<=x){
-                                 i++;
-                                 permuter(A,i,j);
-                                 }
-                     }
+        if(A[j]<=x){
+            i++;
+            permuter(A,i,j);
+        }
+    }
     permuter(A,i+1,r);
     return i+1;
 }
@@ -28,11 +26,11 @@ int partition(int * A, int p, int r){
 int Random(int a, int b){
     int i;
     if((a==0)&&(b==1))
-                      return rand()%2;
+        return rand()%2;
     int acc=0;
     for(i=a;i<b;i++){
-                     acc += Random(0,1);
-                     }
+        acc += Random(0,1);
+    }
     return a + acc;
 }
 
@@ -44,17 +42,17 @@ int partition_randomisee(int * A, int p, int r){
 
 int selection_randomisee(int *A, int p, int r, int i){
     if(p==r)
-            return A[p];
+        return A[p];
     int q=partition_randomisee(A,p,r);
     int k = q-p+1;
-    if(i==k)                          //La valeur du pivot est la réponse
-             return q;
+    if(i==k) // La valeur du pivot est la rÃ©ponse
+        return q;
     else{
-         if(i<k)
-                return selection_randomisee(A,p,q-1,i);
-         else
-             return selection_randomisee(A,q+1,r,i-k);
-         }
+        if(i<k)
+            return selection_randomisee(A,p,q-1,i);
+        else
+            return selection_randomisee(A,q+1,r,i-k);
+    }
 }
 
 int * selection_partition(int*A,int n, int i){
@@ -64,8 +62,8 @@ int * selection_partition(int*A,int n, int i){
     int * B = (int *)malloc(i*sizeof(int));
     int j;
     for(j=0;j<i;j++){
-                     B[j]= A[n-1-j];
-                     }
+        B[j]= A[n-1-j];
+    }
     return B;
 }
 
@@ -74,10 +72,8 @@ int main(){
     int * B = selection_partition(A,N,I);
     int j;
     for(j=0;j<I;j++)
-                    printf("%d\t",B[j]);
+        printf("%d\t",B[j]);
     printf("\n\n");
     return 0;
-}    
-    
-    
-    
+}
+

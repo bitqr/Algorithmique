@@ -9,7 +9,7 @@ void rn_inserer(ARN *T, NOEUD *z){
 			x = x->gauche;
 		else
 			x = x->droite;
-		}
+	}
 	z->p = y;
 	if(y == T->nil)
 		T->racine = z;
@@ -29,7 +29,7 @@ void rotation_gauche(ARN *T, NOEUD *x){
 	x->droite = y->gauche; //sous-arbre gauche de y devient sous-arbre droit de x.
 	if(y->gauche != T->nil)
 		y->gauche->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -37,10 +37,9 @@ void rotation_gauche(ARN *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->gauche = x; //place x Ã gauche de y.
+	y->gauche = x; //place x ï¿½ gauche de y.
 	x->p = y;
 }
-
 
 NOEUD *creerNoeudRN(int cle, NOEUD *g, NOEUD *d, int couleur){
 	NOEUD * node = (NOEUD *) malloc(sizeof(NOEUD));
@@ -63,7 +62,7 @@ void rotation_droite(ARN *T, NOEUD *x){
 	x->gauche = y->droite; //sous-arbre droit de y devient sous-arbre gauche de x.
 	if(y->droite != T->nil)
 		y->droite->p = x;
-	y->p = x->p; //relie parent de x Ã y.
+	y->p = x->p; //relie parent de x ï¿½ y.
 	if(x->p == T->nil)
 		T->racine = y;
 	else 
@@ -71,11 +70,9 @@ void rotation_droite(ARN *T, NOEUD *x){
 			x->p->gauche = y;
 		else 
 			x->p->droite = y;
-	y->droite = x; //place x Ã droite de y.
-	x->p = y;
-	
+	y->droite = x; //place x ï¿½ droite de y.
+	x->p = y;	
 }
-
 
 void parcoursPrefixeRN(NOEUD *x,NOEUD *nl){
 	if(x != nl){
@@ -86,11 +83,8 @@ void parcoursPrefixeRN(NOEUD *x,NOEUD *nl){
 			printf("NOIR)\n");
 		parcoursPrefixeRN(x->gauche,nl);
 		parcoursPrefixeRN(x->droite,nl);
-		}
+	}
 }
-
-
-
 
 int main(int argc, char ** argv){
 	NOEUD *nl = (NOEUD *)malloc(sizeof(NOEUD));
@@ -103,7 +97,11 @@ int main(int argc, char ** argv){
 	NOEUD *f123 = creerNoeudRN(2,f1,f23,ROUGE);
 	NOEUD *f5 = creerNoeudRN(14,nl,f4,NOIR);
 	NOEUD *x = creerNoeudRN(11,f123,f5,NOIR);
-	f1->p = f23->p = f123; f2->p = f3->p = f23; f4->p = f5; f5->p = f123->p = x; x->p = nl;
+	f1->p = f23->p = f123;
+	f2->p = f3->p = f23;
+	f4->p = f5;
+	f5->p = f123->p = x;
+	x->p = nl;
 	ARN *T = creerARN(x,nl);
 	parcoursPrefixeRN(T->racine,T->nil);
 	printf("\n");
@@ -115,9 +113,4 @@ int main(int argc, char ** argv){
 	printf("\n");
 	return 0;
 }
-
-
-
-		
-		
 

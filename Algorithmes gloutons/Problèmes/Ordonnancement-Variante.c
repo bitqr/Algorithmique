@@ -66,7 +66,6 @@ int * ordonnancement_variante(int *D, int n){
 	return O;
 }
 
-
 int main(int argc, char **argv){
 	int D[7] = {4,2,4,3,1,4,6};
 	int *O = ordonnancement_variante(D,7);
@@ -78,3 +77,4 @@ int main(int argc, char **argv){
 	printf("\n\n");
 	return 0;
 }
+

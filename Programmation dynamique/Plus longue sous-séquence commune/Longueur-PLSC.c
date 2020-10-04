@@ -49,7 +49,6 @@ int ** initTables(int n, int m){
 	return t;
 }
 
-
 int ** longueur_plsc(SEQUENCE *X, SEQUENCE *Y, char **b){
 	int m = X->longueur;
 	int n = Y->longueur;
@@ -78,7 +77,6 @@ int ** longueur_plsc(SEQUENCE *X, SEQUENCE *Y, char **b){
 	return c;
 }
 
-
 void afficherTables(int **A, int n, int m){
 	int i,j;
 	for(i=0;i<n;i++){
@@ -87,7 +85,6 @@ void afficherTables(int **A, int n, int m){
 		printf("\n");
 	}
 }
-
 
 void afficherTableCaracteres(char **A, int n, int m){
 	int i,j;
@@ -126,5 +123,4 @@ int main(int argc, char **argv){
 	printf("\n\n");
 	return 0;
 }
-
 

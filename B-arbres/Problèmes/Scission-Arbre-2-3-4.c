@@ -228,5 +228,3 @@ int depiler(PILE *P){
 	return P->tableau[P->sommet+1];
 }
 
-
-

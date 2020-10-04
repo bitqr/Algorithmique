@@ -7,9 +7,7 @@ int determiner_rang(ARN *T, NOEUD *x){
 		if(y == y->p->droite)
 			r += y->p->gauche->taille + 1;
 		y = y->p;
-		}
+	}
 	return r;
 }
-
-
 

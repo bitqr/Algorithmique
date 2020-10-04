@@ -9,12 +9,12 @@ NOEUD *max_hauteur(ARN *T, int h){
 		x = x->droite;
 		if(x->couleur == NOIR)
 			y--;
-		}
+	}
 	if(y==1)
 		if(x->droite != T->nil){
 			fprintf(stderr,"Erreur, y n'est pas noir!\n");
 			exit(EXIT_FAILURE);
-			}
+		}
 		else
 			return x;
 	do
@@ -22,8 +22,6 @@ NOEUD *max_hauteur(ARN *T, int h){
 	while(x->couleur != NOIR);
 	return x;
 }
-
-
 
 NOEUD *creerNoeudRN(int cle, NOEUD *g, NOEUD *d, int couleur){
 	NOEUD * node = (NOEUD *) malloc(sizeof(NOEUD));
@@ -41,7 +39,6 @@ ARN * creerARN(NOEUD *racine, NOEUD *nil){
 	return a;
 }
 
-
 int main(int argc, char ** argv){
 	NOEUD *nl = (NOEUD *)malloc(sizeof(NOEUD));
 	nl->couleur = NOIR;
@@ -53,13 +50,15 @@ int main(int argc, char ** argv){
 	NOEUD *f123 = creerNoeudRN(2,f1,f23,ROUGE);
 	NOEUD *f5 = creerNoeudRN(14,nl,f4,NOIR);
 	NOEUD *x = creerNoeudRN(11,f123,f5,NOIR);
-	f1->p = f23->p = f123; f2->p = f3->p = f23; f4->p = f5; f5->p = f123->p = x; x->p = nl;
+	f1->p = f23->p = f123;
+	f2->p = f3->p = f23;
+	f4->p = f5;
+	f5->p = f123->p = x;
+	x->p = nl;
 	ARN *T = creerARN(x,nl);
 	T->hn = 2;
 	printf("Recherche de y: %d\n", max_hauteur(T,H)->cle);
 	printf("\n");
 	return 0;
 }
-
-
 

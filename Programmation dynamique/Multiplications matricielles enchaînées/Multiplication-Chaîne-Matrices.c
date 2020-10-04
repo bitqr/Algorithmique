@@ -1,6 +1,5 @@
 #include"Mat.h"
 
-
 MATRICE * multiplication_chaine_matrices(MATRICE **A, int **s, int i, int j){
 	if(i==j)
 		return A[i];
@@ -11,5 +10,4 @@ MATRICE * multiplication_chaine_matrices(MATRICE **A, int **s, int i, int j){
 		return multiplier_matrices(A1,A2);
 	}
 }
-
 

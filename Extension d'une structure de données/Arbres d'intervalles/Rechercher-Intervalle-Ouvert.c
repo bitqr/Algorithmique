@@ -17,3 +17,4 @@ NOEUD *rechercher_intervalle_ouvert(ARN *T, INTERVALLE *i){
 	}
 	return x;
 }
+

@@ -19,7 +19,6 @@ int *sac_a_dos(int *V, int *w, int W, int n){
 	return S;
 }
 
-
 int main(int argc , char **argv){
 	int V[N] = {13,17,4,7,1,2,14,10,11,8};
 	int w[N] = {6,3,12,11,19,15,4,7,6,10};
@@ -31,6 +30,4 @@ int main(int argc , char **argv){
 	printf("\n");
 	return 0;
 }
-
-
 

@@ -1,6 +1,5 @@
 #include"VDCB.h"
 
-
 int **damier(CARRE **plateau, int n){
 	int **S = (int **)malloc(n*sizeof(int *));
 	int i,j;
@@ -97,10 +96,8 @@ void afficherSolution(int **sol, int n){
 		printf("\n");
 	}
 }
-	
 
 int main(int argc, char **argv){
-	//srand(time(NULL));
 	CARRE **Damier = creerDamier(NDAMIER,RND);
 	afficherDamier(Damier,NDAMIER);
 	int **S = damier(Damier,NDAMIER);
@@ -109,7 +106,4 @@ int main(int argc, char **argv){
 	printf("\n\n");
 	return 0;
 }
-
-
-
 

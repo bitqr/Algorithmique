@@ -20,22 +20,22 @@ void afficher_solution(char **S, char *x, char *y, int n, int m){
 		}
 		else{
 			if(S[i][j] == 'r'){
-				printf("On remplace le caractere %c par le caractere %c\n",x[i],y[j]);
+				printf("On remplace le caractère %c par le caractère %c\n",x[i],y[j]);
 				i++;
 				j++;
 			}
 			else{
 				if(S[i][j] == 'i'){
-					printf("On insere le caractere %c\n",y[j]);
+					printf("On insère le caractère %c\n",y[j]);
 					j++;
 				}
 				else{
 					if(S[i][j] == 's'){
-						printf("On supprime le caractere %c\n",x[i]);
+						printf("On supprime le caractère %c\n",x[i]);
 						i++;
 					}
 					else{
-						printf("On permute les caracteres %c et %c\n",x[i],x[i+1]);
+						printf("On permute les caractères %c et %c\n",x[i],x[i+1]);
 						i+=2;
 						j+=2;
 					}
@@ -44,7 +44,7 @@ void afficher_solution(char **S, char *x, char *y, int n, int m){
 		}
 	}
 	if(i!=m)
-		printf("On equeute.\n");
+		printf("On équeute.\n");
 	printf("C'est fini!\n");
 }
 
@@ -119,7 +119,6 @@ int distance_d_edition(int m, int n, int couts[6], char *x, char *y, char **S){
 	return C[0][0];
 }
 
-
 int main(int argc, char **argv){
 	int i,j;
 	int couts[6] = {C_COP,C_REMP,C_SUP,C_INS,C_PERM,C_EQ};
@@ -129,10 +128,7 @@ int main(int argc, char **argv){
 	char x[M1+1] = "algorithm";
 	char y[N1+1] = "altruistic";
 	int opt = distance_d_edition(M1,N1,couts,x,y,S);
-	printf("\n\n\n\nLa distance d'edition de %s a %s est de %d\n\n",x,y,opt);
+	printf("\n\n\n\nLa distance d'édition de %s à %s est de %d\n\n",x,y,opt);
 	return 0;
 }
 
-
-
- 

@@ -30,6 +30,3 @@ void construire_abr_recursif(int **racine, int i, int j, int n, int cote){
 	}
 }
 
-
-
-

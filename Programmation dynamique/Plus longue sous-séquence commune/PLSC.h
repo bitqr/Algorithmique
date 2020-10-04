@@ -14,10 +14,9 @@ struct sequence {
 	int longueur;
 	char *table;
 	int *entiers;
-	};
+};
 	
 typedef struct sequence SEQUENCE;
-
 
 #define ROUGE 0
 #define NOIR 1
@@ -28,14 +27,14 @@ struct noeud{
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
 struct arbreRN{
 	NOEUD *racine;
 	NOEUD *nil;
-	};
+};
 
 typedef struct arbreRN ARN;
 
@@ -64,7 +63,5 @@ void afficherTables(int **A, int n, int m);
 int ** longueurPlscEntiers(SEQUENCE *X, SEQUENCE *Y, char **b);
 void imprimerPlscEntiers(char **b, SEQUENCE *X, int i, int j);
 
-
 #endif
-
 

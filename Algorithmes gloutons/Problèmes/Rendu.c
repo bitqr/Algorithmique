@@ -37,3 +37,4 @@ int * rendu(TABLEAU C, int n){
 	}
 	return T;
 }
+

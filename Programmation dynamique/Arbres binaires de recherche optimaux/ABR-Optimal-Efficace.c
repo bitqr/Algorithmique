@@ -1,6 +1,5 @@
 #include"ABROPT.h"
 
-
 float ** abr_optimal_efficace(float *p, float *q, int n, int **racine){
 	int i,l,j,r;
 	float t;
@@ -33,10 +32,4 @@ float ** abr_optimal_efficace(float *p, float *q, int n, int **racine){
 	}
 	return e;
 }
-
-
-
-
-
-
 

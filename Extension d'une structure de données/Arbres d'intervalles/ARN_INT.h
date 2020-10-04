@@ -12,7 +12,7 @@
 struct intervalle{
 	int debut;
 	int fin;
-	};
+};
 	
 typedef struct intervalle INTERVALLE;
 
@@ -24,20 +24,20 @@ struct noeud{
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droite;
-	};
+};
 
 typedef struct noeud NOEUD;	
 
 struct arbreRN{
 	NOEUD *racine;
 	NOEUD *nil;
-	};
+};
 
 typedef struct arbreRN ARN;
 
 struct rectangle{
-	int minx,miny,maxx,maxy;
-	};
+	int minx, miny, maxx, maxy;
+};
 
 typedef struct rectangle RECTANGLE;
 
@@ -51,17 +51,16 @@ struct noeud_vlsi{
 	struct noeud_vlsi *gauche;
 	struct noeud_vlsi *droite;
 	RECTANGLE *rect;
-	};
+};
 
 typedef struct noeud_vlsi NOEUD_VLSI;	
 
 struct arbreRN_VLSI{
 	NOEUD_VLSI *racine;
 	NOEUD_VLSI *nil;
-	};
+};
 
 typedef struct arbreRN_VLSI ARN_VLSI;
-
 
 void rotation_gauche(ARN *T, NOEUD *x);
 NOEUD *rechercher_intervalle_ouvert(ARN *T, INTERVALLE *i);
@@ -69,5 +68,4 @@ NOEUD *rechercher_intervalle_avant(ARN *T, INTERVALLE *i);
 INTERVALLE *creeInt(int debut, int fin);
 
 #endif
-
 

@@ -23,7 +23,6 @@ NOEUD *creernoeudInt(INTERVALLE *Int,int couleur, NOEUD *g, NOEUD *d){
 	return n;
 }
 
-
 ARN *creeArbInt(NOEUD *r, NOEUD *n){
 	ARN *a = (ARN *)malloc(sizeof(ARN));
 	a->racine = r;
@@ -36,7 +35,7 @@ void parcoursPrefixe(ARN *T, NOEUD *x){
 		printf("%d %d\n",x->cle,x->max);
 		parcoursPrefixe(T,x->gauche);
 		parcoursPrefixe(T,x->droite);
-		}
+	}
 }
 
 
@@ -65,7 +64,6 @@ int main(int argc, char ** argv){
 	
 	ARN * T = creeArbInt(rac,nl);
 
-	
 	//Application de l'algorithme
 	
 	NOEUD * rech = rechercher_intervalle(T,i);
@@ -82,25 +80,21 @@ int main(int argc, char ** argv){
 	printf("\n\n");
 	
 	NOEUD * rech2 = rechercher_intervalle_ouvert(T,i);
-	
-	
+
 	if(rech2 == T->nil)
 		printf("L'intervalle i=]%d,%d[ ne coupe aucun autre intervalle ouvert dans T\n\n",i->debut,i->fin);
 	else	
 		printf("L'intervalle i=]%d,%d[ se recoupe avec ]%d,%d[\n\n",i->debut,i->fin,rech2->Int->debut,rech2->Int->fin);
-	
+
 	INTERVALLE *j = creeInt(18,21);
-	
+
 	NOEUD * rech3 = rechercher_intervalle_avant(T,j);
-	
-	
+
 	if(rech3 == T->nil)
 		printf("L'intervalle j=[%d,%d] ne coupe aucun autre intervalle dans T\n\n",j->debut,j->fin);
 	else	
 		printf("L'intervalle j=[%d,%d] se recoupe avec [%d,%d]\n\n",j->debut,j->fin,rech3->Int->debut,rech3->Int->fin);
-	
-	
+
 	return 0;
 }
-			
-			
+

@@ -11,22 +11,21 @@ int partition_decroissant(int * A, int *w, int p, int r){
     int i = p-1;
     int j;
     for(j=p;j<r;j++){
-                     if(w[A[j]]>=x){
-                                 i++;
-                                 permuter(A,i,j);
-                                 }
-                     }
+		if(w[A[j]]>=x){
+			i++;
+			permuter(A,i,j);
+		}
+	}
     permuter(A,i+1,r);
     return i+1;
 }
 
-
 void tri_rapide_matroide_decroissant(int*A, int *w, int p, int r){
-     if(p<r){
-             int q=partition_decroissant(A,w,p,r);
-             tri_rapide_matroide_decroissant(A,w,p,q-1);
-             tri_rapide_matroide_decroissant(A,w,q+1,r);
-             }
+	if(p<r){
+		int q=partition_decroissant(A,w,p,r);
+		tri_rapide_matroide_decroissant(A,w,p,q-1);
+		tri_rapide_matroide_decroissant(A,w,q+1,r);
+	}
 }
 
 int appartient(int x, ENSEMBLE *J){
@@ -356,3 +355,4 @@ int main(int argc, char **argv){
 	
 	return 0;
 }
+

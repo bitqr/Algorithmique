@@ -21,3 +21,4 @@ void construire_abr_recursif(int **racine, int i, int j, int n, int cote);
 float ** abr_optimal_efficace(float *p, float *q, int n, int **racine);
 
 #endif
+

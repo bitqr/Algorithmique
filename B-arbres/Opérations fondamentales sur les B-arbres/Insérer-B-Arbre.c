@@ -16,5 +16,3 @@ void inserer_B_arbre(B_ARBRE *T, int k){
 		inserer_B_arbre_incomplet(r,k);
 }
 
-
-

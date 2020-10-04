@@ -97,7 +97,6 @@ void supprimer_B_arbre(B_ARBRE *T, int k){
 	}
 }
 
-
 void supprimer_B_arbre_incomplet(NOEUD_B_ARBRE *x, int k){
 	int i=0;
 	if(x->feuille){
@@ -185,7 +184,6 @@ void supprimer_B_arbre_incomplet(NOEUD_B_ARBRE *x, int k){
 	}
 }
 
-
 int cle_maximale(NOEUD_B_ARBRE *x){
 	while(x->feuille==FAUX){
 		lireDisque(x->c[x->n]);
@@ -193,7 +191,6 @@ int cle_maximale(NOEUD_B_ARBRE *x){
 	}
 	return x->cle[x->n-1];
 }
-
 
 int cle_minimale(NOEUD_B_ARBRE *x){
 	while(x->feuille==FAUX){
@@ -242,7 +239,6 @@ void fusionner(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y, NOEUD_B_ARBRE *z){
 	ecrireDisque(y);
 	ecrireDisque(x);
 }
-
 
 void echanger_frere(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *z, NOEUD_B_ARBRE *y){
 	int j;
@@ -332,7 +328,6 @@ void lireDisque(NOEUD_B_ARBRE *x){
 	fclose(f);
 }
 
-
 int main(int argc, char **argv){
 	NOEUD_B_ARBRE *f1=(NOEUD_B_ARBRE *)malloc(sizeof(NOEUD_B_ARBRE));
 	f1->n=2;
@@ -385,6 +380,4 @@ int main(int argc, char **argv){
 	
 	return 0;
 }
-
-
 

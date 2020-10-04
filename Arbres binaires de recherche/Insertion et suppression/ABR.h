@@ -1,7 +1,6 @@
 #ifndef DEF_ABR
 #define DEF_ABR
 
-
 struct abr{
 	int cle;
 	struct abr *p;
@@ -16,10 +15,5 @@ void arbre_inserer(ABR *T, ABR *z);
 ABR * arbre_supprimer(ABR *T, ABR *z);
 void arbre_inserer_recursif(ABR *T, ABR *z);
 
-
 #endif
 
-
-
-
-	

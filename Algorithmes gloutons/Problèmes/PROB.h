@@ -38,7 +38,6 @@ struct liste_arete{
 
 typedef struct liste_arete LISTE_ARETE;
 
-
 struct graphe_non_oriente{
 	int n;
 	int m;

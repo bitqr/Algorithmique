@@ -110,5 +110,3 @@ void inserer_hauteur_incomplet(int k, NOEUD_ARBRE_2_3_4 *x1, int h, NOEUD_ARBRE_
 	}
 }
 
-
-

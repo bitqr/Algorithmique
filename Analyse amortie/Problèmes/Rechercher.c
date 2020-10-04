@@ -35,8 +35,6 @@ int rechercher(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x){
 	return trouve;
 }
 
-
-
 TABLEAUDICHOTOMIQUEDYNAMIQUE * creerTableauDichotomiqueDynamiqueVide(){
 	TABLEAUDICHOTOMIQUEDYNAMIQUE *A = (TABLEAUDICHOTOMIQUEDYNAMIQUE *)malloc(sizeof(TABLEAUDICHOTOMIQUEDYNAMIQUE));
 	A->longueur = 0;
@@ -55,7 +53,4 @@ void afficherTableauDichotomiqueDynamique(TABLEAUDICHOTOMIQUEDYNAMIQUE *A){
 	}
 	printf("\n\n");
 }
-
-
-
 

@@ -1,6 +1,5 @@
 #include"VDCB.h"
 
-
 void afficher_couts(int **c, int n, int e){
 	int i,j;
 	for(i=0;i<n;i++){
@@ -9,8 +8,6 @@ void afficher_couts(int **c, int n, int e){
 		printf("\n");
 	}
 }
-	
-
 
 int ** impression(int *l, int capacite, int **S, int n){
 	int i,j,E,k,r;
@@ -66,9 +63,6 @@ int ** impression(int *l, int capacite, int **S, int n){
 	return C;
 }
 
-
-
-
 int main(int argc, char **argv){
 	int mots[N2] = {2,4,3,4,2,6,5,2,10,3,8,7,3,5,2};
 	int i,j;
@@ -80,6 +74,7 @@ int main(int argc, char **argv){
 			S[i][j] = 0;
 	int **C = impression(mots,M,S,N2);
 	afficher_couts(C,N2,M);
-	printf("\n\nLe cout optimal est de %d\n\n",C[0][M-1]);
+	printf("\n\nLe coût optimal est de %d\n\n",C[0][M-1]);
 	return 0;
 }
+

@@ -9,11 +9,10 @@ int supprimer_hachage(int *T, int k, int m){
 		if(T[j] == k){
 			T[j] = SUPPRIMEE;
 			return 0;
-			}
+		}
 		else i++;
 	}while(i!=m);
-	fprintf(stderr,"element non present\n");
+	fprintf(stderr,"élément non présent\n");
 	exit(EXIT_FAILURE);
 }
-
 

@@ -1,7 +1,6 @@
 #ifndef DEF_VDCB
 #define DEF_VDCB
 
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
@@ -34,11 +33,9 @@
 struct point{
 	float x;
 	float y;
-	};
+};
 	
 typedef struct point POINT;
-
-
 
 struct noeud{
 	struct noeud *p;
@@ -46,30 +43,28 @@ struct noeud{
 	struct noeud *frere_droite;
 	char *nom;
 	double note;
-	};
+};
 	
 typedef struct noeud NOEUD;
-
-
 
 struct arbre{
 	struct noeud *racine;
 	struct noeud *nil;
-	};
+};
 	
 typedef struct arbre ARBRE;
 
 struct solution{
 	double cout;
 	struct noeud *employe;	
-	};
+};
 
 typedef struct solution SOLUTION;
 
 struct graphe{
 	int nombre_sommets;
 	char ** aretes;	
-	};
+};
 
 typedef struct graphe GRAPHE;
 
@@ -77,16 +72,15 @@ struct graphe_etendu{
 	int nombre_sommets;
 	char ** aretes;
 	double ** p;	
-	};
+};
 
 typedef struct graphe_etendu GRAPHE_ETENDU;
-
 
 struct carre{
 	double h;
 	double hg;
 	double hd;
-	};
+};
 
 typedef struct carre CARRE;
 
@@ -94,16 +88,11 @@ struct choix{
 	int tache ;
 	int profit;
 	int temps;
-	};
+};
 
 typedef struct choix CHOIX;
 
-
 void afficher_couts(int **c, int n, int e);
 
-
-
 #endif
-
-
 

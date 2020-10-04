@@ -18,29 +18,28 @@ int partition(int * A, int p, int r,int el){
     int i = p-1;
     int j;
     for(j=p;j<r;j++){
-                     if(A[j]<=x){
-                                 i++;
-                                 permuter(A,i,j);
-                                 }
-                     }
+        if(A[j]<=x){
+            i++;
+            permuter(A,i,j);
+        }
+    }
     permuter(A,i+1,r);
     return i+1;
 }
 
 void tri_insertion(int *A , int n){
-     int i,j,cle;
-     for(j=1;j<n;j++){
-                      cle=A[j];
-                      //Ins�re A[j] dans la s�quence tri�e A[1..j-1].
-                      i=j-1;
-                      while((i>=0)&&(A[i]>cle)){
-                                               A[i+1]=A[i];
-                                               i--;
-                                               }
-                      A[i+1]=cle;
-                      }
+    int i,j,cle;
+    for(j=1;j<n;j++){
+        cle=A[j];
+        // Insère A[j] dans la séquence triée A[1..j-1].
+        i=j-1;
+        while(i>=0 && A[i]>cle){
+            A[i+1]=A[i];
+            i--;
+        }
+        A[i+1]=cle;
+    }
 }
-
 
 int selection(int *A,int p, int r, int rg){
     int i;
@@ -61,11 +60,11 @@ int selection(int *A,int p, int r, int rg){
         m=(i>=(n/5)*5)?n%5:5;
         for(j=0;j<m;j++){
             B[j]=A[p+i+j];
-            }
+        }
         tri_insertion(B,m);
         R[k]=B[m/2-1+m%2];
         k++;
-        }
+    }
     median = selection(R,0,lmed-1,lmed/2+lmed%2);
     int part = partition(A,p,r,median);
     int l = part+1 - p;
@@ -79,6 +78,7 @@ int selection(int *A,int p, int r, int rg){
 
 int main(int argc, char ** argv){
     int A[N] = {8,23,17,15,63,12,42,66,27,19,3,6,83,1,-2,52,18,13};
-    printf("%d est l'element selectionne\n\n",selection(A,0,N-1,RG));
+    printf("%d est l'élément sélectionné\n\n",selection(A,0,N-1,RG));
     return 0;
 }
+
