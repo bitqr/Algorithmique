@@ -1,12 +1,13 @@
 #ifndef DEF_AT
 #define DEF_AT
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
 
-struct noeud{
+struct noeud
+{
 	int cle;
 	int priorite;
 	struct noeud *p;
@@ -14,16 +15,16 @@ struct noeud{
 	struct noeud *droite;
 };
 
-typedef struct noeud NOEUD;	
+typedef struct noeud NOEUD;
 
-struct arbreTas{
+struct arbreTas
+{
 	NOEUD *racine;
 	NOEUD *nil;
 };
 
 typedef struct arbreTas ARBRETAS;
 
-NOEUD * creerNoeudARBRETAS(int cle, int priorite, NOEUD *g, NOEUD *d);
+NOEUD *creerNoeudARBRETAS(int cle, int priorite, NOEUD *g, NOEUD *d);
 
 #endif
-

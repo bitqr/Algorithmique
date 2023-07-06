@@ -1,13 +1,14 @@
 #ifndef DEF_RN
 #define DEF_RN
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define ROUGE 0
 #define NOIR 1
 
-struct noeud{
+struct noeud
+{
 	int cle;
 	int couleur;
 	struct noeud *p;
@@ -15,9 +16,10 @@ struct noeud{
 	struct noeud *droite;
 };
 
-typedef struct noeud NOEUD;	
+typedef struct noeud NOEUD;
 
-struct arbreRN{
+struct arbreRN
+{
 	NOEUD *racine;
 	NOEUD *nil;
 	int hn;
@@ -25,7 +27,6 @@ struct arbreRN{
 
 typedef struct arbreRN ARN;
 
-NOEUD * creerNoeudRN(int cle, NOEUD *g, NOEUD *d,int couleur);
+NOEUD *creerNoeudRN(int cle, NOEUD *g, NOEUD *d, int couleur);
 
 #endif
-
