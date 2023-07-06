@@ -1,14 +1,15 @@
 #ifndef DEF_MAT
 #define DEF_MAT
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define MAX 70
 #define N 10
 #define M1 54
 
-struct ensemble{
+struct ensemble
+{
 	int taille;
 	int longueur;
 	int *elements;
@@ -16,7 +17,8 @@ struct ensemble{
 
 typedef struct ensemble ENSEMBLE;
 
-struct independants{
+struct independants
+{
 	int taille;
 	int longueur;
 	ENSEMBLE **ensembles;
@@ -24,7 +26,8 @@ struct independants{
 
 typedef struct independants INDEPENDANTS;
 
-struct matroide{
+struct matroide
+{
 	ENSEMBLE *E;
 	ENSEMBLE *S;
 	INDEPENDANTS *I;
@@ -33,4 +36,3 @@ struct matroide{
 typedef struct matroide MATROIDE;
 
 #endif
-
