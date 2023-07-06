@@ -1,14 +1,14 @@
-#include"ABR.h"
-#include<stdlib.h>
+#include "ABR.h"
+#include <stdlib.h>
 
-
-ABR * arbre_minimum_recursif(ABR *x){
-	if(x == NULL || x->gauche == NULL)
+ABR *arbre_minimum_recursif(ABR *x)
+{
+	if (x == NULL || x->gauche == NULL)
+	{
 		return x;
-	else 
+	}
+	else
+	{
 		return arbre_minimum_recursif(x->gauche);
+	}
 }
-
-
-
-

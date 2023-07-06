@@ -1,10 +1,11 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #define N 7
 #define K 3
 
-int *creer_candidates(n)
+int *creer_candidates(int n)
 {
     int i;
     int *tab = (int *)malloc(n * sizeof(int));
@@ -26,12 +27,16 @@ int maximum_en_ligne(int k, int n)
     for (i = 0; i < k; i++)
     {
         if (t[i] > meilleur_score)
+        {
             meilleur_score = t[i];
+        }
     }
     for (i = k; i < n; i++)
     {
         if (t[i] > meilleur_score)
+        {
             return i;
+        }
     }
     return n;
 }

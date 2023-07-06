@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #define CLE 66
 #define N 24
 
@@ -29,6 +30,7 @@ int recherche_aleatoire(int *A, int n, int x)
         }
         if (A[i] == x)
         {
+            free(C);
             printf("L'élément %d est à l'indice %d du tableau\n\n", x, i + 1);
             return i;
         }

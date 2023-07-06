@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #define N 7
 
 int Random(int a, int b)
@@ -35,7 +36,7 @@ void permute_avec_tout(int *A, int n)
     }
 }
 
-int *creer_candidates(n)
+int *creer_candidates(int n)
 {
     int i;
     int *tab = (int *)malloc(n * sizeof(int));

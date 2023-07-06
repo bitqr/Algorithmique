@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #define N 7
 
 int Random(int a, int b)
@@ -37,7 +38,7 @@ int *permute_par_cycle(int *A, int n)
     return B;
 }
 
-int *creer_candidates(n)
+int *creer_candidates(int n)
 {
     int i;
     int *tab = (int *)malloc(n * sizeof(int));

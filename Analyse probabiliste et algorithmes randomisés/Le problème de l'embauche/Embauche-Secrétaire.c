@@ -1,12 +1,13 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #define N 7
 #define A 3
 #define B 6
 #define P 0.5
 
-int *creer_candidates(n)
+int *creer_candidates(int n)
 {
     int i;
     int *tab = (int *)malloc(n * sizeof(int));
