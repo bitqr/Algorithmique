@@ -1,9 +1,11 @@
 #ifndef DEF_B_ARBRE
 #define DEF_B_ARBRE
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#define __STDC_WANT_LIB_EXT1__ 1;
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define K 45
 #define VRAI 1
@@ -11,7 +13,8 @@
 #define NIL NULL
 #define t 2
 
-struct noeud_B_arbre{
+struct noeud_B_arbre
+{
 	int n;
 	int *cle;
 	int feuille;
@@ -20,14 +23,16 @@ struct noeud_B_arbre{
 
 typedef struct noeud_B_arbre NOEUD_B_ARBRE;
 
-struct couple{
+struct couple
+{
 	NOEUD_B_ARBRE *y;
-	int i;	
+	int i;
 };
 
 typedef struct couple COUPLE;
 
-struct B_arbre{
+struct B_arbre
+{
 	NOEUD_B_ARBRE *racine;
 };
 
@@ -45,4 +50,3 @@ int minimum_B_arbre(B_ARBRE *T);
 int predecesseur_B_arbre(B_ARBRE *T, int k);
 
 #endif
-

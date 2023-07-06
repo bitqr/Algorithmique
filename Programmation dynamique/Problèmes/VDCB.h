@@ -1,11 +1,11 @@
 #ifndef DEF_VDCB
 #define DEF_VDCB
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-#include<string.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <time.h>
 
 #define N 7
 #define M 10
@@ -30,53 +30,60 @@
 #define HAUT_DROITE 3
 #define NORDO 7
 
-struct point{
+struct point
+{
 	float x;
 	float y;
 };
-	
+
 typedef struct point POINT;
 
-struct noeud{
+struct noeud
+{
 	struct noeud *p;
 	struct noeud *fils_gauche;
 	struct noeud *frere_droite;
 	char *nom;
 	double note;
 };
-	
+
 typedef struct noeud NOEUD;
 
-struct arbre{
+struct arbre
+{
 	struct noeud *racine;
 	struct noeud *nil;
 };
-	
+
 typedef struct arbre ARBRE;
 
-struct solution{
+struct solution
+{
 	double cout;
-	struct noeud *employe;	
+	struct noeud *employe;
 };
 
 typedef struct solution SOLUTION;
 
-struct graphe{
+struct graphe
+{
 	int nombre_sommets;
-	char ** aretes;	
+	char **aretes;
 };
 
 typedef struct graphe GRAPHE;
 
-struct graphe_etendu{
+struct graphe_etendu
+{
 	int nombre_sommets;
-	char ** aretes;
-	double ** p;	
+	char **aretes;
+	double **p;
 };
 
 typedef struct graphe_etendu GRAPHE_ETENDU;
 
-struct carre{
+struct carre
+{
 	double h;
 	double hg;
 	double hd;
@@ -84,15 +91,16 @@ struct carre{
 
 typedef struct carre CARRE;
 
-struct choix{
-	int tache ;
+struct choix
+{
+	int tache;
 	int profit;
 	int temps;
 };
 
 typedef struct choix CHOIX;
 
+void afficher_couts(float **c, int n);
 void afficher_couts(int **c, int n, int e);
 
 #endif
-
