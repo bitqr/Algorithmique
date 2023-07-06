@@ -39,7 +39,7 @@ struct B_arbre
 typedef struct B_arbre B_ARBRE;
 
 COUPLE *rechercher_B_arbre(NOEUD_B_ARBRE *x, int k);
-void lireDisque(NOEUD_B_ARBRE *x);
+void lireDisque(NOEUD_B_ARBRE *x, int i);
 void creer_B_arbre(B_ARBRE *T);
 NOEUD_B_ARBRE *allouerNoeud();
 void ecrireDisque(NOEUD_B_ARBRE *x);

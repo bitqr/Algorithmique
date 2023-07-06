@@ -9,7 +9,7 @@ typedef struct tas
 {
     int longueur; /* limite sous laquelle le tableau peut contenir des nombres valides */
     int taille;   /* limite des nombres compris dans le tas */
-    int *tableau; /* tableau contenant les elements du tas */
+    int *tableau; /* tableau contenant les éléments du tas */
 } TAS;
 
 typedef TAS *P_TAS;
