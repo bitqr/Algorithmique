@@ -71,8 +71,13 @@ void supprimer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 		if (c == A->tailleBinaire)
 		{
 			A->tailleBinaire--;
-			A->representationBinaire = realloc(A->representationBinaire, A->tailleBinaire * sizeof(int));
-			A->val = (int **)realloc(A->val, A->tailleBinaire * sizeof(int *));
+			int newSize = A->tailleBinaire;
+			if (newSize == 0)
+			{
+				newSize++;
+			}
+			A->representationBinaire = (int *)realloc(A->representationBinaire, newSize * sizeof(int));
+			A->val = (int **)realloc(A->val, newSize * sizeof(int *));
 		}
 		A->longueur--;
 	}

@@ -12,13 +12,17 @@ int **creerMatriceEntiers(int m, int n)
 	return e;
 }
 
-int calcul_solution(int **c, int *s, int *f, int i, int j)
+int calcul_solution(int **c, int *s, int *f, int i, int j, int x, int y)
 {
+	if (i > x || j > y)
+	{
+		return 0;
+	}
 	if (c[i][j] != -1)
 		return c[i][j];
 	int m, max = 0;
 	for (m = i + 1; m <= j - 1; m++)
-		if (s[m] >= f[i] && f[m] <= s[j] && max < 1 + calcul_solution(c, s, f, i, m) + calcul_solution(c, s, f, m, j))
+		if (s[m] >= f[i] && f[m] <= s[j] && max < 1 + calcul_solution(c, s, f, i, m, x, y) + calcul_solution(c, s, f, m, j, x, y))
 			max = 1 + c[i][m] + c[m][j];
 	c[i][j] = max;
 	return c[i][j];
@@ -28,7 +32,7 @@ int choix_dynamique(int *s, int *f, int n)
 {
 	int **c = creerMatriceEntiers(n + 2, n + 2);
 	int i, j, m, max;
-	int result = calcul_solution(c, s, f, 0, n + 1);
+	int result = calcul_solution(c, s, f, 0, n + 1, n + 2, n + 2);
 	free(c);
 	return result;
 }

@@ -52,5 +52,6 @@ int main(int argc, char **argv)
 		incrementer(A);
 		afficherTableau(A);
 	}
+	free(A);
 	return 0;
 }

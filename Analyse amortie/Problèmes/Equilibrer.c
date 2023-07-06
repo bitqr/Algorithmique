@@ -39,6 +39,8 @@ ABR *construire_arbre(NOEUD **T, int a, int b)
 		ABR *E = (ABR *)malloc(sizeof(ABR));
 		E->racine = T[m];
 		E->nil = E1->nil;
+		free(E1);
+		free(E2);
 		return E;
 	}
 	else
@@ -64,6 +66,7 @@ ABR *equilibrer(ABR *A)
 			T[i] = successeur(A, T[i - 1]);
 		}
 		ABR *E = construire_arbre(T, 0, n - 1);
+		free(T);
 		return E;
 	}
 	else

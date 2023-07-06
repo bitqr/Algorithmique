@@ -39,7 +39,7 @@ typedef struct
 } ABR;
 
 int rev(int k, int a);
-int *permutation_miroir(int *A, int k);
+int *permutation_miroir(int *A, int k, int n);
 void afficherTableau(int *A, int n);
 int *creerTableau(int n, int limite);
 void incrementer_miroir(TABLEAU *A);

@@ -26,10 +26,9 @@ int rev(int k, int a)
 	return reva;
 }
 
-int *permutation_miroir(int *A, int k)
+int *permutation_miroir(int *A, int k, int n)
 {
 	int i;
-	int n = pow(2, k);
 	int *B = (int *)malloc(n * sizeof(int));
 	for (i = 0; i < n; i++)
 		B[i] = A[rev(k, i)];
@@ -62,7 +61,7 @@ int main(int argc, char **argv)
 {
 	int n = pow(2, K);
 	int *A = creerTableau(n, L);
-	int *B = permutation_miroir(A, K);
+	int *B = permutation_miroir(A, K, n);
 	printf("Voici le tableau d'origine :\n\n");
 	afficherTableau(A, n);
 

@@ -75,5 +75,6 @@ int main(int argc, char **argv)
 			incrementer_poids(A);
 		afficherTableauPoids(A);
 	}
+	free(A);
 	return 0;
 }

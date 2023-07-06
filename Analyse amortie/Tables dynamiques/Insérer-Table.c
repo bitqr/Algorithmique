@@ -5,7 +5,7 @@ TABLEDYNAMIQUE *creerTableDynamique()
 	TABLEDYNAMIQUE *tabdyn = (TABLEDYNAMIQUE *)malloc(sizeof(TABLEDYNAMIQUE));
 	tabdyn->taille = 0;
 	tabdyn->num = 0;
-	tabdyn->table = (int *)malloc(tabdyn->taille * sizeof(int));
+	tabdyn->table = (int *)malloc(sizeof(int));
 	return tabdyn;
 }
 
@@ -13,15 +13,17 @@ void inserer_table(TABLEDYNAMIQUE *T, int x)
 {
 	if (T->taille == 0)
 	{
-		T->table = (int *)malloc(1 * sizeof(int));
+		T->table = (int *)malloc(sizeof(int));
 		T->taille = 1;
 	}
-	if (T->num == T->taille)
+	else if (T->num == T->taille)
 	{
 		int *nouvelle_table = (int *)malloc((2 * T->taille) * sizeof(int));
 		int i;
 		for (i = 0; i < T->num; i++)
+		{
 			nouvelle_table[i] = T->table[i];
+		}
 		free(T->table);
 		T->table = nouvelle_table;
 		T->taille = 2 * T->taille;
@@ -34,7 +36,9 @@ void afficherTable(TABLEDYNAMIQUE *T)
 {
 	int i;
 	for (i = 0; i < T->num; i++)
+	{
 		printf("%d ", T->table[i]);
+	}
 	printf("\ntaille[T]=%d\n\n", T->taille);
 }
 

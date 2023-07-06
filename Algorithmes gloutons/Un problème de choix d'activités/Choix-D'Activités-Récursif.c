@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 	int *Couleurs = coloration_salles(s, f, N);
 	for (i = 0; i < N; i++)
 	{
-		printf("L'activité %d se deroulera dans la salle %d\n", i + 1, Couleurs[i]);
+		printf("L'activité %d se déroulera dans la salle %d\n", i + 1, Couleurs[i]);
 	}
 
 	return 0;
