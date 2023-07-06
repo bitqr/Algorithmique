@@ -7,51 +7,54 @@
 #define NINS 20
 #define NSUPP 5
 
-typedef struct {
+typedef struct
+{
 	unsigned int longueur;
-	int * val;
+	int *val;
 } TABLEAU;
 
-typedef struct {
+typedef struct
+{
 	unsigned int longueur;
 	unsigned int tailleBinaire;
-	int * representationBinaire;
-	int ** val;
+	int *representationBinaire;
+	int **val;
 } TABLEAUDICHOTOMIQUEDYNAMIQUE;
 
-struct noeud{
+struct noeud
+{
 	int cle;
 	int taille;
 	struct noeud *p;
 	struct noeud *gauche;
 	struct noeud *droit;
-	};
+};
 
-typedef struct noeud NOEUD;	
+typedef struct noeud NOEUD;
 
-typedef struct {
+typedef struct
+{
 	NOEUD *racine;
 	NOEUD *nil;
-	} ABR;
+} ABR;
 
 int rev(int k, int a);
-int * permutation_miroir(int *A, int k);
+int *permutation_miroir(int *A, int k);
 void afficherTableau(int *A, int n);
-int * creerTableau(int n, int limite);
+int *creerTableau(int n, int limite);
 void incrementer_miroir(TABLEAU *A);
-TABLEAU * inventerTableau(unsigned int l);
+TABLEAU *inventerTableau(unsigned int l);
 void ecrireTableau(TABLEAU *A);
-TABLEAUDICHOTOMIQUEDYNAMIQUE * creerTableauDichotomiqueDynamiqueVide();
+TABLEAUDICHOTOMIQUEDYNAMIQUE *creerTableauDichotomiqueDynamiqueVide();
 int rechercher(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x);
 void afficherTableauDichotomiqueDynamique(TABLEAUDICHOTOMIQUEDYNAMIQUE *A);
 void inserer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x);
 void supprimer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x);
-NOEUD * minimum(ABR *A, NOEUD *x);
-NOEUD * successeur(ABR *A, NOEUD *x);
+NOEUD *minimum(ABR *A, NOEUD *x);
+NOEUD *successeur(ABR *A, NOEUD *x);
 ABR *construire_arbre(NOEUD **T, int a, int b);
 ABR *equilibrer(ABR *A);
 void afficherArbre(ABR *A, NOEUD *x);
-NOEUD * creerNoeud(int cle, NOEUD *g, NOEUD *d);
+NOEUD *creerNoeud(int cle, NOEUD *g, NOEUD *d);
 
 #endif
-

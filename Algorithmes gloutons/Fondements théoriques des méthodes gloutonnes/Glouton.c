@@ -407,7 +407,7 @@ int main(int argc, char **argv)
 
 	M->I = I;
 
-	printf("Matroide M\n\n");
+	printf("Matroïde M\n\n");
 	printf("E = { ");
 	int j, k;
 	for (j = 0; j < M->E->longueur - 1; j++)
@@ -431,7 +431,7 @@ int main(int argc, char **argv)
 
 	ENSEMBLE *F = glouton(M, w);
 	int wF = 0;
-	printf("\n\nL'ensemble independant F optimal est :\n\n");
+	printf("\n\nL'ensemble indépendant F optimal est :\n\n");
 	printf(" { ");
 	for (j = 0; j < F->longueur - 1; j++)
 	{

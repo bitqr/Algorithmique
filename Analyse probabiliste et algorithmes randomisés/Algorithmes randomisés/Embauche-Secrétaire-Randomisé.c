@@ -2,18 +2,22 @@
 #include <stdlib.h>
 #define N 7
 
-int *creer_candidates(int n) {
+int *creer_candidates(int n)
+{
   int i;
   int *tab = (int *)malloc(n * sizeof(int));
-  for (i = 0; i < n; i++) {
+  for (i = 0; i < n; i++)
+  {
     tab[i] = rand() % 1000;
   }
   return tab;
 }
 
-int *permuter_alea(int *t, int n) {
+int *permuter_alea(int *t, int n)
+{
   int i, r, tmp;
-  for (i = 0; i < n; i++) {
+  for (i = 0; i < n; i++)
+  {
     r = rand() % n;
     tmp = t[r];
     t[r] = t[i];
@@ -24,9 +28,10 @@ int *permuter_alea(int *t, int n) {
 
 int interviewer(int *t, int n) { return t[n]; }
 
-void embaucher(int n) { printf("La secretaire %d est embauchee\n\n\n", n); }
+void embaucher(int n) { printf("La secrétaire %d est embauchée\n\n\n", n); }
 
-void embauche_secretaire(int n) {
+void embauche_secretaire(int n)
+{
   int i, j;
   int *t1 = creer_candidates(n);
   for (i = 0; i < n; i++)
@@ -38,18 +43,21 @@ void embauche_secretaire(int n) {
   printf("\n\n\n");
   int meilleure = 0; /*candidate 0 est une candidate fictive, moins qualifiée
                         que quiconque */
-  for (i = 0; i < n; i++) {
+  for (i = 0; i < n; i++)
+  {
     j = interviewer(t, i);
-    if (j > t[meilleure]) {
+    if (j > t[meilleure])
+    {
       meilleure = i;
       embaucher(i + 1);
     }
   }
-  printf("La candidate embauchee est finalement la secretaire numero %d\n\n\n",
+  printf("La candidate embauchée est finalement la secrétaire numéro %d\n\n\n",
          meilleure + 1);
 }
 
-int main() {
+int main()
+{
   int i, j;
   srand(time(NULL));
   embauche_secretaire(N);
