@@ -2,10 +2,9 @@
 
 COUPLE_ARBRES_APRES_SCISSION scission_arbre_2_3_4(ARBRE_2_3_4 *T, int k)
 {
-	ARBRE_2_3_4 *A = (ARBRE_2_3_4 *)malloc(sizeof(ARBRE_2_3_4));
-	ARBRE_2_3_4 *B = (ARBRE_2_3_4 *)malloc(sizeof(ARBRE_2_3_4));
-	creer_arbre_2_3_4(A);
-	creer_arbre_2_3_4(B);
+	ARBRE_2_3_4 *A = creer_arbre_2_3_4();
+	ARBRE_2_3_4 *B = creer_arbre_2_3_4();
+
 	PILE *K1 = creerPile(T->racine->hauteur + 1);
 	PILE *K2 = creerPile(T->racine->hauteur + 1);
 	PILE_ARBRE_2_3_4 *T1 = creerPileArbre234(T->racine->hauteur + 1);
@@ -43,14 +42,16 @@ COUPLE_ARBRES_APRES_SCISSION scission_arbre_2_3_4(ARBRE_2_3_4 *T, int k)
 	return c;
 }
 
-void creer_arbre_2_3_4(ARBRE_2_3_4 *T)
+ARBRE_2_3_4 *creer_arbre_2_3_4()
 {
+	ARBRE_2_3_4 *T = (ARBRE_2_3_4 *)malloc(sizeof(ARBRE_2_3_4));
 	NOEUD_ARBRE_2_3_4 *x = allouerNoeud();
 	x->feuille = VRAI;
 	x->n = 0;
 	x->hauteur = 0;
 	ecrireDisque(x);
 	T->racine = x;
+	return T;
 }
 
 PILE *creerPile(int taille)
@@ -82,10 +83,8 @@ void partager_avec_chemin(NOEUD_ARBRE_2_3_4 *x, int k, PILE *K1, PILE_ARBRE_2_3_
 	}
 	if (i <= x->n && x->cle[i - 1] == k)
 	{
-		ARBRE_2_3_4 *A = (ARBRE_2_3_4 *)malloc(sizeof(ARBRE_2_3_4));
-		ARBRE_2_3_4 *B = (ARBRE_2_3_4 *)malloc(sizeof(ARBRE_2_3_4));
-		creer_arbre_2_3_4(A);
-		creer_arbre_2_3_4(B);
+		ARBRE_2_3_4 *A = creer_arbre_2_3_4();
+		ARBRE_2_3_4 *B = creer_arbre_2_3_4();
 		if (i > 1)
 		{
 			NOEUD_ARBRE_2_3_4 *z = allouerNoeud();
@@ -162,8 +161,7 @@ void partager_avec_chemin(NOEUD_ARBRE_2_3_4 *x, int k, PILE *K1, PILE_ARBRE_2_3_
 			if (i > 1)
 			{
 				empiler(K1, x->cle[i - 2]);
-				ARBRE_2_3_4 *A = (ARBRE_2_3_4 *)malloc(sizeof(ARBRE_2_3_4));
-				creer_arbre_2_3_4(A);
+				ARBRE_2_3_4 *A = creer_arbre_2_3_4();
 				if (i > 2)
 				{
 					NOEUD_ARBRE_2_3_4 *z = allouerNoeud();
@@ -199,8 +197,7 @@ void partager_avec_chemin(NOEUD_ARBRE_2_3_4 *x, int k, PILE *K1, PILE_ARBRE_2_3_
 			if (i <= x->n)
 			{
 				empiler(K2, x->cle[i - 1]);
-				ARBRE_2_3_4 *B = (ARBRE_2_3_4 *)malloc(sizeof(ARBRE_2_3_4));
-				creer_arbre_2_3_4(B);
+				ARBRE_2_3_4 *B = creer_arbre_2_3_4();
 				if (i < x->n)
 				{
 					NOEUD_ARBRE_2_3_4 *y = allouerNoeud();

@@ -25,26 +25,42 @@ float **matrice_distances(POINT **entree, int n)
 	int i, j;
 	float **m = (float **)malloc(n * sizeof(float *));
 	for (i = 0; i < n; i++)
+	{
 		m[i] = (float *)malloc(n * sizeof(float));
+	}
 	for (i = 0; i < n; i++)
+	{
 		for (j = 0; j < n; j++)
+		{
 			if (i >= j)
+			{
 				m[i][j] = 0;
+			}
 			else
+			{
 				m[i][j] = distance_euclidienne(entree[i], entree[j]);
+			}
+		}
+	}
 	return m;
 }
 
-void afficher_couts(float **c, int n)
+void afficher_couts_reels(float **c, int n)
 {
 	int i, j;
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < n; j++)
+		{
 			if (c[i][j] == 0)
+			{
 				printf(" \t");
+			}
 			else
+			{
 				printf("%.2f\t", c[i][j]);
+			}
+		}
 		printf("\n");
 	}
 }
@@ -57,9 +73,6 @@ float voyageur_de_commerce_bitonique(POINT **points, float **dist, int **S, int 
 	for (i = 0; i < n; i++)
 	{
 		C[i] = (float *)malloc(n * sizeof(float));
-	}
-	for (i = 0; i < n; i++)
-	{
 		for (j = 0; j < n; j++)
 		{
 			C[i][j] = 0;
@@ -83,8 +96,7 @@ float voyageur_de_commerce_bitonique(POINT **points, float **dist, int **S, int 
 			}
 		}
 	}
-	k = dist[0][1] + C[0][1];
-	return k;
+	return dist[0][1] + C[0][1];
 }
 
 int main(int argc, char **argv)
@@ -94,25 +106,33 @@ int main(int argc, char **argv)
 	float **dist = matrice_distances(sortie, N);
 	printf("\n\n");
 	printf("Distances entre toutes les paires de points\n");
-	afficher_couts(dist, N);
+	afficher_couts_reels(dist, N);
 	printf("\n\n");
 	int i, j;
 	int **S = (int **)malloc(N * sizeof(int *));
 	for (i = 0; i < N; i++)
+	{
 		S[i] = (int *)malloc(N * sizeof(int));
+	}
 	for (i = 0; i < N; i++)
+	{
 		for (j = 0; j < N; j++)
+		{
 			S[i][j] = 0;
+		}
+	}
 	float ct = voyageur_de_commerce_bitonique(sortie, dist, S, N);
 	for (i = 0; i < N; i++)
 	{
 		for (j = 0; j < N; j++)
+		{
 			printf("%d\t", S[i][j]);
+		}
 		printf("\n");
 	}
 
 	printf("\n\n");
 
-	printf("Le cout d'une tournée bitonique optimale est de %.2f...\n\n", ct);
+	printf("Le coût d'une tournée bitonique optimale est de %.2f...\n\n", ct);
 	return 0;
 }

@@ -20,33 +20,33 @@ COUPLE *rechercher_B_arbre(NOEUD_B_ARBRE *x, int k)
 	}
 	else
 	{
-		lireDisque(x->c[i - 1]);
+		lireDisque(x, i - 1);
 		return rechercher_B_arbre(x->c[i - 1], k);
 	}
 }
 
-void lireDisque(NOEUD_B_ARBRE *x)
+void lireDisque(NOEUD_B_ARBRE *x, int j)
 {
 	char s1[20];
-	sprintf(s1, "%p.bab", x);
+	sprintf(s1, "%p.bab", x->c[j]);
 	FILE *f = fopen(s1, "r");
-	fscanf(f, "%d\n", &(x->n));
+	fscanf(f, "%d\n", &(x->c[j]->n));
 	int i;
-	x->cle = (int *)malloc(x->n * sizeof(int));
-	for (i = 1; i <= x->n; i++)
+	x->cle = (int *)malloc(x->c[j]->n * sizeof(int));
+	for (i = 1; i <= x->c[j]->n; i++)
 	{
-		fscanf(f, "%d\n", &(x->cle[i - 1]));
+		fscanf(f, "%d\n", &(x->c[j]->cle[i - 1]));
 	}
-	fscanf(f, "%d\n", &(x->feuille));
-	if (x->feuille == 0)
+	fscanf(f, "%d\n", &(x->c[j]->feuille));
+	if (x->c[j]->feuille == 0)
 	{
-		x->c = (NOEUD_B_ARBRE **)malloc((x->n + 1) * sizeof(NOEUD_B_ARBRE *));
-		for (i = 1; i <= x->n + 1; i++)
+		x->c[j]->c = (NOEUD_B_ARBRE **)malloc((x->c[j]->n + 1) * sizeof(NOEUD_B_ARBRE *));
+		for (i = 1; i <= x->c[j]->n + 1; i++)
 		{
-			x->c[i - 1] = (NOEUD_B_ARBRE *)malloc(sizeof(NOEUD_B_ARBRE));
+			x->c[j]->c[i - 1] = (NOEUD_B_ARBRE *)malloc(sizeof(NOEUD_B_ARBRE));
 			void *p;
 			fscanf(f, "%p\n", &p);
-			x->c[i - 1] = (NOEUD_B_ARBRE *)p;
+			x->c[j]->c[i - 1] = (NOEUD_B_ARBRE *)p;
 		}
 	}
 	fclose(f);

@@ -6,7 +6,9 @@ void afficher_couts(int **c, int n, int e)
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < e; j++)
+		{
 			printf("%d\t", c[i][j]);
+		}
 		printf("\n");
 	}
 }
@@ -65,7 +67,13 @@ int distance_d_edition(int m, int n, int couts[6], char *x, char *y, char **S)
 	int i, j, a, b, c, d, e, min;
 	int **C = (int **)malloc((m + 1) * sizeof(int *));
 	for (i = 0; i < m + 1; i++)
+	{
 		C[i] = (int *)malloc((n + 1) * sizeof(int));
+		for (j = 0; j < n + 1; j++)
+		{
+			C[i][j] = 0;
+		}
+	}
 	C[m][n] = 0;
 	S[m][n] = '0';
 	for (j = n - 1; j >= 0; j--)
@@ -141,7 +149,9 @@ int distance_d_edition(int m, int n, int couts[6], char *x, char *y, char **S)
 	}
 	afficher_couts(C, m + 1, n + 1);
 	afficher_solution(S, x, y, n, m);
-	return C[0][0];
+	int result = C[0][0];
+	free(C);
+	return result;
 }
 
 int main(int argc, char **argv)
@@ -150,7 +160,9 @@ int main(int argc, char **argv)
 	int couts[6] = {C_COP, C_REMP, C_SUP, C_INS, C_PERM, C_EQ};
 	char **S = (char **)malloc((M1 + 1) * sizeof(char *));
 	for (i = 0; i < M1 + 1; i++)
+	{
 		S[i] = (char *)malloc((N1 + 1) * sizeof(char));
+	}
 	char x[M1 + 1] = "algorithm";
 	char y[N1 + 1] = "altruistic";
 	int opt = distance_d_edition(M1, N1, couts, x, y, S);

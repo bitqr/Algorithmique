@@ -28,7 +28,7 @@ void inserer_B_arbre_incomplet(NOEUD_B_ARBRE *x, int k)
 			i = i - 1;
 		}
 		i = i + 1;
-		lireDisque(x->c[i - 1]);
+		lireDisque(x, i - 1);
 		if (x->c[i - 1]->n == 2 * t - 1)
 		{
 			partager_enfant_B_arbre(x, i, x->c[i - 1]);

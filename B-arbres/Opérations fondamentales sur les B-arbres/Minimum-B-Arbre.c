@@ -10,7 +10,7 @@ int minimum_B_arbre(B_ARBRE *T)
 	}
 	while (r->feuille == FAUX)
 	{
-		lireDisque(r->c[0]);
+		lireDisque(r, 0);
 		r = r->c[0];
 	}
 	return r->cle[0];

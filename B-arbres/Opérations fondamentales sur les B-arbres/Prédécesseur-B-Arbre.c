@@ -12,30 +12,36 @@ int predecesseur_B_arbre(B_ARBRE *T, int k)
 		}
 		if (i >= 1 && k == r->cle[i - 1])
 		{
-			lireDisque(r->c[i - 1]);
+			lireDisque(r, i - 1);
 			NOEUD_B_ARBRE *x = r->c[i - 1];
 			while (x->feuille == FAUX)
 			{
-				lireDisque(x->c[x->n]);
+				lireDisque(x, x->n);
 				x = x->c[x->n];
 			}
 			return x->cle[x->n - 1];
 		}
 		if (i >= 1)
 		{
-			lireDisque(r->c[i]);
+			lireDisque(r, i);
 			NOEUD_B_ARBRE *x = r->c[i];
 			while (x->feuille == FAUX)
 			{
-				lireDisque(x->c[0]);
+				lireDisque(x, 0);
 			}
 			if (x->cle[0] == k)
+			{
 				return r->cle[i - 1];
+			}
 			else
+			{
 				r = r->c[i];
+			}
 		}
 		else
+		{
 			r = r->c[0];
+		}
 	}
 	int i = r->n;
 	while (i >= 1 && r->cle[i - 1] > k)

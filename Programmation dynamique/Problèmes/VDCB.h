@@ -100,7 +100,7 @@ struct choix
 
 typedef struct choix CHOIX;
 
-void afficher_couts(float **c, int n);
+void afficher_couts_reels(float **c, int n);
 void afficher_couts(int **c, int n, int e);
 
 #endif

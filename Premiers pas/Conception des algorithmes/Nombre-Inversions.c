@@ -35,9 +35,7 @@ int nombre_inversions(int *A, int p, int r)
      int q = (p + r) / 2;
      if (p < r)
      {
-          {
-               return nombre_inversions(A, p, q) + nombre_inversions(A, q + 1, r) + fusion_inv(A, p, q, r);
-          }
+          return nombre_inversions(A, p, q) + nombre_inversions(A, q + 1, r) + fusion_inv(A, p, q, r);
      }
      if (p == r)
      {
