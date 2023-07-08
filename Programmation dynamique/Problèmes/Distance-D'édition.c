@@ -65,6 +65,10 @@ void afficher_solution(char **S, char *x, char *y, int n, int m)
 int distance_d_edition(int m, int n, int couts[6], char *x, char *y, char **S)
 {
 	int i, j, a, b, c, d, e, min;
+	if (m < 0 || n < 0)
+	{
+		return 0;
+	}
 	int **C = (int **)malloc((m + 1) * sizeof(int *));
 	for (i = 0; i < m + 1; i++)
 	{

@@ -3,7 +3,7 @@
 int *solution_ordonnancement(CHOIX **C, int n, int T, int *t)
 {
 	int *s = (int *)malloc(n * sizeof(int));
-	int i, j, k, max = 0;
+	int i, j, k = 0, max = 0;
 	for (i = 0; i <= T; i++)
 		if (C[n][i].profit > max)
 		{
