@@ -3,11 +3,11 @@
 COUPLE *rechercher_B_arbre(NOEUD_B_ARBRE *x, int k)
 {
 	int i = 1;
-	while ((i <= x->n) && (k > x->cle[i - 1]))
+	while (i <= x->n && k > x->cle[i - 1])
 	{
 		i = i + 1;
 	}
-	if ((i <= x->n) && (k == x->cle[i - 1]))
+	if (i <= x->n && k == x->cle[i - 1])
 	{
 		COUPLE *r = (COUPLE *)malloc(sizeof(COUPLE));
 		r->y = x;
@@ -27,17 +27,20 @@ COUPLE *rechercher_B_arbre(NOEUD_B_ARBRE *x, int k)
 
 void lireDisque(NOEUD_B_ARBRE *x, int j)
 {
-	char s1[20];
-	sprintf(s1, "%p.bab", x->c[j]);
+	char *s1 = copierPointeur(x->c[j]);
 	FILE *f = fopen(s1, "r");
-	fscanf(f, "%d\n", &(x->c[j]->n));
+	char s[20];
+	fgets(s, 20, f);
+	x->c[j]->n = atoi(s);
 	int i;
 	x->cle = (int *)malloc(x->c[j]->n * sizeof(int));
 	for (i = 1; i <= x->c[j]->n; i++)
 	{
-		fscanf(f, "%d\n", &(x->c[j]->cle[i - 1]));
+		fgets(s, 20, f);
+		x->c[j]->cle[i - 1] = atoi(s);
 	}
-	fscanf(f, "%d\n", &(x->c[j]->feuille));
+	fgets(s, 20, f);
+	x->c[j]->feuille = atoi(s);
 	if (x->c[j]->feuille == 0)
 	{
 		x->c[j]->c = (NOEUD_B_ARBRE **)malloc((x->c[j]->n + 1) * sizeof(NOEUD_B_ARBRE *));

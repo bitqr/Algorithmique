@@ -48,5 +48,6 @@ void inserer_B_arbre(B_ARBRE *T, int k);
 void inserer_B_arbre_incomplet(NOEUD_B_ARBRE *x, int k);
 int minimum_B_arbre(B_ARBRE *T);
 int predecesseur_B_arbre(B_ARBRE *T, int k);
+char *copierPointeur(NOEUD_B_ARBRE *x);
 
 #endif

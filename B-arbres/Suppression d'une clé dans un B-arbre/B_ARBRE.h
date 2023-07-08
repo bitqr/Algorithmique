@@ -11,7 +11,8 @@
 #define NIL NULL
 #define t 2
 
-struct noeud_B_arbre {
+struct noeud_B_arbre
+{
   int n;
   int *cle;
   int feuille;
@@ -20,14 +21,16 @@ struct noeud_B_arbre {
 
 typedef struct noeud_B_arbre NOEUD_B_ARBRE;
 
-struct couple {
+struct couple
+{
   NOEUD_B_ARBRE *y;
   int i;
 };
 
 typedef struct couple COUPLE;
 
-struct B_arbre {
+struct B_arbre
+{
   NOEUD_B_ARBRE *racine;
 };
 

@@ -1,28 +1,46 @@
 #include "ARBRE_2_3_4.h"
 
-void lireDisque(NOEUD_ARBRE_2_3_4 *x)
+char *copierPointeur234(NOEUD_ARBRE_2_3_4 *x)
 {
-	char s1[20];
-	sprintf(s1, "%p.234", x);
+	char *s1 = (char *)malloc(20 * sizeof(char));
+	FILE *fichier = fopen("temp", "w");
+	fprintf(fichier, "%p.234", x);
+	fclose(fichier);
+	fichier = fopen("temp", "r");
+	fgets(s1, 20, fichier);
+	fclose(fichier);
+	system("rm temp");
+	return s1;
+}
+
+void lireDisque(NOEUD_ARBRE_2_3_4 *x, int j)
+{
+	char *s1 = copierPointeur234(x->c[j]);
 	FILE *f = fopen(s1, "r");
-	fscanf(f, "%d\n", &(x->n));
+	free(s1);
+	char s[20];
+	fgets(s, 20, f);
+	x->c[j]->n = atoi(s);
 	int i;
-	fscanf(f, "%d\n", &(x->hauteur));
-	x->cle = (int *)malloc(x->n * sizeof(int));
-	for (i = 1; i <= x->n; i++)
+	fgets(s, 20, f);
+	x->c[j]->hauteur = atoi(s);
+	x->c[j]->cle = (int *)malloc(x->c[j]->n * sizeof(int));
+	for (i = 1; i <= x->c[j]->n; i++)
 	{
-		fscanf(f, "%d\n", &(x->cle[i - 1]));
+		fgets(s, 20, f);
+		x->c[j]->cle[i - 1] = atoi(s);
 	}
-	fscanf(f, "%d\n", &(x->feuille));
-	if (x->feuille == 0)
+	fgets(s, 20, f);
+	x->c[j]->feuille = atoi(s);
+	if (x->c[j]->feuille == 0)
 	{
-		x->c = (NOEUD_ARBRE_2_3_4 **)malloc((x->n + 1) * sizeof(NOEUD_ARBRE_2_3_4 *));
-		for (i = 1; i <= x->n + 1; i++)
+		x->c[j]->c = (NOEUD_ARBRE_2_3_4 **)malloc((x->n + 1) * sizeof(NOEUD_ARBRE_2_3_4 *));
+		for (i = 1; i <= x->c[j]->n + 1; i++)
 		{
-			x->c[i - 1] = (NOEUD_ARBRE_2_3_4 *)malloc(sizeof(NOEUD_ARBRE_2_3_4));
+			x->c[j]->c[i - 1] = (NOEUD_ARBRE_2_3_4 *)malloc(sizeof(NOEUD_ARBRE_2_3_4));
 			void *p;
 			fscanf(f, "%p\n", &p);
-			x->c[i - 1] = (NOEUD_ARBRE_2_3_4 *)p;
+			x->c[j]->c[i - 1] = (NOEUD_ARBRE_2_3_4 *)p;
 		}
 	}
 	fclose(f);
@@ -35,9 +53,9 @@ NOEUD_ARBRE_2_3_4 *allouerNoeud()
 
 void ecrireDisque(NOEUD_ARBRE_2_3_4 *x)
 {
-	char s1[20];
-	sprintf(s1, "%p.234", x);
+	char *s1 = copierPointeur234(x);
 	FILE *f = fopen(s1, "w");
+	free(s1);
 	fprintf(f, "%d\n", x->n);
 	fprintf(f, "%d\n", x->hauteur);
 	int i;
@@ -72,7 +90,7 @@ COUPLE *rechercher_arbre_2_3_4_avec_hauteur(NOEUD_ARBRE_2_3_4 *x, int k)
 	}
 	else
 	{
-		lireDisque(x->c[i - 1]);
+		lireDisque(x, i - 1);
 		return rechercher_arbre_2_3_4_avec_hauteur(x->c[i - 1], k);
 	}
 }

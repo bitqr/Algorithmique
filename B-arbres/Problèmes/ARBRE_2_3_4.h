@@ -10,7 +10,8 @@
 #define NIL NULL
 #define K 60
 
-struct noeud_arbre_2_3_4 {
+struct noeud_arbre_2_3_4
+{
   int n;
   int *cle;
   int feuille;
@@ -20,27 +21,31 @@ struct noeud_arbre_2_3_4 {
 
 typedef struct noeud_arbre_2_3_4 NOEUD_ARBRE_2_3_4;
 
-struct couple {
+struct couple
+{
   NOEUD_ARBRE_2_3_4 *y;
   int i;
 };
 
 typedef struct couple COUPLE;
 
-struct arbre_2_3_4 {
+struct arbre_2_3_4
+{
   NOEUD_ARBRE_2_3_4 *racine;
 };
 
 typedef struct arbre_2_3_4 ARBRE_2_3_4;
 
-struct couple_arbres_apres_scission {
+struct couple_arbres_apres_scission
+{
   ARBRE_2_3_4 *arbre1;
   ARBRE_2_3_4 *arbre2;
 };
 
 typedef struct couple_arbres_apres_scission COUPLE_ARBRES_APRES_SCISSION;
 
-struct pile {
+struct pile
+{
   int taille;
   int sommet;
   int *tableau;
@@ -48,7 +53,8 @@ struct pile {
 
 typedef struct pile PILE;
 
-struct pile_arbre_2_3_4 {
+struct pile_arbre_2_3_4
+{
   int taille;
   int sommet;
   ARBRE_2_3_4 **tableau;
@@ -56,7 +62,7 @@ struct pile_arbre_2_3_4 {
 
 typedef struct pile_arbre_2_3_4 PILE_ARBRE_2_3_4;
 
-void lireDisque(NOEUD_ARBRE_2_3_4 *x);
+void lireDisque(NOEUD_ARBRE_2_3_4 *, int j);
 NOEUD_ARBRE_2_3_4 *allouerNoeud();
 void ecrireDisque(NOEUD_ARBRE_2_3_4 *x);
 COUPLE *rechercher_arbre_2_3_4_avec_hauteur(NOEUD_ARBRE_2_3_4 *x, int k);
