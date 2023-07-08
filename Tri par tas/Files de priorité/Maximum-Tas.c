@@ -32,5 +32,6 @@ int main()
     int tab[N1] = {16, 14, 10, 8, 7, 9, 3, 2, 4, 1};
     tas->tableau = tab;
     printf("Le maximum du tas est %d\n\n", maximum_tas(tas));
+    free(tas);
     return 0;
 }

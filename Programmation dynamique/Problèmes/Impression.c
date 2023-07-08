@@ -20,9 +20,6 @@ int **impression(int *l, int capacite, int **S, int n)
 	for (i = 0; i < n; i++)
 	{
 		C[i] = (int *)malloc(capacite * sizeof(int));
-	}
-	for (i = 0; i < n; i++)
-	{
 		for (j = 0; j < capacite; j++)
 		{
 			C[i][j] = 0;
@@ -34,23 +31,24 @@ int **impression(int *l, int capacite, int **S, int n)
 		S[n - 1][j] = (l[n - 1] <= j + 1) ? 0 : 1;
 	}
 	for (j = n - 2; j >= 0; j--)
+	{
 		for (E = capacite - 1; E >= 0; E--)
 		{
 			if (E == capacite - 1)
 			{
-				if (l[j] == capacite)
+				if (l[j] == capacite && capacite >= 2)
 				{
 					C[j][E] = C[j + 1][capacite - 2];
 					S[j][E] = 2;
 				}
 				else
 				{
-					if (l[j] == capacite - 1)
+					if (l[j] == capacite - 1 && capacite >= 1)
 					{
 						C[j][E] = 1 + C[j + 1][capacite - 1];
 						S[j][E] = 2;
 					}
-					else
+					else if (E - l[j] - 1 >= 0)
 					{
 						C[j][E] = C[j + 1][E - l[j] - 1];
 						S[j][E] = 0;
@@ -59,7 +57,7 @@ int **impression(int *l, int capacite, int **S, int n)
 			}
 			else
 			{
-				if (l[j] < E + 1)
+				if (l[j] < E + 1 && capacite >= 1)
 				{
 					k = (E + 2) * (E + 2) * (E + 2) + C[j][capacite - 1];
 					r = C[j + 1][(E == l[j]) ? capacite - 1 : E - l[j] - 1];
@@ -68,7 +66,7 @@ int **impression(int *l, int capacite, int **S, int n)
 					S[j][E] = (k < r) ? 1 : (E == l[j]) ? 2
 														: 0;
 				}
-				else
+				else if (capacite >= 1)
 				{
 					if (l[j] == E + 1)
 					{
@@ -85,6 +83,7 @@ int **impression(int *l, int capacite, int **S, int n)
 				}
 			}
 		}
+	}
 	return C;
 }
 

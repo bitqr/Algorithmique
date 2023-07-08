@@ -27,7 +27,17 @@ void fusion(int *A, int p, int q, int r)
     int k;
     for (k = p; k < r + 1; k++)
     {
-        if (L[i] <= R[j])
+        if (i == n1)
+        {
+            A[k] = R[j];
+            j++;
+        }
+        else if (j == n2)
+        {
+            A[k] = L[i];
+            i++;
+        }
+        else if (L[i] <= R[j])
         {
             A[k] = L[i];
             i++;
@@ -57,17 +67,27 @@ int recherche_dichotomique(int *A, int deb, int fin, int cle)
     if (deb > fin)
     {
         if (A[deb] == cle)
+        {
             return deb;
+        }
         else
+        {
             return -1;
+        }
     }
     int mil = (deb + fin) / 2;
     if (A[mil] == cle)
+    {
         return mil;
+    }
     if (A[mil] < cle)
+    {
         return recherche_dichotomique(A, mil + 1, fin, cle);
+    }
     else
+    {
         return recherche_dichotomique(A, deb, mil - 1, cle);
+    }
 }
 
 int somme_ensemble(int *S, int n, int x)
@@ -78,7 +98,9 @@ int somme_ensemble(int *S, int n, int x)
     {
         int comp = abs(S[i] - x);
         if (recherche_dichotomique(S, i + 1, n - 1, comp) != -1)
+        {
             return 1;
+        }
     }
     return 0;
 }
@@ -88,9 +110,13 @@ int main()
     int A[N] = {5, 2, 4, 7, 1, 3, 2, 6};
     int n = somme_ensemble(A, 8, CLE);
     if (!n)
+    {
         printf("Pas de couple d'éléments dont la somme vaut %d \n\n", CLE);
+    }
     else
+    {
         printf("Il y a un couple d'éléments dont la somme vaut %d\n\n", CLE);
+    }
     printf("\n\n\n");
     return 0;
 }

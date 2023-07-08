@@ -69,6 +69,10 @@ float voyageur_de_commerce_bitonique(POINT **points, float **dist, int **S, int 
 {
 	int i, j;
 	float k, l;
+	if (n < 2)
+	{
+		return 0.0;
+	}
 	float **C = (float **)malloc(n * sizeof(float *));
 	for (i = 0; i < n; i++)
 	{
@@ -78,7 +82,7 @@ float voyageur_de_commerce_bitonique(POINT **points, float **dist, int **S, int 
 			C[i][j] = 0;
 		}
 	}
-	for (j = n - 1; j >= 0; j--)
+	for (j = n - 1; j >= 0 && j <= n; j--)
 	{
 		for (i = j - 1; i >= 0; i--)
 		{

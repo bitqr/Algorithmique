@@ -12,10 +12,12 @@ COUPLE_ARBRES_APRES_SCISSION scission_arbre_2_3_4(ARBRE_2_3_4 *T, int k)
 	partager_avec_chemin(T->racine, k, K1, T1, K2, T2);
 	if (!pileVideArbre234(T1))
 	{
+		free(A);
 		A = depilerArbre234(T1);
 	}
 	if (!pileVideArbre234(T2))
 	{
+		free(B);
 		B = depilerArbre234(T2);
 	}
 	while (!pileVide(K1))

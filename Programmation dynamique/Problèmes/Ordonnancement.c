@@ -26,7 +26,9 @@ int *ordonnancement(int *t, int *d, int *p, int n)
 		T += t[i];
 	CHOIX **C = (CHOIX **)malloc((n + 1) * sizeof(CHOIX *));
 	for (i = 0; i <= n; i++)
+	{
 		C[i] = (CHOIX *)malloc((T + 1) * sizeof(CHOIX));
+	}
 	for (i = 0; i <= n; i++)
 	{
 		C[i][0].tache = 0;
@@ -81,7 +83,9 @@ void afficherTable(int *s, int n)
 {
 	int i;
 	for (i = 0; i < n; i++)
+	{
 		printf("%d\t", s[i]);
+	}
 	printf("\n");
 }
 
