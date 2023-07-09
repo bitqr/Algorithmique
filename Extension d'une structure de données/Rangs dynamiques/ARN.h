@@ -1,13 +1,14 @@
 #ifndef DEF_RN
 #define DEF_RN
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define ROUGE 0
 #define NOIR 1
 
-struct noeud{
+struct noeud
+{
 	int cle;
 	int couleur;
 	int taille;
@@ -16,16 +17,18 @@ struct noeud{
 	struct noeud *droite;
 };
 
-typedef struct noeud NOEUD;	
+typedef struct noeud NOEUD;
 
-struct arbreRN{
+struct arbreRN
+{
 	NOEUD *racine;
 	NOEUD *nil;
 };
 
 typedef struct arbreRN ARN;
 
-struct noeudpoint{
+struct noeudpoint
+{
 	float cle;
 	int couleur;
 	int etiquette;
@@ -36,10 +39,11 @@ struct noeudpoint{
 	struct noeudpoint *droite;
 	struct noeudpoint *jumeau;
 };
-	
-typedef struct noeudpoint NOEUDPOINT;	
 
-struct arbreRNP{
+typedef struct noeudpoint NOEUDPOINT;
+
+struct arbreRNP
+{
 	NOEUDPOINT *racine;
 	NOEUDPOINT *nil;
 };
@@ -51,4 +55,3 @@ NOEUD *recuperer_rang_iteratif(NOEUD *x, int i);
 int rechercher_rang_cle(NOEUD *x, int k);
 
 #endif
-

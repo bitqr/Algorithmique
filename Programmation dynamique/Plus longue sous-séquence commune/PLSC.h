@@ -56,7 +56,7 @@ char **initSP(int n, int m);
 SEQUENCE *creerSequence(int longueur);
 int **longueur_plsc(SEQUENCE *X, SEQUENCE *Y, char **b);
 void plsc_croissante(SEQUENCE *X);
-void initSequenceEntiers(SEQUENCE *S, int *C);
+void initSequenceEntiers(SEQUENCE *S, int *C, int n);
 void tri_fusion(int *A, int p, int r);
 void fusion(int *A, int p, int q, int r);
 void afficherTables(int **A, int n, int m);

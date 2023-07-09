@@ -162,7 +162,7 @@ int main(int argc, char **argv)
 
 	SEQUENCE *Z = creerSequence(N);
 	int T[N] = {12, 3, 24, 14, 5, 15, 6, 8, 17, 6, 12, 9, 8, 5, 12, 11, 19, 22, 3, 14};
-	initSequenceEntiers(Z, T);
+	initSequenceEntiers(Z, T, N);
 	printf("\n\n");
 	plsc_croissante(Z);
 	printf("\n\n");

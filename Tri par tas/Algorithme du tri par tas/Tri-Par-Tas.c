@@ -91,7 +91,9 @@ int main()
     tas->tableau = tab;
     tri_par_tas(tas);
     for (j = 0; j < N1; j++)
+    {
         printf("%d\t", tas->tableau[j]);
+    }
     printf("\n\n\n");
     free(tas);
     return 0;

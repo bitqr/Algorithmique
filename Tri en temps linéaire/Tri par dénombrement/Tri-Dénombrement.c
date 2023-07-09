@@ -11,7 +11,9 @@ int max(int *A, int n)
     for (i = 1; i < n; i++)
     {
         if (A[i] > A[m])
+        {
             m = i;
+        }
     }
     return m;
 }

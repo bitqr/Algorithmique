@@ -386,11 +386,17 @@ void rn_insererPoint(ARNP *T, NOEUDPOINT *z)
 	}
 	z->p = y;
 	if (y == T->nil)
+	{
 		T->racine = z;
+	}
 	else if (z->cle < y->cle)
+	{
 		y->gauche = z;
+	}
 	else
+	{
 		y->droite = z;
+	}
 	z->gauche = T->nil;
 	z->droite = T->nil;
 	z->couleur = ROUGE;

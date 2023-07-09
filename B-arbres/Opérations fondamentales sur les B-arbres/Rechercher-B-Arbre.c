@@ -27,6 +27,10 @@ COUPLE *rechercher_B_arbre(NOEUD_B_ARBRE *x, int k)
 
 void lireDisque(NOEUD_B_ARBRE *x, int j)
 {
+	if (j >= x->n)
+	{
+		return;
+	}
 	char *s1 = copierPointeur(x->c[j]);
 	FILE *f = fopen(s1, "r");
 	char s[20];
@@ -48,7 +52,9 @@ void lireDisque(NOEUD_B_ARBRE *x, int j)
 		{
 			x->c[j]->c[i - 1] = (NOEUD_B_ARBRE *)malloc(sizeof(NOEUD_B_ARBRE));
 			void *p;
-			fscanf(f, "%p\n", &p);
+			fgets(s, 20, f);
+			long adresse = strtol(s, NULL, 16);
+			p = (void *)adresse;
 			x->c[j]->c[i - 1] = (NOEUD_B_ARBRE *)p;
 		}
 	}

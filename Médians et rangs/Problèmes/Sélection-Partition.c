@@ -30,8 +30,10 @@ int partition(int *A, int p, int r)
 int Random(int a, int b)
 {
     int i;
-    if ((a == 0) && (b == 1))
+    if (a == 0 && b == 1)
+    {
         return rand() % 2;
+    }
     int acc = 0;
     for (i = a; i < b; i++)
     {
@@ -50,17 +52,25 @@ int partition_randomisee(int *A, int p, int r)
 int selection_randomisee(int *A, int p, int r, int i)
 {
     if (p == r)
+    {
         return A[p];
+    }
     int q = partition_randomisee(A, p, r);
     int k = q - p + 1;
     if (i == k) // La valeur du pivot est la réponse
+    {
         return q;
+    }
     else
     {
         if (i < k)
+        {
             return selection_randomisee(A, p, q - 1, i);
+        }
         else
+        {
             return selection_randomisee(A, q + 1, r, i - k);
+        }
     }
 }
 
@@ -84,7 +94,9 @@ int main()
     int *B = selection_partition(A, N, I);
     int j;
     for (j = 0; j < I; j++)
+    {
         printf("%d\t", B[j]);
+    }
     printf("\n\n");
     free(B);
     return 0;

@@ -10,11 +10,13 @@ void permuter(int *A, int i, int j)
      A[j] = tmp;
 }
 
-int partition(int *A, int p, int r)
+int partition(int *A, int p, int r, int n)
 {
-     int x = 0;
-     if (r >= p && p >= 0)
-          x = A[r];
+     if (r < 0)
+     {
+          return r;
+     }
+     int x = A[r];
      int i = p - 1;
      int j;
      for (j = p; j < r; j++)
@@ -26,16 +28,20 @@ int partition(int *A, int p, int r)
           }
      }
      permuter(A, i + 1, r);
-     return i + 1;
+     if (i + 1 >= p && i + 1 <= r)
+     {
+          return i + 1;
+     }
+     return r;
 }
 
-void tri_rapide(int *A, int p, int r)
+void tri_rapide(int *A, int p, int r, int n)
 {
      if (p < r)
      {
-          int q = partition(A, p, r);
-          tri_rapide(A, p, q - 1);
-          tri_rapide(A, q + 1, r);
+          int q = partition(A, p, r, n);
+          tri_rapide(A, p, q - 1, n);
+          tri_rapide(A, q + 1, r, n);
      }
 }
 
@@ -62,7 +68,7 @@ int *tri_par_moyenne(int *A, int n, int k)
           {
                m = n / k;
           }
-          tri_rapide(B, 0, m);
+          tri_rapide(B, 0, m, n);
           for (l = 0; l < m; l++)
           {
                R[i + l * k] = B[l];

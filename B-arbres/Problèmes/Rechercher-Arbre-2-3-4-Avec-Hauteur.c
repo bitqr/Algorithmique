@@ -15,6 +15,10 @@ char *copierPointeur234(NOEUD_ARBRE_2_3_4 *x)
 
 void lireDisque(NOEUD_ARBRE_2_3_4 *x, int j)
 {
+	if (j >= x->n)
+	{
+		return;
+	}
 	char *s1 = copierPointeur234(x->c[j]);
 	FILE *f = fopen(s1, "r");
 	free(s1);
@@ -39,7 +43,9 @@ void lireDisque(NOEUD_ARBRE_2_3_4 *x, int j)
 		{
 			x->c[j]->c[i - 1] = (NOEUD_ARBRE_2_3_4 *)malloc(sizeof(NOEUD_ARBRE_2_3_4));
 			void *p;
-			fscanf(f, "%p\n", &p);
+			fgets(s, 20, f);
+			long adresse = strtol(s, NULL, 16);
+			p = (void *)adresse;
 			x->c[j]->c[i - 1] = (NOEUD_ARBRE_2_3_4 *)p;
 		}
 	}

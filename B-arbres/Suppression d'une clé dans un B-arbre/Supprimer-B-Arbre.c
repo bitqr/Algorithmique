@@ -16,6 +16,10 @@ char *copierPointeur(NOEUD_B_ARBRE *x)
 void supprimer_B_arbre(B_ARBRE *T, int k)
 {
 	NOEUD_B_ARBRE *r = T->racine;
+	if (r->n == 0)
+	{
+		return;
+	}
 	if (r->feuille)
 	{
 		supprimer_B_arbre_incomplet(r, k);
@@ -174,9 +178,13 @@ void supprimer_B_arbre_incomplet(NOEUD_B_ARBRE *x, int k)
 	{
 		while (i < x->n && x->cle[i] < k)
 		{
-			i = i + 1;
+			i++;
 		}
 		lireDisque(x, i);
+		if (x->c[i] == NIL)
+		{
+			return;
+		}
 		if (i <= x->n - 1 && x->cle[i] == k)
 		{
 			NOEUD_B_ARBRE *y = x->c[i];
@@ -208,7 +216,9 @@ void supprimer_B_arbre_incomplet(NOEUD_B_ARBRE *x, int k)
 		else
 		{
 			if (x->c[i]->n >= t)
+			{
 				supprimer_B_arbre_incomplet(x->c[i], k);
+			}
 			else
 			{
 				if (i >= 1)
@@ -288,7 +298,7 @@ int cle_minimale(NOEUD_B_ARBRE *x)
 void fusionner(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y, NOEUD_B_ARBRE *z)
 {
 	int k = x->cle[i];
-	z->n = z->n + 1;
+	z->n++;
 	int j;
 	int *nouveauClez = (int *)malloc((z->n) * sizeof(int));
 	for (j = z->n - 1; j >= 1; j--)
@@ -304,21 +314,17 @@ void fusionner(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y, NOEUD_B_ARBRE *z)
 		{
 			nouveauCz[j] = z->c[j - 1];
 		}
-		if (z != NIL && z->n >= 1)
+		if (z->n >= 1)
 		{
 			nouveauCz[0] = z->c[0];
 		}
-
 		z->c = nouveauCz;
 	}
 	y->n = y->n + z->n;
 	int *nouveauCley = (int *)malloc((y->n) * sizeof(int));
 	for (j = 0; j < t - 1; j++)
 	{
-		if (y != NIL && j < y->n)
-		{
-			nouveauCley[j] = y->cle[j];
-		}
+		nouveauCley[j] = y->cle[j];
 	}
 	for (j = t - 1; j < y->n; j++)
 	{
@@ -346,7 +352,7 @@ void fusionner(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y, NOEUD_B_ARBRE *z)
 		x->cle[j] = x->cle[j + 1];
 		x->c[j + 1] = x->c[j + 2];
 	}
-	x->n = x->n - 1;
+	x->n--;
 	ecrireDisque(y);
 	ecrireDisque(x);
 }
@@ -356,7 +362,7 @@ void echanger_frere(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *z, NOEUD_B_ARBRE *y)
 	int j;
 	if (i >= 1 && z == x->c[i - 1])
 	{
-		y->n = y->n + 1;
+		y->n++;
 		int *nouveauCley = (int *)malloc((y->n) * sizeof(int));
 		for (j = t - 1; j >= 1; j--)
 		{
@@ -424,9 +430,13 @@ void ecrireDisque(NOEUD_B_ARBRE *x)
 	fprintf(f, "%d\n", x->n);
 	int i;
 	for (i = 1; i <= x->n; i++)
+	{
 		fprintf(f, "%d\n", x->cle[i - 1]);
+	}
 	if (x->feuille == VRAI)
+	{
 		fprintf(f, "1\n");
+	}
 	else
 	{
 		fprintf(f, "0\n");
@@ -466,7 +476,9 @@ void lireDisque(NOEUD_B_ARBRE *x, int i)
 		{
 			x->c[i]->c[j - 1] = (NOEUD_B_ARBRE *)malloc(sizeof(NOEUD_B_ARBRE));
 			void *p;
-			fscanf(f, "%p\n", &p);
+			fgets(s, 20, f);
+			long adresse = strtol(s, NULL, 16);
+			p = (void *)adresse;
 			x->c[i]->c[j - 1] = (NOEUD_B_ARBRE *)p;
 		}
 	}

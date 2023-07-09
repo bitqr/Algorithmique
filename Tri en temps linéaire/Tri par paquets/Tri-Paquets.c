@@ -41,7 +41,9 @@ PAQUET *queue(PAQUET *l)
 {
      PAQUET *q = l;
      if (q == NULL)
+     {
           return NULL;
+     }
      while (q->suivant != NULL)
      {
           q = q->suivant;
@@ -78,7 +80,9 @@ PAQUET *inserer_element(PAQUET *p, float e)
                o->suivant = q;
                q->precedent = o;
                if (q->suivant)
+               {
                     q->suivant->precedent = q;
+               }
                return p;
           }
      }
@@ -87,9 +91,13 @@ PAQUET *inserer_element(PAQUET *p, float e)
 PAQUET *trier_par_insertion(PAQUET *l)
 {
      if (l == NULL)
+     {
           return l;
+     }
      if (l->suivant == NULL)
+     {
           return l;
+     }
      PAQUET *p = NULL;
      while (l)
      {
@@ -103,9 +111,13 @@ PAQUET *trier_par_insertion(PAQUET *l)
 PAQUET *concat(PAQUET *p, PAQUET *q)
 {
      if (p == NULL)
+     {
           return q;
+     }
      if (q == NULL)
+     {
           return p;
+     }
      queue(p)->suivant = q;
      return p;
 }

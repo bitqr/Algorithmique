@@ -60,11 +60,10 @@ void tri_fusion(int *A, int p, int r)
 	}
 }
 
-void initSequenceEntiers(SEQUENCE *S, int *C)
+void initSequenceEntiers(SEQUENCE *S, int *C, int n)
 {
 	int i = 0;
-	int p = S->longueur;
-	while (i < p)
+	while (i < n)
 	{
 		S->entiers[i] = C[i];
 		i++;
@@ -147,7 +146,7 @@ void plsc_croissante(SEQUENCE *X)
 		triee[i] = X->entiers[i];
 	}
 	tri_fusion(triee, 0, n - 1);
-	initSequenceEntiers(Y, triee);
+	initSequenceEntiers(Y, triee, n);
 	char **b = initSP(n + 1, n + 1);
 	free(triee);
 	longueurPlscEntiers(X, Y, b);
