@@ -84,15 +84,17 @@ void inserer_arbre_2_3_4_avec_hauteur_incomplet(NOEUD_ARBRE_2_3_4 *x, int k)
 	{
 		while (i >= 1 && k < x->cle[i - 1])
 		{
-			i = i - 1;
+			i--;
 		}
 		i = i + 1;
-		lireDisque(x->c[i - 1]);
+		lireDisque(x, i - 1);
 		if (x->c[i - 1]->n == 3)
 		{
 			partager_enfant_arbre_2_3_4_avec_hauteur(x, i, x->c[i - 1]);
 			if (k > x->cle[i - 1])
-				i = i + 1;
+			{
+				i++;
+			}
 		}
 		inserer_arbre_2_3_4_avec_hauteur_incomplet(x->c[i - 1], k);
 	}

@@ -159,7 +159,7 @@ void partager_avec_chemin(NOEUD_ARBRE_2_3_4 *x, int k, PILE *K1, PILE_ARBRE_2_3_
 		}
 		else
 		{
-			lireDisque(x->c[i - 1]);
+			lireDisque(x, i - 1);
 			if (i > 1)
 			{
 				empiler(K1, x->cle[i - 2]);

@@ -65,7 +65,7 @@ void afficher_solution(char **S, char *x, char *y, int n, int m)
 int distance_d_edition(int m, int n, int couts[6], char *x, char *y, char **S)
 {
 	int i, j, a, b, c, d, e, min;
-	if (m < 0 || n < 0)
+	if (m < 0 || n < 0 || m >= INFINI || n >= INFINI)
 	{
 		return 0;
 	}
@@ -78,6 +78,7 @@ int distance_d_edition(int m, int n, int couts[6], char *x, char *y, char **S)
 			C[i][j] = 0;
 		}
 	}
+
 	C[m][n] = 0;
 	S[m][n] = '0';
 	for (j = n - 1; j >= 0; j--)

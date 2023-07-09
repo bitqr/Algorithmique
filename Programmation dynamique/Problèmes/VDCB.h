@@ -29,6 +29,7 @@
 #define HAUT_GAUCHE 2
 #define HAUT_DROITE 3
 #define NORDO 7
+#define INFINI 1000000000
 
 struct point
 {

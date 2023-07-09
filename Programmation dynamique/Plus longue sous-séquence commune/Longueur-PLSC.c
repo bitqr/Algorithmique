@@ -72,14 +72,15 @@ int **longueur_plsc(SEQUENCE *X, SEQUENCE *Y, char **b)
 {
 	int m = X->longueur;
 	int n = Y->longueur;
-	if (m < 0 || n < 0)
+	if (m <= 0 || n <= 0 || m >= INFINI)
 	{
 		return 0;
 	}
 	int i, j;
 	int **c = initTables(m + 1, n + 1);
-	for (i = 0; i <= m; i++)
+	for (i = 1; i <= m; i++)
 	{
+
 		c[i][0] = 0;
 	}
 	for (j = 0; j <= n; j++)
@@ -119,7 +120,9 @@ void afficherTables(int **A, int n, int m)
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < m; j++)
+		{
 			printf("%d\t", A[i][j]);
+		}
 		printf("\n");
 	}
 }

@@ -12,7 +12,9 @@ void permuter(int *A, int i, int j)
 
 int partition(int *A, int p, int r)
 {
-     int x = A[r];
+     int x = 0;
+     if (r >= p && p >= 0)
+          x = A[r];
      int i = p - 1;
      int j;
      for (j = p; j < r; j++)

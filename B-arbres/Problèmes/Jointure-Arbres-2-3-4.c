@@ -60,16 +60,22 @@ void inserer_hauteur(int k, ARBRE_2_3_4 *T1, int h, ARBRE_2_3_4 *T2)
 		inserer_hauteur_incomplet(k, s, h, T2->racine);
 	}
 	else
+	{
 		inserer_hauteur_incomplet(k, r1, h, T2->racine);
+	}
 }
 
 void inserer_hauteur_incomplet(int k, NOEUD_ARBRE_2_3_4 *x1, int h, NOEUD_ARBRE_2_3_4 *x2)
 {
 	int i;
 	if (k <= x1->cle[0])
+	{
 		i = 1;
+	}
 	else
+	{
 		i = x1->n + 1;
+	}
 	if (x1->hauteur == h)
 	{
 		int j;
@@ -81,7 +87,7 @@ void inserer_hauteur_incomplet(int k, NOEUD_ARBRE_2_3_4 *x1, int h, NOEUD_ARBRE_
 				nCle[j] = x1->cle[j - 1];
 			}
 			nCle[0] = k;
-			x1->n = x1->n + 1;
+			x1->n++;
 			x1->cle = nCle;
 			if (!x1->feuille)
 			{
@@ -102,7 +108,7 @@ void inserer_hauteur_incomplet(int k, NOEUD_ARBRE_2_3_4 *x1, int h, NOEUD_ARBRE_
 				nCle[j - 1] = x1->cle[j - 1];
 			}
 			nCle[x1->n] = k;
-			x1->n = x1->n + 1;
+			x1->n++;
 			x1->cle = nCle;
 			if (!x1->feuille)
 			{
@@ -119,12 +125,14 @@ void inserer_hauteur_incomplet(int k, NOEUD_ARBRE_2_3_4 *x1, int h, NOEUD_ARBRE_
 	}
 	else
 	{
-		lireDisque(x1->c[i - 1]);
+		lireDisque(x1, i - 1);
 		if (x1->c[i - 1]->n == 3)
 		{
 			partager_enfant_arbre_2_3_4_avec_hauteur(x1, i, x1->c[i - 1]);
 			if (k > x1->cle[i - 1])
-				i = i + 1;
+			{
+				i++;
+			}
 		}
 		inserer_hauteur_incomplet(k, x1->c[i - 1], h, x2);
 	}
