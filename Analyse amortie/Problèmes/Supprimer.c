@@ -14,20 +14,20 @@ void supprimer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 		while (r + 1 > s)
 		{
 			if (A->representationBinaire[d] == 1)
-				s = s + i;
-			d = d + 1;
-			i = 2 * i;
+				s += i;
+			d++;
+			i *= 2;
 		}
-		i = i / 2;
-		d = d - 1;
-		s = s - i;
+		i /= 2;
+		d--;
+		s -= i;
 		int c = 0;
 		int i1 = 1;
 		while (A->representationBinaire[c] == 0)
 		{
 			A->representationBinaire[c] = 1;
-			c = c + 1;
-			i1 = 2 * i1;
+			c++;
+			i1 *= 2;
 		}
 		int ii = r - s;
 		A->representationBinaire[c] = 0;
@@ -54,7 +54,7 @@ void supprimer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 			while (ii < i - 1)
 			{
 				A->val[d][ii] = A->val[d][ii + 1];
-				ii = ii + 1;
+				ii++;
 			}
 		}
 		int l, m, j = 0;
@@ -64,9 +64,9 @@ void supprimer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 			for (m = 0; m <= i - 1; m++)
 			{
 				A->val[l][m] = A->val[c][j];
-				j = j + 1;
+				j++;
 			}
-			i = 2 * i;
+			i *= 2;
 		}
 		if (c == A->tailleBinaire)
 		{

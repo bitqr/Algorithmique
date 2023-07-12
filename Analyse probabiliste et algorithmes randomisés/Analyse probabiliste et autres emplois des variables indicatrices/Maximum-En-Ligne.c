@@ -21,7 +21,9 @@ int maximum_en_ligne(int k, int n)
     int *t = creer_candidates(n);
     int i;
     for (i = 0; i < n; i++)
+    {
         printf("%d\t", t[i]);
+    }
     printf("\n\n\n");
     int meilleur_score = -100000000;
     for (i = 0; i < k; i++)

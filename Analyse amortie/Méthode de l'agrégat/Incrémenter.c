@@ -19,7 +19,9 @@ void afficherTableau(TABLEAU *A)
 {
 	int i;
 	for (i = 0; i < A->longueur; i++)
+	{
 		printf("%d", A->val[A->longueur - i - 1]);
+	}
 	printf("\n\n");
 }
 

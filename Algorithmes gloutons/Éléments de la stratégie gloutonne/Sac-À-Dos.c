@@ -15,9 +15,11 @@ int *sac_a_dos(int *V, int *w, int W, int n)
 			cout += V[i];
 		}
 		else
+		{
 			S[i] = 0;
+		}
 	}
-	printf("Le cout est de %d\n\n", cout);
+	printf("Le coût est de %d\n\n", cout);
 	return S;
 }
 
@@ -28,8 +30,12 @@ int main(int argc, char **argv)
 	int *S = sac_a_dos(V, w, WW, N);
 	int i;
 	for (i = 0; i < N; i++)
+	{
 		if (S[i] == 1)
+		{
 			printf("On prend l'objet de poids %d et de valeur %d\n", w[i], V[i]);
+		}
+	}
 	printf("\n");
 	return 0;
 }

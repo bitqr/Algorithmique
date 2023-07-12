@@ -55,7 +55,9 @@ int main(int argc, char **argv)
 	printf("\n\n\nLe rendu optimal de %d centimes est le suivant :\n\n\n", n);
 	int i;
 	for (i = 0; i < K; i++)
+	{
 		printf("On rend %d pièce(s) de %d cent(s)\n", T2[i], C.tab[i]);
+	}
 	printf("\n\n");
 	return 0;
 }

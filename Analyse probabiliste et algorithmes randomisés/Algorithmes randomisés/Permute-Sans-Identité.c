@@ -7,8 +7,10 @@
 int Random(int a, int b)
 {
     int i;
-    if ((a == 0) && (b == 1))
+    if (a == 0 && b == 1)
+    {
         return rand() % 2;
+    }
     int acc = 0;
     for (i = a; i < b; i++)
     {
@@ -28,7 +30,9 @@ void permute_sans_identite(int *A, int n)
 {
     int i;
     for (i = 0; i < n; i++)
+    {
         printf("%d\t", A[i]);
+    }
     printf("\n\n\n");
     for (i = 0; i < n - 1; i++)
     {
@@ -54,7 +58,9 @@ int main()
     int *A = creer_candidates(N);
     permute_sans_identite(A, N);
     for (i = 0; i < N; i++)
+    {
         printf("%d\t", A[i]);
+    }
     printf("\n\n\n");
     return 0;
 }

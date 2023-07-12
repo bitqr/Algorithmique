@@ -29,9 +29,13 @@ void arbre_inserer(ABR *T, ABR *z)
 	{
 		y = x;
 		if (z->cle < x->cle)
+		{
 			x = x->gauche;
+		}
 		else
+		{
 			x = x->droite;
+		}
 	}
 	z->p = y;
 	if (y == NULL)

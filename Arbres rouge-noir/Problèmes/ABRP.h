@@ -4,19 +4,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct noeud
-{
-	int cle;
-	struct noeud *gauche;
-	struct noeud *droite;
+struct noeud {
+  int cle;
+  struct noeud *gauche;
+  struct noeud *droite;
 };
 
 typedef struct noeud NOEUD;
 
-struct arbreP
-{
-	NOEUD *racine;
-	NOEUD *nil;
+struct arbreP {
+  NOEUD *racine;
+  NOEUD *nil;
 };
 
 typedef struct arbreP ABRP;

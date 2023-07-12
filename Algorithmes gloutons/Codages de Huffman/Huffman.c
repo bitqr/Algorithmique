@@ -16,7 +16,9 @@ FILE_DE_PRIORITE *creer_tas(int longueur, int taille)
 	NOEUD **tab = (NOEUD **)malloc(longueur * sizeof(NOEUD *));
 	int i;
 	for (i = 0; i < longueur; i++)
+	{
 		tab[i] = allouerNoeud();
+	}
 	t->tableau = tab;
 	return t;
 }
@@ -38,11 +40,11 @@ void diminuer_cle_tas(FILE_DE_PRIORITE *fp, int i, NOEUD *x)
 	NOEUD **A = fp->tableau;
 	if (x->f > A[i]->f)
 	{
-		printf("Nouvelle cle plus grande que cle actuelle\n\n\n");
+		printf("Nouvelle clé plus grande que clé actuelle\n\n\n");
 		exit(1);
 	}
 	A[i]->f = x->f;
-	while ((i > 0) && (A[parent(i)]->f > A[i]->f))
+	while (i > 0 && A[parent(i)]->f > A[i]->f)
 	{
 		echanger(A, i, parent(i));
 		i = parent(i);
@@ -74,12 +76,16 @@ void entasser_min(FILE_DE_PRIORITE *fp, int i)
 	int r = droite(i);
 	int min;
 	NOEUD **A = fp->tableau;
-	if ((l < fp->taille) && (A[l]->f < A[i]->f))
+	if (l < fp->taille && A[l]->f < A[i]->f)
+	{
 		min = l;
+	}
 	else
 		min = i;
-	if ((r < fp->taille) && (A[r]->f < A[min]->f))
+	if (r < fp->taille && A[r]->f < A[min]->f)
+	{
 		min = r;
+	}
 	if (min != i)
 	{
 		echanger(A, i, min);
@@ -91,7 +97,7 @@ NOEUD *extraire_min(FILE_DE_PRIORITE *fp)
 {
 	if (fp->taille < 1)
 	{
-		printf("Limite inferieure depassee\n\n\n");
+		printf("Limite inférieure dépassée\n\n\n");
 		exit(1);
 	}
 	NOEUD **A = fp->tableau;

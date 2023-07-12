@@ -7,8 +7,10 @@
 int Random(int a, int b)
 {
     int i;
-    if ((a == 0) && (b == 1))
+    if (a == 0 && b == 1)
+    {
         return rand() % 2;
+    }
     int acc = 0;
     for (i = a; i < b; i++)
     {
@@ -32,7 +34,9 @@ int *permute_par_cycle(int *A, int n)
     {
         dec = i + aux;
         if (dec > n - 1)
-            dec = dec - n;
+        {
+            dec -= n;
+        }
         B[dec] = A[i];
     }
     return B;
@@ -55,11 +59,15 @@ int main()
     srand(time(NULL));
     int *A = creer_candidates(N);
     for (i = 0; i < N; i++)
+    {
         printf("%d\t", A[i]);
+    }
     printf("\n\n\n");
     int *B = permute_par_cycle(A, N);
     for (i = 0; i < N; i++)
+    {
         printf("%d\t", B[i]);
+    }
     printf("\n\n\n");
     return 0;
 }

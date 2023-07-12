@@ -13,7 +13,9 @@ void incrementer_miroir(TABLEAU *A)
 		i++;
 	}
 	if (i < k)
+	{
 		A->val[k - 1 - i] = 1;
+	}
 }
 
 TABLEAU *inventerTableau(unsigned int l)
@@ -28,6 +30,8 @@ void ecrireTableau(TABLEAU *A)
 {
 	int i;
 	for (i = 0; i < A->longueur; i++)
+	{
 		printf("%d", A->val[A->longueur - i - 1]);
+	}
 	printf("\n\n");
 }

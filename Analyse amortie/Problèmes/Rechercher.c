@@ -16,12 +16,16 @@ int rechercher(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 			int a = 0;
 			int b = i - 1;
 			int m = (a + b) / 2;
-			while ((A->val[j][m] != x) && (b - a > 1))
+			while (A->val[j][m] != x && b - a > 1)
 			{
 				if (A->val[j][m] < x)
+				{
 					a = m;
+				}
 				else
+				{
 					b = m;
+				}
 				m = (a + b) / 2;
 			}
 			if ((A->val[j][m] == x) || (A->val[j][b] == x))
@@ -30,13 +34,17 @@ int rechercher(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 				s += trouve;
 			}
 			else
+			{
 				s += i;
+			}
 		}
 		j++;
 		i = 2 * i;
 	}
 	if (trouve != NIL)
+	{
 		trouve = s;
+	}
 	return trouve;
 }
 
@@ -56,7 +64,9 @@ void afficherTableauDichotomiqueDynamique(TABLEAUDICHOTOMIQUEDYNAMIQUE *A)
 		if (A->representationBinaire[i] == 1)
 		{
 			for (j = 0; j < pow(2, i); j++)
+			{
 				printf("%d\t", A->val[i][j]);
+			}
 		}
 		printf("\n");
 	}

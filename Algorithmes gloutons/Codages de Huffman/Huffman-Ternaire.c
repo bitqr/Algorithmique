@@ -19,7 +19,9 @@ FILE_DE_PRIORITE_TERNAIRE *creerTasTernaire(int longueur, int taille)
 		(NOEUD_TERNAIRE **)malloc(longueur * sizeof(NOEUD_TERNAIRE *));
 	int i;
 	for (i = 0; i < longueur; i++)
+	{
 		tab[i] = allouerNoeudTernaire();
+	}
 	t->tableau = tab;
 	return t;
 }

@@ -48,8 +48,10 @@ void embauche_secretaire(int n)
 int Random(int a, int b)
 {
     int i;
-    if ((a == 0) && (b == 1))
+    if (a == 0 && b == 1)
+    {
         return rand() % 2;
+    }
     int acc = 0;
     for (i = a; i < b; i++)
     {

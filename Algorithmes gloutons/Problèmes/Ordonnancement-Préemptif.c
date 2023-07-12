@@ -15,7 +15,9 @@ LISTE_CHAINEE *ordonnancement_preemptif(int *A, int *P, int *R, int n)
 	L->tete = L;
 	int i, exec = 0, t = 0, min, imin;
 	for (i = 0; i < n; i++)
+	{
 		D += P[i];
+	}
 	while (exec < D)
 	{
 		min = D + 1;

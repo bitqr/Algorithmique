@@ -32,7 +32,9 @@ void enfiler_deux_piles(FILEDEUXPILES *F, int x)
 		fprintf(stderr, "débordement\n");
 	}
 	else
+	{
 		empiler(F->q, x);
+	}
 }
 
 void afficher_file_deux_piles(FILEDEUXPILES *F)
@@ -40,8 +42,12 @@ void afficher_file_deux_piles(FILEDEUXPILES *F)
 	printf("Les éléments de la file sont, de la tête à la queue : \n\n");
 	int i;
 	for (i = F->p->sommet; i >= 0; i--)
+	{
 		printf("%d\t", F->p->tableau[i]);
+	}
 	for (i = 0; i <= F->q->sommet; i++)
+	{
 		printf("%d\t", F->q->tableau[i]);
+	}
 	printf("\n\n");
 }

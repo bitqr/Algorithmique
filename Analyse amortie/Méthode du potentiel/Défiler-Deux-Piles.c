@@ -19,8 +19,12 @@ int depiler(PILE *P)
 int defiler_deux_piles(FILEDEUXPILES *F)
 {
 	if (pile_vide(F->p))
+	{
 		while (F->q->sommet >= 0)
+		{
 			empiler(F->p, depiler(F->q));
+		}
+	}
 	return depiler(F->p);
 }
 

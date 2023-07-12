@@ -5,10 +5,16 @@ int **creerMatriceEntiers(int m, int n)
 	int **e = (int **)malloc(m * sizeof(int *));
 	int i, j;
 	for (i = 0; i < m; i++)
+	{
 		e[i] = (int *)malloc(n * sizeof(int));
+	}
 	for (i = 0; i < m; i++)
+	{
 		for (j = 0; j < n; j++)
+		{
 			e[i][j] = -1;
+		}
+	}
 	return e;
 }
 
@@ -22,8 +28,12 @@ int calcul_solution(int **c, int *s, int *f, int i, int j, int x, int y)
 		return c[i][j];
 	int m, max = 0;
 	for (m = i + 1; m <= j - 1; m++)
+	{
 		if (s[m] >= f[i] && f[m] <= s[j] && max < 1 + calcul_solution(c, s, f, i, m, x, y) + calcul_solution(c, s, f, m, j, x, y))
+		{
 			max = 1 + c[i][m] + c[m][j];
+		}
+	}
 	c[i][j] = max;
 	return c[i][j];
 }

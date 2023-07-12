@@ -7,8 +7,10 @@
 int Random(int a, int b)
 {
 	int i;
-	if ((a == 0) && (b == 1))
+	if (a == 0 && b == 1)
+	{
 		return rand() % 2;
+	}
 	int acc = 0;
 	for (i = a; i < b; i++)
 	{
@@ -28,7 +30,9 @@ void randomisation_directe(int *A, int n)
 {
 	int i, j;
 	for (i = 0; i < n; i++)
+	{
 		printf("%d\t", A[i]);
+	}
 	printf("\n\n\n");
 
 	for (i = 0; i < n; i++)
@@ -41,7 +45,9 @@ void randomisation_directe2(int *A, int n)
 {
 	int i, j;
 	for (i = 0; i < n; i++)
+	{
 		printf("%d\t", A[i]);
+	}
 	printf("\n\n\n");
 	echanger(A, 0, rand() % n);
 	for (i = 1; i < n; i++)
@@ -68,7 +74,9 @@ int main()
 	int *A = creer_candidates(N);
 	randomisation_directe2(A, N);
 	for (i = 0; i < N; i++)
+	{
 		printf("%d\t", A[i]);
+	}
 	printf("\n\n\n");
 	return 0;
 }

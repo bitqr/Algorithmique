@@ -1,13 +1,14 @@
 #ifndef DEF_RN
 #define DEF_RN
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define ROUGE 0
 #define NOIR 1
 
-struct noeud{
+struct noeud
+{
 	int cle;
 	int couleur;
 	struct noeud *p;
@@ -15,9 +16,10 @@ struct noeud{
 	struct noeud *droite;
 };
 
-typedef struct noeud NOEUD;	
+typedef struct noeud NOEUD;
 
-struct arbreRN{
+struct arbreRN
+{
 	NOEUD *racine;
 	NOEUD *nil;
 };
@@ -28,9 +30,8 @@ void rotation_gauche(ARN *T, NOEUD *x);
 void rotation_droite(ARN *T, NOEUD *x);
 NOEUD *rn_supprimer(ARN *T, NOEUD *z);
 void rn_supprimer_correction(ARN *T, NOEUD *z);
-NOEUD * creerNoeudRN(int cle, NOEUD *g, NOEUD *d,int couleur);
-ARN * creerARN(NOEUD *racine, NOEUD *nil);
+NOEUD *creerNoeudRN(int cle, NOEUD *g, NOEUD *d, int couleur);
+ARN *creerARN(NOEUD *racine, NOEUD *nil);
 void parcoursPrefixeRN(NOEUD *x, NOEUD *nl);
 
 #endif
-

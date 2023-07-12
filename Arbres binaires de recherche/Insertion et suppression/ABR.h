@@ -3,10 +3,10 @@
 
 struct abr
 {
-  int cle;
-  struct abr *p;
-  struct abr *gauche;
-  struct abr *droite;
+	int cle;
+	struct abr *p;
+	struct abr *gauche;
+	struct abr *droite;
 };
 
 typedef struct abr ABR;

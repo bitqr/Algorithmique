@@ -34,7 +34,9 @@ void inserer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 			int r, s, t, cle, it;
 			int b = i / 2 - 1;
 			for (r = 0; r <= b; r++)
+			{
 				A->val[j][r] = A->val[j - 1][r];
+			}
 			i = 1;
 			for (r = 0; r <= j - 2; r++)
 			{
@@ -43,7 +45,9 @@ void inserer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 				{
 					cle = A->val[r][s];
 					while (it <= b && A->val[j][it] < cle)
+					{
 						it++;
+					}
 					t = b;
 					while (t >= it)
 					{
@@ -58,7 +62,9 @@ void inserer(TABLEAUDICHOTOMIQUEDYNAMIQUE *A, int x)
 
 			it = 0;
 			while (it <= b && A->val[j][it] < x)
+			{
 				it++;
+			}
 			t = b;
 			while (t >= it)
 			{

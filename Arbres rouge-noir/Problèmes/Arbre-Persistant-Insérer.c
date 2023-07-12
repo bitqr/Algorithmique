@@ -47,7 +47,9 @@ ABRP *arbre_persistant_inserer(ABRP *T, int k)
 		{
 			n->droite = x->droite;
 			if (x->gauche != T->nil)
+			{
 				nf->cle = x->gauche->cle;
+			}
 			else
 			{
 				nf->cle = k;
@@ -60,7 +62,9 @@ ABRP *arbre_persistant_inserer(ABRP *T, int k)
 		{
 			n->gauche = x->gauche;
 			if (x->droite != T->nil)
+			{
 				nf->cle = x->droite->cle;
+			}
 			else
 			{
 				nf->cle = k;

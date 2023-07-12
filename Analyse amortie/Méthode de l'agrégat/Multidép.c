@@ -25,7 +25,9 @@ void afficher_pile(PILE *P)
     int i;
     printf("Les éléments de la pile du plus ancien au plus récent sont : \n\n");
     for (i = 0; i <= s; i++)
+    {
         printf("%d\t", P->tableau[i]);
+    }
     printf("\n\n");
 }
 
@@ -70,7 +72,9 @@ int main(int argc, char **argv)
     PILE *P = creer_pile(N);
     int i;
     for (i = 0; i < N; i++)
+    {
         empiler(P, i);
+    }
     int k = atoi(argv[1]);
     printf("\nBonjour et bienvenue! Voici la pile construite avant que l'on dépile le moindre élément :\n\n");
     afficher_pile(P);

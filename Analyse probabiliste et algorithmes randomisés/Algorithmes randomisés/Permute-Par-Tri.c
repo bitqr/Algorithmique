@@ -7,8 +7,10 @@
 int Random(int a, int b)
 {
     int i;
-    if ((a == 0) && (b == 1))
+    if (a == 0 && b == 1)
+    {
         return rand() % 2;
+    }
     int acc = 0;
     for (i = a; i < b; i++)
     {
@@ -24,7 +26,9 @@ int rechmin(int *tab, int n)
     for (i = 1; i < n; i++)
     {
         if (tab[min] > tab[i])
+        {
             min = i;
+        }
     }
     return min;
 }
@@ -55,7 +59,9 @@ int *permute_par_tri(int *A, int n)
         P[i] = Random(1, n * n * n);
     }
     for (i = 0; i < n; i++)
+    {
         printf("%d\t", P[i]);
+    }
     printf("\n\n\n");
     trier_avec_cle(A, P, n);
     free(P);
@@ -72,11 +78,15 @@ int *permute_par_tri2(int *A, int n)
         for (j = 0; j < i; j++)
         {
             while (P[i] == P[j])
+            {
                 P[i] = Random(1, n * n * n);
+            }
         }
     }
     for (i = 0; i < n; i++)
+    {
         printf("%d\t", P[i]);
+    }
     printf("\n\n\n");
     trier_avec_cle(A, P, n);
     free(P);
@@ -100,11 +110,15 @@ int main()
     srand(time(NULL));
     int *A = creer_candidates(N);
     for (i = 0; i < N; i++)
+    {
         printf("%d\t", A[i]);
+    }
     printf("\n\n\n");
     permute_par_tri2(A, N);
     for (i = 0; i < N; i++)
+    {
         printf("%d\t", A[i]);
+    }
     printf("\n\n\n");
     return 0;
 }

@@ -31,7 +31,9 @@ int *permutation_miroir(int *A, int k, int n)
 	int i;
 	int *B = (int *)malloc(n * sizeof(int));
 	for (i = 0; i < n; i++)
+	{
 		B[i] = A[rev(k, i)];
+	}
 	return B;
 }
 
@@ -113,24 +115,40 @@ int main(int argc, char **argv)
 	int t = rechercher(AD, 816);
 
 	if (x == NIL)
+	{
 		printf("\n\nL'élément 68 n'existe pas dans ce tableau.\n");
+	}
 	else
+	{
 		printf("\n\nL'élément 68 existe dans ce tableau (indice %d).\n", x);
+	}
 
 	if (y == NIL)
+	{
 		printf("\n\nL'élément 57 n'existe pas dans ce tableau.\n");
+	}
 	else
+	{
 		printf("\n\nL'élément 57 existe dans ce tableau (indice %d).\n", y);
+	}
 
 	if (z == NIL)
+	{
 		printf("\n\nL'élément 908 n'existe pas dans ce tableau.\n");
+	}
 	else
+	{
 		printf("\n\nL'élément 908 existe dans ce tableau (indice %d).\n", z);
+	}
 
 	if (t == NIL)
+	{
 		printf("\n\nL'élément 816 n'existe pas dans ce tableau.\n\n");
+	}
 	else
+	{
 		printf("\n\nL'élément 816 existe dans ce tableau (indice %d).\n\n", t);
+	}
 
 	TABLEAUDICHOTOMIQUEDYNAMIQUE *ADD = creerTableauDichotomiqueDynamiqueVide();
 	printf("On commence avec un tableau vide.\n\n");

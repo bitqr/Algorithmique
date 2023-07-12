@@ -22,7 +22,9 @@ void afficherTableauPoids(TABLEAU *A)
 	int i;
 	printf("Poids : %d\n\n", A->poids);
 	for (i = 0; i < A->longueur; i++)
+	{
 		printf("%d", A->val[A->longueur - i - 1]);
+	}
 	printf("\n\n");
 }
 
@@ -37,11 +39,15 @@ void incrementer_poids(TABLEAU *A)
 	if (i < A->longueur)
 	{
 		if (i > A->poids)
+		{
 			A->poids = i;
+		}
 		A->val[i] = 1;
 	}
 	else
+	{
 		A->poids = -1;
+	}
 }
 
 int main(int argc, char **argv)

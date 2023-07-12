@@ -11,7 +11,9 @@ int appartient(int *C, int n, int i)
     for (j = 0; j < n; j++)
     {
         if (C[j] == i)
+        {
             return 1;
+        }
     }
     return 0;
 }

@@ -17,7 +17,9 @@ void afficherMatriceEntiers(int **e, int m, int n)
 	for (i = 0; i < m; i++)
 	{
 		for (j = 0; j < n; j++)
+		{
 			printf("%d\t", e[i][j]);
+		}
 		printf("\n");
 	}
 }
@@ -44,9 +46,13 @@ FILES *enfiler(FILES *F, int x)
 {
 	F->tableau[F->queue] = x;
 	if (F->queue + 1 == F->longueur)
+	{
 		F->queue = 0;
+	}
 	else
+	{
 		F->queue++;
+	}
 	return F;
 }
 
@@ -58,9 +64,13 @@ FILES *choix_d_activites_recursif(int *s, int *f, int i, int n)
 		m++;
 	}
 	if (m <= n)
+	{
 		return enfiler(choix_d_activites_recursif(s, f, m, n), m);
+	}
 	else
+	{
 		return creer_file_vide(n);
+	}
 }
 
 int main(int argc, char **argv)
