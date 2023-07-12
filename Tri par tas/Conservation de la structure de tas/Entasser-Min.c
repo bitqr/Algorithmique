@@ -46,11 +46,15 @@ void entasser_min(P_TAS tas, int i)
     int min;
     int *A = tas->tableau;
     if (l < tas->taille && A[l] < A[i])
+    {
         min = l;
+    }
     else
         min = i;
-    if ((r < tas->taille) && (A[r] < A[min]))
+    if (r < tas->taille && A[r] < A[min])
+    {
         min = r;
+    }
     if (min != i)
     {
         echanger(A, i, min);

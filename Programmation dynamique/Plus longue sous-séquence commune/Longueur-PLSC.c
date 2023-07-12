@@ -80,7 +80,6 @@ int **longueur_plsc(SEQUENCE *X, SEQUENCE *Y, char **b)
 	int **c = initTables(m + 1, n + 1);
 	for (i = 1; i <= m; i++)
 	{
-
 		c[i][0] = 0;
 	}
 	for (j = 0; j <= n; j++)

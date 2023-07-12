@@ -41,7 +41,9 @@ void entasser_max_d_aire(P_TAS tas, int i, int d)
         for (j = deb; j <= f; j++)
         {
             if (A[j] > A[max])
+            {
                 max = j;
+            }
         }
         if (max != i)
         {

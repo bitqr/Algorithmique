@@ -27,7 +27,9 @@ void afficher_pile(PILE *P)
     int i;
     printf("Les éléments de la pile du plus ancien au plus récent sont : \n\n");
     for (i = 0; i <= s; i++)
+    {
         printf("%d\t", P->tableau[i]);
+    }
     printf("\n\n");
 }
 

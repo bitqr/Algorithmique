@@ -41,17 +41,23 @@ void rotation_gauche(ARN *T, NOEUD *x)
 	NOEUD *y = x->droite;  // initialise y.
 	x->droite = y->gauche; // sous-arbre gauche de y devient sous-arbre droit de x.
 	if (y->gauche != T->nil)
+	{
 		y->gauche->p = x;
-	y->p = x->p; // relie parent de x � y.
+	}
+	y->p = x->p; // relie parent de x à y.
 	if (x->p == T->nil)
 	{
 		T->racine = y;
 	}
 	else if (x == x->p->gauche)
+	{
 		x->p->gauche = y;
+	}
 	else
+	{
 		x->p->droite = y;
-	y->gauche = x; // place x � gauche de y.
+	}
+	y->gauche = x; // place x à gauche de y.
 	x->p = y;
 	y->taille = x->taille;
 	x->taille = x->gauche->taille + x->droite->taille + 1;
@@ -63,18 +69,24 @@ void rotation_droite(ARN *T, NOEUD *x)
 	NOEUD *y = x->gauche;  // initialise y.
 	x->gauche = y->droite; // sous-arbre droit de y devient sous-arbre gauche de x.
 	if (y->droite != T->nil)
+	{
 		y->droite->p = x;
-	y->p = x->p; // relie parent de x � y.
+	}
+	y->p = x->p; // relie parent de x à y.
 	if (x->p == T->nil)
 	{
 		T->racine = y;
 		y->taille = y->gauche->taille + y->droite->taille + 1;
 	}
 	else if (x == x->p->gauche)
+	{
 		x->p->gauche = y;
+	}
 	else
+	{
 		x->p->droite = y;
-	y->droite = x; // place x � droite de y.
+	}
+	y->droite = x; // place x à droite de y.
 	x->p = y;
 	y->taille = x->taille;
 	x->taille = x->gauche->taille + x->droite->taille + 1;
@@ -154,11 +166,17 @@ void rn_inserer(ARN *T, NOEUD *z)
 	}
 	z->p = y;
 	if (y == T->nil)
+	{
 		T->racine = z;
+	}
 	else if (z->cle < y->cle)
+	{
 		y->gauche = z;
+	}
 	else
+	{
 		y->droite = z;
+	}
 	z->gauche = T->nil;
 	z->droite = T->nil;
 	z->couleur = ROUGE;
@@ -250,7 +268,9 @@ NOEUD *arbre_minimumTaille(NOEUD *x, NOEUD *nl)
 NOEUD *arbre_successeurTaille(NOEUD *x, NOEUD *nl)
 {
 	if (x->droite != nl)
+	{
 		return arbre_minimumTaille(x->droite, nl);
+	}
 	NOEUD *y = x->p;
 	while (y != nl && x == y->droite)
 	{
@@ -356,13 +376,19 @@ int *josephus_efficace(int n, int m)
 		e = nd - rang;
 		k++;
 		if (e >= m)
-			rang = rang + m - 1;
+		{
+			rang += m - 1;
+		}
 		else
 		{
 			if (e == 0)
+			{
 				rang = m % (nd - 1) == 0 ? (nd - 1) : m % (nd - 1);
+			}
 			else
+			{
 				rang = (m - e) % (nd - 1) == 0 ? (nd - 1) : (m - e) % (nd - 1);
+			}
 		}
 		nd--;
 	}

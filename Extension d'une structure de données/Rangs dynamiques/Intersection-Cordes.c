@@ -3,23 +3,33 @@
 NOEUDPOINT *rn_minimum(ARNP *T, NOEUDPOINT *x)
 {
 	if (x == T->nil || x->gauche == T->nil)
+	{
 		return x;
+	}
 	else
+	{
 		return rn_minimum(T, x->gauche);
+	}
 }
 
 NOEUDPOINT *rn_maximum(ARNP *T, NOEUDPOINT *x)
 {
 	if (x == T->nil || x->droite == T->nil)
+	{
 		return x;
+	}
 	else
+	{
 		return rn_maximum(T, x->droite);
+	}
 }
 
 NOEUDPOINT *rn_successeur(ARNP *T, NOEUDPOINT *x)
 {
 	if (x->droite != T->nil)
+	{
 		return rn_minimum(T, x->droite);
+	}
 	NOEUDPOINT *y = x->p;
 	while (y != T->nil && x == y->droite)
 	{
@@ -59,7 +69,7 @@ int intersection_meme_branche(NOEUDPOINT *x1, NOEUDPOINT *x2)
 		{
 			if (x2 == x2->p->gauche)
 			{
-				n = n + x2->gauche->taille;
+				n += x2->gauche->taille;
 			}
 			while (x2 == x2->p->gauche)
 			{
@@ -91,7 +101,7 @@ int intersection_meme_branche(NOEUDPOINT *x1, NOEUDPOINT *x2)
 		{
 			if (x2 == x2->p->droite)
 			{
-				n = n + x2->droite->taille;
+				n += x2->droite->taille;
 			}
 			while (x2 == x2->p->droite)
 			{
@@ -130,7 +140,7 @@ int intersection_branches_diff(ARNP *T, NOEUDPOINT *x1, NOEUDPOINT *x2)
 		{
 			if (x1 == x1->p->gauche)
 			{
-				n = n + x1->gauche->taille;
+				n += x1->gauche->taille;
 			}
 			while (x1->p && x1 == x1->p->gauche)
 			{
@@ -161,7 +171,7 @@ int intersection_branches_diff(ARNP *T, NOEUDPOINT *x1, NOEUDPOINT *x2)
 		{
 			if (x1 == x1->p->droite)
 			{
-				n = n + x1->droite->taille;
+				n += x1->droite->taille;
 			}
 			while (x1->p && x1 == x1->p->droite)
 			{

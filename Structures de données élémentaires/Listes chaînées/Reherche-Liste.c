@@ -67,9 +67,13 @@ int main(int argc, char **argv)
     afficher_liste(L);
     LISTECHAINEE res = rechercher_liste(L, 9);
     if (res)
+    {
         printf("\n\nLe résultat de la recherche est %d\n", res->cle);
+    }
     else
+    {
         printf("\n\nL'élément n'est pas présent dans la liste\n\n");
+    }
     detruire_liste(L->tete);
     return 0;
 }

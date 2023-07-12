@@ -16,7 +16,9 @@ void inserer_arbre_2_3_4_avec_hauteur(ARBRE_2_3_4 *T, int k)
 		inserer_arbre_2_3_4_avec_hauteur_incomplet(s, k);
 	}
 	else
+	{
 		inserer_arbre_2_3_4_avec_hauteur_incomplet(r, k);
+	}
 }
 
 void partager_enfant_arbre_2_3_4_avec_hauteur(NOEUD_ARBRE_2_3_4 *x, int i, NOEUD_ARBRE_2_3_4 *y)
@@ -42,7 +44,9 @@ void partager_enfant_arbre_2_3_4_avec_hauteur(NOEUD_ARBRE_2_3_4 *x, int i, NOEUD
 	}
 	nouveauCx[i] = z;
 	for (j = 0; j <= i - 1; j++)
+	{
 		nouveauCx[j] = x->c[j];
+	}
 	x->c = nouveauCx;
 	int *nouveauClex = (int *)malloc((x->n + 1) * sizeof(int));
 	for (j = x->n; j >= i; j--)
@@ -55,7 +59,7 @@ void partager_enfant_arbre_2_3_4_avec_hauteur(NOEUD_ARBRE_2_3_4 *x, int i, NOEUD
 		nouveauClex[j] = x->cle[j];
 	}
 	x->cle = nouveauClex;
-	x->n = x->n + 1;
+	x->n++;
 	ecrireDisque(y);
 	ecrireDisque(z);
 	ecrireDisque(x);
@@ -70,13 +74,15 @@ void inserer_arbre_2_3_4_avec_hauteur_incomplet(NOEUD_ARBRE_2_3_4 *x, int k)
 		while (i >= 1 && k < x->cle[i - 1])
 		{
 			nouveauClex[i] = x->cle[i - 1];
-			i = i - 1;
+			i--;
 		}
 		nouveauClex[i] = k;
 		int j;
 		for (j = 0; j <= i - 1; j++)
+		{
 			nouveauClex[j] = x->cle[j];
-		x->n = x->n + 1;
+		}
+		x->n++;
 		x->cle = nouveauClex;
 		ecrireDisque(x);
 	}
@@ -86,7 +92,7 @@ void inserer_arbre_2_3_4_avec_hauteur_incomplet(NOEUD_ARBRE_2_3_4 *x, int k)
 		{
 			i--;
 		}
-		i = i + 1;
+		i++;
 		lireDisque(x, i - 1);
 		if (x->c[i - 1]->n == 3)
 		{

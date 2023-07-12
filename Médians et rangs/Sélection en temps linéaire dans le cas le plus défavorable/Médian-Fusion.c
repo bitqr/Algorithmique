@@ -11,22 +11,32 @@ int recherche_dichotomique(int *A, int deb, int fin, int cle)
     }
     int mil = (deb + fin) / 2;
     if (A[mil] == cle)
+    {
         return mil;
+    }
     if (A[mil] < cle)
+    {
         return recherche_dichotomique(A, mil + 1, fin, cle);
+    }
     else
+    {
         return recherche_dichotomique(A, deb, mil - 1, cle);
+    }
 }
 
 int median_fusion(int *X, int *Y, int n)
 {
     if (X[n - 1] <= Y[0])
+    {
         return X[n - 1];
+    }
     int r;
     int x = X[(n - 1) / 2];
     int y = Y[(n - 1) / 2];
     if (x == y)
+    {
         return x;
+    }
     int min = x < y ? x : y;
     if (min == x)
     {

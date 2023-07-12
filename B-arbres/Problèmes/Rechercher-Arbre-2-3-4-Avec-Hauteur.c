@@ -66,14 +66,20 @@ void ecrireDisque(NOEUD_ARBRE_2_3_4 *x)
 	fprintf(f, "%d\n", x->hauteur);
 	int i;
 	for (i = 1; i <= x->n; i++)
+	{
 		fprintf(f, "%d\n", x->cle[i - 1]);
+	}
 	if (x->feuille == VRAI)
+	{
 		fprintf(f, "1\n");
+	}
 	else
 	{
 		fprintf(f, "0\n");
 		for (i = 1; i <= x->n + 1; i++)
+		{
 			fprintf(f, "%p\n", x->c[i - 1]);
+		}
 	}
 	fclose(f);
 }
@@ -81,9 +87,11 @@ void ecrireDisque(NOEUD_ARBRE_2_3_4 *x)
 COUPLE *rechercher_arbre_2_3_4_avec_hauteur(NOEUD_ARBRE_2_3_4 *x, int k)
 {
 	int i = 1;
-	while ((i <= x->n) && (k > x->cle[i - 1]))
-		i = i + 1;
-	if ((i <= x->n) && (k == x->cle[i - 1]))
+	while (i <= x->n && k > x->cle[i - 1])
+	{
+		i++;
+	}
+	if (i <= x->n && k == x->cle[i - 1])
 	{
 		COUPLE *r = (COUPLE *)malloc(sizeof(COUPLE));
 		r->y = x;
@@ -148,9 +156,13 @@ int main(int argc, char **argv)
 	A->racine = rac;
 	COUPLE *rech = rechercher_arbre_2_3_4_avec_hauteur(A->racine, K);
 	if (rech == NIL)
+	{
 		printf("\nL'élément %d n'a pas été trouvé dans l'arbre 2-3-4.\n\n", K);
+	}
 	else
+	{
 		printf("\nL'élément %d a bien été trouvé au noeud d'adresse %p, à la clé en position %d.\n\n", K, rech->y, rech->i);
+	}
 
 	free(rech);
 	inserer_arbre_2_3_4_avec_hauteur(A, 55);

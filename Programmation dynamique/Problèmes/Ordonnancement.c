@@ -5,11 +5,13 @@ int *solution_ordonnancement(CHOIX **C, int n, int T, int *t)
 	int *s = (int *)malloc(n * sizeof(int));
 	int i, j, k = 0, max = 0;
 	for (i = 0; i <= T; i++)
+	{
 		if (C[n][i].profit > max)
 		{
 			max = C[n][i].profit;
 			k = i;
 		}
+	}
 	for (i = n - 1; i >= 0; i--)
 	{
 		s[i] = C[i + 1][k].tache;
@@ -23,7 +25,9 @@ int *ordonnancement(int *t, int *d, int *p, int n)
 	int T = 0;
 	int i;
 	for (i = 0; i < n; i++)
+	{
 		T += t[i];
+	}
 	CHOIX **C = (CHOIX **)malloc((n + 1) * sizeof(CHOIX *));
 	for (i = 0; i <= n; i++)
 	{

@@ -7,7 +7,7 @@ void supprimer_arbre_2_3_4_avec_hauteur(ARBRE_2_3_4 *T, int k)
 	int j = r->n;
 	while (j >= 1 && k < r->cle[j - 1])
 	{
-		j = j - 1;
+		j--;
 	}
 	if (j >= 1 && k == r->cle[j - 1])
 	{
@@ -88,7 +88,7 @@ void supprimer_arbre_2_3_4_avec_hauteur(ARBRE_2_3_4 *T, int k)
 		}
 		else
 		{
-			j = j + 1;
+			j++;
 			lireDisque(r, j - 1);
 			if (r->c[j - 1]->n == 1)
 			{
@@ -221,7 +221,7 @@ void supprimer_arbre_2_3_4_fusion_frere_gauche_incomplet(NOEUD_ARBRE_2_3_4 *x, i
 		x->cle[i - 1] = x->cle[i];
 		x->c[i] = x->c[i + 1];
 	}
-	x->n = x->n - 1;
+	x->n--;
 	ecrireDisque(x);
 	ecrireDisque(x->c[j - 2]);
 }
@@ -243,7 +243,7 @@ int supprimer_cle_minimale_arbre_2_3_4_avec_hauteur(NOEUD_ARBRE_2_3_4 *x)
 			{
 				x->cle[j - 1] = x->cle[j];
 			}
-			x->n = x->n - 1;
+			x->n--;
 			ecrireDisque(x);
 			return k;
 		}
@@ -295,7 +295,7 @@ void supprimer_arbre_2_3_4_avec_frere_droit(NOEUD_ARBRE_2_3_4 *x, int j)
 			x->c[j]->c[i - 1] = x->c[j]->c[i];
 		}
 	}
-	x->c[j]->n = x->c[j]->n - 1;
+	x->c[j]->n--;
 	ecrireDisque(x);
 	ecrireDisque(x->c[j]);
 	ecrireDisque(x->c[j - 1]);
@@ -353,7 +353,7 @@ void supprimer_arbre_2_3_4_fusion_frere_gauche(ARBRE_2_3_4 *T, int j)
 		r->cle[i - 1] = r->cle[i];
 		r->c[i] = r->c[i + 1];
 	}
-	r->n = r->n - 1;
+	r->n--;
 	if (r->n == 0)
 	{
 		T->racine = r->c[j - 2];
@@ -389,7 +389,7 @@ void supprimer_arbre_2_3_4_fusion_frere_droit(ARBRE_2_3_4 *T, int j)
 		r->cle[i - 1] = r->cle[i];
 		r->c[i] = r->c[i + 1];
 	}
-	r->n = r->n - 1;
+	r->n--;
 	if (r->n == 0)
 	{
 		T->racine = r->c[j - 1];
@@ -465,7 +465,7 @@ void supprimer_arbre_2_3_4_avec_hauteur_incomplet(NOEUD_ARBRE_2_3_4 *x, int k)
 						x->cle[i - 1] = x->cle[i];
 						x->c[i] = x->c[i + 1];
 					}
-					x->n = x->n - 1;
+					x->n--;
 					ecrireDisque(x);
 					supprimer_arbre_2_3_4_avec_hauteur_incomplet(x->c[j - 1], k);
 				}
@@ -480,7 +480,7 @@ void supprimer_arbre_2_3_4_avec_hauteur_incomplet(NOEUD_ARBRE_2_3_4 *x, int k)
 		}
 		else
 		{
-			j = j + 1;
+			j++;
 			lireDisque(x, j - 1);
 			if (x->c[j - 1]->n == 1)
 			{

@@ -30,9 +30,13 @@ int main(int agrc, char **argv)
 {
     PILE *P = creer_pile(N);
     if (pile_vide(P))
+    {
         printf("La pile est vide\n\n");
+    }
     else
-        printf("La pile n'est ps vide\n\n");
+    {
+        printf("La pile n'est pas vide\n\n");
+    }
     free(P->tableau);
     free(P);
     return 0;

@@ -33,7 +33,9 @@ int main()
      int j;
      int *A = (int *)malloc(N * sizeof(int));
      for (j = 0; j < N; j++)
+     {
           A[j] = rand() % 100;
+     }
      tri_faire_valoir(A, 0, N - 1);
      int i;
      for (i = 0; i < N; ++i)

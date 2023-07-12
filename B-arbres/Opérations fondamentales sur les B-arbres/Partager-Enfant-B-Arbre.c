@@ -42,7 +42,7 @@ void partager_enfant_B_arbre(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y)
 		nouveauClex[j - 1] = x->cle[j - 1];
 	}
 	x->cle = nouveauClex;
-	x->n = x->n + 1;
+	x->n++;
 	ecrireDisque(y);
 	ecrireDisque(z);
 	ecrireDisque(x);

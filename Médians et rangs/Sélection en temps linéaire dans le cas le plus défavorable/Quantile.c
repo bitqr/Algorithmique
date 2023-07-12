@@ -15,8 +15,10 @@ int max(elem *A, int n)
     int i;
     for (i = 1; i < n; i++)
     {
-        if ((A[i].el) > (A[m].el))
+        if (A[i].el > A[m].el)
+        {
             m = i;
+        }
     }
     return m;
 }

@@ -35,7 +35,7 @@ void afficher_file(FILES *F)
         {
             printf("%d\t", F->tableau[i]);
             i++;
-            i = i % F->longueur;
+            i %= F->longueur;
         }
         printf("\n\n");
     }
@@ -43,7 +43,7 @@ void afficher_file(FILES *F)
 
 void enfiler2(FILES *F, int x)
 {
-    if (F->tete == (F->queue + 1) || ((F->queue == F->longueur - 1) && (F->tete == 0)))
+    if (F->tete == F->queue + 1 || (F->queue == F->longueur - 1 && F->tete == 0))
     {
         printf("File pleine: débordement\n\n");
         exit(EXIT_FAILURE);
@@ -53,12 +53,16 @@ void enfiler2(FILES *F, int x)
     if (F->queue + 1 == F->longueur)
     {
         if (F->tete != 0)
+        {
             F->queue = 0;
+        }
     }
     else
     {
         if (F->queue + 1 != F->tete)
+        {
             F->queue++;
+        }
     }
 }
 

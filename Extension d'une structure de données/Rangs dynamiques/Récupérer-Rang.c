@@ -76,8 +76,8 @@ int main(int argc, char **argv)
 	int i;
 	for (i = 1; i <= T->racine->taille; i++)
 	{
-		printf("Le noeud de rang %d a pour cle %d\n\n", determiner_rang(T, recuperer_rang(T->racine, i)), recuperer_rang_iteratif(T->racine, i)->cle);
+		printf("Le noeud de rang %d a pour clé %d\n\n", determiner_rang(T, recuperer_rang(T->racine, i)), recuperer_rang_iteratif(T->racine, i)->cle);
 	}
-	printf("La cle %d est de rang %d\n\n", 35, rechercher_rang_cle(T->racine, 35));
+	printf("La clé %d est de rang %d\n\n", 35, rechercher_rang_cle(T->racine, 35));
 	return 0;
 }

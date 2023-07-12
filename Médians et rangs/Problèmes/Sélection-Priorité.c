@@ -47,12 +47,18 @@ void entasser_max(P_TAS tas, int i)
     int r = droite(i);
     int max;
     int *A = tas->tableau;
-    if ((l < tas->taille) && (A[l] > A[i]))
+    if (l < tas->taille && A[l] > A[i])
+    {
         max = l;
+    }
     else
+    {
         max = i;
-    if ((r < tas->taille) && (A[r] > A[max]))
+    }
+    if (r < tas->taille && A[r] > A[max])
+    {
         max = r;
+    }
     if (max != i)
     {
         echanger(A, i, max);
@@ -75,7 +81,7 @@ int extraire_max_tas(P_TAS tas)
 {
     if (tas->taille < 1)
     {
-        printf("Limite inferieure depassee\n\n\n");
+        printf("Limite inférieure dépassée\n\n\n");
         system("PAUSE");
         exit(1);
     }
@@ -111,7 +117,9 @@ int main()
     tas2->tableau = tab2;
     int *B = selection_priorite(tas, N1, I);
     for (j = 0; j < I; j++)
+    {
         printf("%d\t", B[j]);
+    }
     printf("\n\n\n");
     free(tas);
     free(tas2);

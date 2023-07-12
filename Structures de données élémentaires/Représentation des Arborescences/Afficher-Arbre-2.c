@@ -30,7 +30,9 @@ PILE *creer_pile(int taille)
     ARBREBINAIRE **t = (ARBREBINAIRE **)malloc(taille * sizeof(ARBREBINAIRE *));
     int i;
     for (i = 0; i < taille; i++)
+    {
         t[i] = (ARBREBINAIRE *)malloc(taille * sizeof(ARBREBINAIRE));
+    }
     P->sommet = -1;
     P->taille = taille;
     P->tableau = t;

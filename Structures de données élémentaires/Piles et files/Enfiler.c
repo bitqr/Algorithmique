@@ -26,7 +26,9 @@ FILES *creer_file(int taille)
 void afficher_file(FILES *F)
 {
     if (F->tete == F->queue)
+    {
         printf("La liste est vide\n\n");
+    }
     else
     {
         int i = F->tete;
@@ -35,7 +37,7 @@ void afficher_file(FILES *F)
         {
             printf("%d\t", F->tableau[i]);
             i++;
-            i = i % F->longueur;
+            i %= F->longueur;
         }
         printf("\n\n");
     }
@@ -45,9 +47,13 @@ void enfiler(FILES *F, int x)
 {
     F->tableau[F->queue] = x;
     if (F->queue + 1 == F->longueur)
+    {
         F->queue = 0;
+    }
     else
+    {
         F->queue++;
+    }
 }
 
 int main(int agrc, char **argv)

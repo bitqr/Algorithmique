@@ -38,7 +38,9 @@ int Random(int a, int b)
 {
     int i;
     if (a == 0 && b == 1)
+    {
         return rand() % 2;
+    }
     int acc = 0;
     for (i = a; i < b; i++)
     {
@@ -57,17 +59,25 @@ int partition_randomisee(int *A, int p, int r)
 int selection_randomisee(int *A, int p, int r, int i)
 {
     if (p == r)
+    {
         return A[p];
+    }
     int q = partition_randomisee(A, p, r);
     int k = q - p + 1;
     if (i == k) // La valeur du pivot est la réponse
+    {
         return A[q];
+    }
     else
     {
         if (i < k)
+        {
             return selection_randomisee(A, p, q - 1, i);
+        }
         else
+        {
             return selection_randomisee(A, q + 1, r, i - k);
+        }
     }
 }
 
@@ -78,7 +88,9 @@ int max(elem *A, int n)
     for (i = 1; i < n; i++)
     {
         if (A[i].el > A[m].el)
+        {
             m = i;
+        }
     }
     return m;
 }
@@ -93,10 +105,14 @@ void tri_denombrement(elem *A, elem *B, int k, int n)
     }
     int j;
     for (j = 0; j < n; j++)
+    {
         C[A[j].el]++;
+    }
     // C[i] contient maintenant le nombre d'éléments égaux à i.
     for (i = 1; i < k; i++)
+    {
         C[i] += C[i - 1];
+    }
     // C[i] contient maintenant le nombre d'éléments inférieurs ou égaux à i.
     for (j = n - 1; j >= 0; j--)
     {

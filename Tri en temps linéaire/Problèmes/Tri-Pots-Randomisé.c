@@ -104,9 +104,13 @@ int recherche_dichotomique_pots(POT **A, int deb, int fin, int cle)
     if (deb > fin)
     {
         if (A[deb]->contenance == cle)
+        {
             return deb;
+        }
         else
+        {
             return -1;
+        }
     }
     int mil = (deb + fin) / 2;
     if (A[mil]->contenance == cle)
@@ -134,9 +138,13 @@ PAIREPOT **tri_pots_randomise(POT **A, POT **B, int n)
         l = A[i]->contenance;
         r = Random(0, n - 1);
         if (B2[r]->contenance > l)
+        {
             m = recherche_dichotomique_pots(B2, 0, r - 1, l);
+        }
         else
+        {
             m = recherche_dichotomique_pots(B2, r, n - 1, l);
+        }
         C[k]->premier = A[i]->rang;
         C[k]->second = B2[m]->rang;
         k++;

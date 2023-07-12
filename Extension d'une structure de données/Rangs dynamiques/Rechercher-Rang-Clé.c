@@ -3,7 +3,9 @@
 int rechercher_rang_cle(NOEUD *x, int k)
 {
 	if (x->cle == k)
+	{
 		return x->gauche->taille + 1;
+	}
 	else if (x->cle > k)
 	{
 		return rechercher_rang_cle(x->gauche, k);

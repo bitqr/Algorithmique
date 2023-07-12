@@ -58,7 +58,9 @@ void afficher_solution(char **S, char *x, char *y, int n, int m)
 		}
 	}
 	if (i != m)
+	{
 		printf("On équeute.\n");
+	}
 	printf("C'est fini!\n");
 }
 

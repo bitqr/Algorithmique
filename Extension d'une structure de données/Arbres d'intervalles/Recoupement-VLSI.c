@@ -3,23 +3,33 @@
 NOEUD_VLSI *rn_minimum(ARN_VLSI *T, NOEUD_VLSI *x)
 {
 	if (x == T->nil || x->gauche == T->nil)
+	{
 		return x;
+	}
 	else
+	{
 		return rn_minimum(T, x->gauche);
+	}
 }
 
 NOEUD_VLSI *rn_maximum(ARN_VLSI *T, NOEUD_VLSI *x)
 {
 	if (x == T->nil || x->droite == T->nil)
+	{
 		return x;
+	}
 	else
+	{
 		return rn_maximum(T, x->droite);
+	}
 }
 
 NOEUD_VLSI *rn_successeur(ARN_VLSI *T, NOEUD_VLSI *x)
 {
 	if (x->droite != T->nil)
+	{
 		return rn_minimum(T, x->droite);
+	}
 	NOEUD_VLSI *y = x->p;
 	while (y != T->nil && x == y->droite)
 	{
@@ -32,7 +42,9 @@ NOEUD_VLSI *rn_successeur(ARN_VLSI *T, NOEUD_VLSI *x)
 void afficherRect(ARN_VLSI *T, NOEUD_VLSI *n)
 {
 	if (n != T->nil)
+	{
 		printf("%d %d %d %d\n\n", n->rect->minx, n->rect->miny, n->rect->maxx, n->rect->maxy);
+	}
 }
 
 int recoupement(ARN_VLSI *T, NOEUD_VLSI *n)
@@ -41,11 +53,17 @@ int recoupement(ARN_VLSI *T, NOEUD_VLSI *n)
 	while (x != T->nil)
 	{
 		if (x != n && ((x->intx->debut >= n->intx->debut && x->intx->debut <= n->intx->fin && x->inty->debut <= n->inty->fin && n->inty->debut <= x->inty->fin) || ((n->intx->debut >= x->intx->debut && n->intx->debut <= x->intx->fin && x->inty->debut <= n->inty->fin && n->inty->debut <= x->inty->fin))))
+		{
 			return 1;
+		}
 		if (x->droite == T->nil || x->droite->rect->minx > n->intx->fin || x->cle > n->intx->fin || x->droite->rect->miny > n->inty->fin || x->droite->rect->maxy < n->inty->debut)
+		{
 			x = x->gauche;
+		}
 		else
+		{
 			x = x->droite;
+		}
 	}
 	return 0;
 }
@@ -66,7 +84,9 @@ int recoupement_vlsi(ARN_VLSI *T)
 	while (m != T->nil)
 	{
 		if (recoupement(T, m) == 1)
+		{
 			return 1;
+		}
 		m = rn_successeur(T, m);
 		afficherRect(T, m);
 	}
@@ -135,9 +155,13 @@ int main(int argc, char **argv)
 
 	free(T);
 	if (r == 1)
+	{
 		printf("Il y a au moins un recoupement de circuits dans cette puce VLSI\n\n");
+	}
 	else
+	{
 		printf("Il n'y a aucun recoupement de circuits dans cette puce VLSI\n\n");
+	}
 
 	return 0;
 }

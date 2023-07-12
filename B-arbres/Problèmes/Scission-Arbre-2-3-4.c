@@ -81,7 +81,7 @@ void partager_avec_chemin(NOEUD_ARBRE_2_3_4 *x, int k, PILE *K1, PILE_ARBRE_2_3_
 	int i = 1;
 	while (i <= x->n && x->cle[i - 1] < k)
 	{
-		i = i + 1;
+		i++;
 	}
 	if (i <= x->n && x->cle[i - 1] == k)
 	{

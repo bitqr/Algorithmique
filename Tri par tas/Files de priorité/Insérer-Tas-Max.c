@@ -44,7 +44,7 @@ void augmenter_cle_tas(P_TAS tas, int i, int cle)
           exit(1);
      }
      A[i] = cle;
-     while ((i > 0) && (A[parent(i)] < A[i]))
+     while (i > 0 && A[parent(i)] < A[i])
      {
           echanger(A, i, parent(i));
           i = parent(i);

@@ -45,8 +45,10 @@ int *fusion_multiple(P_TAS tas, int k)
                 j++;
             }
             b = 0;
-            while ((tas->tableau[d + b] == infini) && (b < 3))
+            while (tas->tableau[d + b] == infini && b < 3)
+            {
                 b++;
+            }
             if (min > A[b])
             {
                 in = d + b;

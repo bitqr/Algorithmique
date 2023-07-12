@@ -10,10 +10,11 @@
 #define N 20
 #define INFINI 100000
 
-struct sequence {
-  int longueur;
-  char *table;
-  int *entiers;
+struct sequence
+{
+    int longueur;
+    char *table;
+    int *entiers;
 };
 
 typedef struct sequence SEQUENCE;
@@ -21,19 +22,21 @@ typedef struct sequence SEQUENCE;
 #define ROUGE 0
 #define NOIR 1
 
-struct noeud {
-  int cle;
-  int couleur;
-  struct noeud *p;
-  struct noeud *gauche;
-  struct noeud *droite;
+struct noeud
+{
+    int cle;
+    int couleur;
+    struct noeud *p;
+    struct noeud *gauche;
+    struct noeud *droite;
 };
 
 typedef struct noeud NOEUD;
 
-struct arbreRN {
-  NOEUD *racine;
-  NOEUD *nil;
+struct arbreRN
+{
+    NOEUD *racine;
+    NOEUD *nil;
 };
 
 typedef struct arbreRN ARN;

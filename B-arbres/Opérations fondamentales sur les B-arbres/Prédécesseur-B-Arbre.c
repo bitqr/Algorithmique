@@ -8,7 +8,7 @@ int predecesseur_B_arbre(B_ARBRE *T, int k)
 		int i = r->n;
 		while (i >= 1 && r->cle[i - 1] > k)
 		{
-			i = i - 1;
+			i--;
 		}
 		if (i >= 1 && k == r->cle[i - 1])
 		{
@@ -46,7 +46,7 @@ int predecesseur_B_arbre(B_ARBRE *T, int k)
 	int i = r->n;
 	while (i >= 1 && r->cle[i - 1] > k)
 	{
-		i = i - 1;
+		i--;
 	}
 	if (i > 1)
 	{

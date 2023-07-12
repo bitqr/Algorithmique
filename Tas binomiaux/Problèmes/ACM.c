@@ -19,9 +19,13 @@ NOEUD_TAS_BINOMIAL *fusionner_tas_binomiaux(TAS_BINOMIAL *T1, TAS_BINOMIAL *T2)
 	NOEUD_TAS_BINOMIAL *x1 = T1->tete;
 	NOEUD_TAS_BINOMIAL *x2 = T2->tete;
 	if (x1 == NIL)
+	{
 		return x2;
+	}
 	if (x2 == NIL)
+	{
 		return x1;
+	}
 	NOEUD_TAS_BINOMIAL *h;
 	if (x1->degre <= x2->degre)
 	{
@@ -49,9 +53,13 @@ NOEUD_TAS_BINOMIAL *fusionner_tas_binomiaux(TAS_BINOMIAL *T1, TAS_BINOMIAL *T2)
 		courant = courant->frere;
 	}
 	if (x1 == NIL)
+	{
 		courant->frere = x2;
+	}
 	else
+	{
 		courant->frere = x1;
+	}
 	return h;
 }
 
@@ -60,9 +68,13 @@ NOEUD_TAS_BINOMIAL_ARETE *fusionnerTasBinomiauxAretes(TAS_BINOMIAL_ARETES *T1, T
 	NOEUD_TAS_BINOMIAL_ARETE *x1 = T1->tete;
 	NOEUD_TAS_BINOMIAL_ARETE *x2 = T2->tete;
 	if (x1 == NIL)
+	{
 		return x2;
+	}
 	if (x2 == NIL)
+	{
 		return x1;
+	}
 	NOEUD_TAS_BINOMIAL_ARETE *h;
 	if (x1->degre <= x2->degre)
 	{
@@ -90,9 +102,13 @@ NOEUD_TAS_BINOMIAL_ARETE *fusionnerTasBinomiauxAretes(TAS_BINOMIAL_ARETES *T1, T
 		courant = courant->frere;
 	}
 	if (x1 == NIL)
+	{
 		courant->frere = x2;
+	}
 	else
+	{
 		courant->frere = x1;
+	}
 	return h;
 }
 
@@ -117,7 +133,9 @@ TAS_BINOMIAL *union_tas_binomiaux(TAS_BINOMIAL *T1, TAS_BINOMIAL *T2)
 	TAS_BINOMIAL *T = creer_tas_binomial();
 	T->tete = fusionner_tas_binomiaux(T1, T2);
 	if (T->tete == NIL)
+	{
 		return T;
+	}
 	NOEUD_TAS_BINOMIAL *avant_x = NIL;
 	NOEUD_TAS_BINOMIAL *x = T->tete;
 	NOEUD_TAS_BINOMIAL *apres_x = x->frere;
@@ -135,12 +153,16 @@ TAS_BINOMIAL *union_tas_binomiaux(TAS_BINOMIAL *T1, TAS_BINOMIAL *T2)
 		}
 		else
 		{
-			if (avant_x == NIL)	   // Cas 4
-				T->tete = apres_x; // Cas 4
+			if (avant_x == NIL) // Cas 4
+			{
+				T->tete = apres_x;
+			} // Cas 4
 			else
-				avant_x->frere = apres_x; // Cas 4
-			lien_binomial(x, apres_x);	  // Cas 4
-			x = apres_x;				  // Cas 4
+			{
+				avant_x->frere = apres_x;
+			}						   // Cas 4
+			lien_binomial(x, apres_x); // Cas 4
+			x = apres_x;			   // Cas 4
 		}
 		apres_x = x->frere;
 	}
@@ -152,7 +174,9 @@ TAS_BINOMIAL_ARETES *unionTasBinomiauxAretes(TAS_BINOMIAL_ARETES *T1, TAS_BINOMI
 	TAS_BINOMIAL_ARETES *T = creerTasBinomialAretes();
 	T->tete = fusionnerTasBinomiauxAretes(T1, T2);
 	if (T->tete == NIL)
+	{
 		return T;
+	}
 	NOEUD_TAS_BINOMIAL_ARETE *avant_x = NIL;
 	NOEUD_TAS_BINOMIAL_ARETE *x = T->tete;
 	NOEUD_TAS_BINOMIAL_ARETE *apres_x = x->frere;
@@ -170,12 +194,16 @@ TAS_BINOMIAL_ARETES *unionTasBinomiauxAretes(TAS_BINOMIAL_ARETES *T1, TAS_BINOMI
 		}
 		else
 		{
-			if (avant_x == NIL)	   // Cas 4
-				T->tete = apres_x; // Cas 4
+			if (avant_x == NIL) // Cas 4
+			{
+				T->tete = apres_x;
+			} // Cas 4
 			else
-				avant_x->frere = apres_x; // Cas 4
-			lienBinomial(x, apres_x);	  // Cas 4
-			x = apres_x;				  // Cas 4
+			{
+				avant_x->frere = apres_x;
+			}						  // Cas 4
+			lienBinomial(x, apres_x); // Cas 4
+			x = apres_x;			  // Cas 4
 		}
 		apres_x = x->frere;
 	}
@@ -225,12 +253,16 @@ NOEUD_TAS_BINOMIAL_ARETE *tasBinomialAretesExtraireMin(TAS_BINOMIAL_ARETES **T)
 			y = y->frere;
 		}
 		if (x == (*T)->tete)
+		{
 			(*T)->tete = x->frere;
+		}
 		else
 		{
 			y = (*T)->tete;
 			while (y->frere != x)
+			{
 				y = y->frere;
+			}
 			y->frere = x->frere;
 		}
 	}

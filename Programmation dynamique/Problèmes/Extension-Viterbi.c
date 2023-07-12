@@ -110,18 +110,22 @@ int main(int argc, char **argv)
 	GRAPHE_ETENDU *G = creerGrapheEtendu(NS);
 	int i, j;
 	for (i = 0; i < NS; i++)
+	{
 		for (j = 0; j < NS; j++)
 		{
 			G->aretes[i][j] = aretes[i][j];
 			G->p[i][j] = p[i][j];
 		}
+	}
 
 	char s[NP] = {'s', 'l', 'a', 'u', 'm'};
 
 	int *chemin = extension_viterbi(G, 10, s, NP);
 
 	for (i = 0; i <= NP; i++)
+	{
 		printf("%d->\t", chemin[i]);
+	}
 	printf("\n\n");
 
 	return 0;

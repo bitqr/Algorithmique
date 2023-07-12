@@ -13,25 +13,25 @@
 
 struct noeud_B_arbre
 {
-  int n;
-  int *cle;
-  int feuille;
-  struct noeud_B_arbre **c;
+	int n;
+	int *cle;
+	int feuille;
+	struct noeud_B_arbre **c;
 };
 
 typedef struct noeud_B_arbre NOEUD_B_ARBRE;
 
 struct couple
 {
-  NOEUD_B_ARBRE *y;
-  int i;
+	NOEUD_B_ARBRE *y;
+	int i;
 };
 
 typedef struct couple COUPLE;
 
 struct B_arbre
 {
-  NOEUD_B_ARBRE *racine;
+	NOEUD_B_ARBRE *racine;
 };
 
 typedef struct B_arbre B_ARBRE;
@@ -45,6 +45,6 @@ int cle_maximale(NOEUD_B_ARBRE *x);
 int cle_minimale(NOEUD_B_ARBRE *x);
 void fusionner(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *y, NOEUD_B_ARBRE *z);
 void echanger_frere(NOEUD_B_ARBRE *x, int i, NOEUD_B_ARBRE *z,
-                    NOEUD_B_ARBRE *y);
+					NOEUD_B_ARBRE *y);
 
 #endif

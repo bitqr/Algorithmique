@@ -1,16 +1,17 @@
 #ifndef DEF_TAS_2_3_4
 #define DEF_TAS_2_3_4
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define VRAI 1
 #define FAUX 0
 #define NIL NULL
 #define CLEDIMINUEE 4
 
-struct noeud_tas_2_3_4{
+struct noeud_tas_2_3_4
+{
 	int n;
 	int cle;
 	int petit;
@@ -22,13 +23,15 @@ struct noeud_tas_2_3_4{
 
 typedef struct noeud_tas_2_3_4 NOEUD_TAS_2_3_4;
 
-struct tas_2_3_4{
+struct tas_2_3_4
+{
 	NOEUD_TAS_2_3_4 *racine;
 };
 
 typedef struct tas_2_3_4 TAS_2_3_4;
 
-struct arete{
+struct arete
+{
 	int u;
 	int v;
 	double w;
@@ -36,7 +39,8 @@ struct arete{
 
 typedef struct arete ARETE;
 
-struct graphe{
+struct graphe
+{
 	int n;
 	int m;
 	ARETE *aretes;
@@ -46,7 +50,8 @@ struct graphe{
 
 typedef struct graphe GRAPHE;
 
-struct noeud_tas_binomial{
+struct noeud_tas_binomial
+{
 	int cle;
 	struct noeud_tas_binomial *frere;
 	struct noeud_tas_binomial *p;
@@ -56,13 +61,15 @@ struct noeud_tas_binomial{
 
 typedef struct noeud_tas_binomial NOEUD_TAS_BINOMIAL;
 
-struct tas_binomial{
+struct tas_binomial
+{
 	struct noeud_tas_binomial *tete;
 };
 
 typedef struct tas_binomial TAS_BINOMIAL;
 
-struct noeud_tas_binomial_arete{
+struct noeud_tas_binomial_arete
+{
 	double cle;
 	ARETE arete;
 	struct noeud_tas_binomial_arete *frere;
@@ -73,12 +80,12 @@ struct noeud_tas_binomial_arete{
 
 typedef struct noeud_tas_binomial_arete NOEUD_TAS_BINOMIAL_ARETE;
 
-struct tas_binomial_aretes{
+struct tas_binomial_aretes
+{
 	struct noeud_tas_binomial_arete *tete;
 };
 
 typedef struct tas_binomial_aretes TAS_BINOMIAL_ARETES;
-
 
 NOEUD_TAS_2_3_4 *minimum(TAS_2_3_4 *T);
 void afficherTas234(TAS_2_3_4 *T);
@@ -108,5 +115,3 @@ void afficherGraphe(GRAPHE *G);
 ARETE *ACM(GRAPHE *G);
 
 #endif
-
-

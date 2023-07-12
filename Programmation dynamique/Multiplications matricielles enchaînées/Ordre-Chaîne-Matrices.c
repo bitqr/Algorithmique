@@ -8,7 +8,9 @@ MATRICE *creerMatrice(int nl, int nc)
 	int **m = (int **)malloc(nl * sizeof(int *));
 	int i;
 	for (i = 0; i < nl; i++)
+	{
 		m[i] = (int *)calloc(nc, sizeof(int));
+	}
 	MATRICE *mat = (MATRICE *)malloc(sizeof(MATRICE));
 	mat->lignes = nl;
 	mat->colonnes = nc;
@@ -28,12 +30,16 @@ MATRICE *multiplier_matrices(MATRICE *A, MATRICE *B)
 		MATRICE *C = creerMatrice(A->lignes, B->colonnes);
 		int i, j, k;
 		for (i = 0; i < A->lignes; i++)
+		{
 			for (j = 0; j < B->colonnes; j++)
 			{
-				(C->tab)[i][j] = 0;
+				C->tab[i][j] = 0;
 				for (k = 0; k < A->colonnes; k++)
-					(C->tab)[i][j] = (C->tab)[i][j] + A->tab[i][k] * B->tab[k][j];
+				{
+					C->tab[i][j] = C->tab[i][j] + A->tab[i][k] * B->tab[k][j];
+				}
 			}
+		}
 		return C;
 	}
 }
@@ -44,7 +50,9 @@ void afficherMatrice(MATRICE *A)
 	for (i = 0; i < A->lignes; i++)
 	{
 		for (j = 0; j < A->colonnes; j++)
+		{
 			printf("%d\t", A->tab[i][j]);
+		}
 		printf("\n");
 	}
 }

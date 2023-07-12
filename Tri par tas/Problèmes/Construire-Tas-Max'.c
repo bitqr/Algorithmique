@@ -44,7 +44,7 @@ void augmenter_cle_tas(P_TAS tas, int i, int cle)
           exit(1);
      }
      A[i] = cle;
-     while ((i > 0) && (A[parent(i)] < A[i]))
+     while (i > 0 && A[parent(i)] < A[i])
      {
           echanger(A, i, parent(i));
           i = parent(i);
@@ -64,7 +64,9 @@ void construire_tas_max_prim(P_TAS tas)
      tas->taille = 1;
      int i;
      for (i = 1; i < tas->longueur; i++)
+     {
           inserer_tas_max(tas, tas->tableau[i]);
+     }
 }
 
 int main()
@@ -75,7 +77,9 @@ int main()
      tas->tableau = tab;
      construire_tas_max_prim(tas);
      for (j = 0; j < tas->taille; j++)
+     {
           printf("%d\t", tas->tableau[j]);
+     }
      printf("\n\n\n");
      free(tas);
      return 0;

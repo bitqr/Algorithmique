@@ -45,12 +45,18 @@ void entasser_max(P_TAS tas, int i)
     int r = droite(i);
     int max;
     int *A = tas->tableau;
-    if ((l < tas->taille) && (A[l] > A[i]))
+    if (l < tas->taille && A[l] > A[i])
+    {
         max = l;
+    }
     else
+    {
         max = i;
-    if ((r < tas->taille) && (A[r] > A[max]))
+    }
+    if (r < tas->taille && A[r] > A[max])
+    {
         max = r;
+    }
     if (max != i)
     {
         echanger(A, i, max);

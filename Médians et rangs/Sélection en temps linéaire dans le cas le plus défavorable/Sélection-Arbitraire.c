@@ -32,7 +32,9 @@ int Random(int a, int b)
 {
     int i;
     if (a == 0 && b == 1)
+    {
         return rand() % 2;
+    }
     int acc = 0;
     for (i = a; i < b; i++)
     {
@@ -51,9 +53,13 @@ int partition_randomisee(int *A, int p, int r)
 int selection_randomisee_iterative(int *A, int p, int r, int i)
 {
     if (i == 0)
+    {
         return -1;
+    }
     if (p == r)
+    {
         return p;
+    }
     int deb = p;
     int fin = r;
     int q;
@@ -62,11 +68,15 @@ int selection_randomisee_iterative(int *A, int p, int r, int i)
         q = partition_randomisee(A, deb, fin);
         int k = q - deb + 1;
         if (i == k) // La valeur du pivot est la réponse
+        {
             return q;
+        }
         else
         {
             if (i < k)
+            {
                 fin = q - 1;
+            }
             else
             {
                 deb = q + 1;
@@ -83,7 +93,9 @@ int retrouver_rang(int *A, int p, int r, int cle)
     for (i = p; i <= r; i++)
     {
         if (A[i] == cle)
+        {
             return i;
+        }
     }
     return -1;
 }

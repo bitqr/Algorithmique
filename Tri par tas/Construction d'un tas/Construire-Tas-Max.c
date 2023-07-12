@@ -47,11 +47,17 @@ void entasser_max(P_TAS tas, int i)
     int j, max;
     int *A = tas->tableau;
     if (l < tas->taille && A[l] > A[i])
+    {
         max = l;
+    }
     else
+    {
         max = i;
+    }
     if (r < tas->taille && A[r] > A[max])
+    {
         max = r;
+    }
     if (max != i)
     {
         echanger(A, i, max);
@@ -78,7 +84,9 @@ int main()
     tas->tableau = tab;
     construire_tas_max(tas);
     for (j = 0; j < tas->taille; j++)
+    {
         printf("%d\t", tas->tableau[j]);
+    }
     printf("\n\n\n");
     free(tas);
     return 0;

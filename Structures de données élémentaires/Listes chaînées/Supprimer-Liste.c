@@ -51,11 +51,17 @@ LISTECHAINEE rechercher_liste(LISTECHAINEE L, int k)
 void supprimer_liste(LISTECHAINEE L, LISTECHAINEE x)
 {
     if (x->pred != NULL)
+    {
         x->pred->succ = x->succ;
+    }
     else
+    {
         L->tete = x->succ;
+    }
     if (x->succ != NULL)
+    {
         x->succ->pred = x->pred;
+    }
 }
 
 int main(int argc, char **argv)

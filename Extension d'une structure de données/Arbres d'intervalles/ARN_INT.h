@@ -1,22 +1,24 @@
 #ifndef DEF_RN
 #define DEF_RN
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define ROUGE 0
 #define NOIR 1
 #define INFINI 100000
 #define MINFINI -100000
 
-struct intervalle{
+struct intervalle
+{
 	int debut;
 	int fin;
 };
-	
+
 typedef struct intervalle INTERVALLE;
 
-struct noeud{
+struct noeud
+{
 	int cle;
 	int couleur;
 	int max;
@@ -26,22 +28,25 @@ struct noeud{
 	struct noeud *droite;
 };
 
-typedef struct noeud NOEUD;	
+typedef struct noeud NOEUD;
 
-struct arbreRN{
+struct arbreRN
+{
 	NOEUD *racine;
 	NOEUD *nil;
 };
 
 typedef struct arbreRN ARN;
 
-struct rectangle{
+struct rectangle
+{
 	int minx, miny, maxx, maxy;
 };
 
 typedef struct rectangle RECTANGLE;
 
-struct noeud_vlsi{
+struct noeud_vlsi
+{
 	int cle;
 	int couleur;
 	int max;
@@ -53,9 +58,10 @@ struct noeud_vlsi{
 	RECTANGLE *rect;
 };
 
-typedef struct noeud_vlsi NOEUD_VLSI;	
+typedef struct noeud_vlsi NOEUD_VLSI;
 
-struct arbreRN_VLSI{
+struct arbreRN_VLSI
+{
 	NOEUD_VLSI *racine;
 	NOEUD_VLSI *nil;
 };
@@ -68,4 +74,3 @@ NOEUD *rechercher_intervalle_avant(ARN *T, INTERVALLE *i);
 INTERVALLE *creeInt(int debut, int fin);
 
 #endif
-

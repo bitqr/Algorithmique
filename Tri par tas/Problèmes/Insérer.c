@@ -45,7 +45,7 @@ void augmenter_cle_tas_d_aire(P_TAS tas, int i, int cle, int d)
           exit(1);
      }
      A[i] = cle;
-     while ((i > 0) && (A[parent_d_aire(i, d)] < A[i]))
+     while (i > 0 && A[parent_d_aire(i, d)] < A[i])
      {
           echanger(A, i, parent_d_aire(i, d));
           i = parent_d_aire(i, d);

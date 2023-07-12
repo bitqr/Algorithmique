@@ -25,9 +25,9 @@ void inserer_B_arbre_incomplet(NOEUD_B_ARBRE *x, int k)
 	{
 		while (i >= 1 && k < x->cle[i - 1])
 		{
-			i = i - 1;
+			i--;
 		}
-		i = i + 1;
+		i++;
 		lireDisque(x, i - 1);
 		if (x->c[i - 1]->n == 2 * t - 1)
 		{

@@ -1,13 +1,17 @@
-#include"ARN.h"
+#include "ARN.h"
 
-NOEUD *recuperer_rang_iteratif(NOEUD *x, int i){
+NOEUD *recuperer_rang_iteratif(NOEUD *x, int i)
+{
 	NOEUD *y = x;
 	int r = y->gauche->taille + 1;
-	while(i != r){
-		if(i < r){
+	while (i != r)
+	{
+		if (i < r)
+		{
 			y = y->gauche;
 		}
-		else{
+		else
+		{
 			y = y->droite;
 			i = i - r;
 		}
@@ -15,4 +19,3 @@ NOEUD *recuperer_rang_iteratif(NOEUD *x, int i){
 	}
 	return y;
 }
-

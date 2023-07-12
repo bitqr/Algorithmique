@@ -61,17 +61,27 @@ void rn_inserer(ARN *T, NOEUD *z)
 	{
 		y = x;
 		if (z->cle < x->cle)
+		{
 			x = x->gauche;
+		}
 		else
+		{
 			x = x->droite;
+		}
 	}
 	z->p = y;
 	if (y == T->nil)
+	{
 		T->racine = z;
+	}
 	else if (z->cle < y->cle)
+	{
 		y->gauche = z;
+	}
 	else
+	{
 		y->droite = z;
+	}
 	z->gauche = T->nil;
 	z->droite = T->nil;
 	z->couleur = ROUGE;
@@ -83,14 +93,22 @@ void rotation_gauche(ARN *T, NOEUD *x)
 	NOEUD *y = x->droite;  // initialise y.
 	x->droite = y->gauche; // sous-arbre gauche de y devient sous-arbre droit de x.
 	if (y->gauche != T->nil)
+	{
 		y->gauche->p = x;
+	}
 	y->p = x->p; // relie parent de x à y.
 	if (x->p == T->nil)
+	{
 		T->racine = y;
+	}
 	else if (x == x->p->gauche)
+	{
 		x->p->gauche = y;
+	}
 	else
+	{
 		x->p->droite = y;
+	}
 	y->gauche = x; // place x à gauche de y.
 	x->p = y;
 }
@@ -118,14 +136,22 @@ void rotation_droite(ARN *T, NOEUD *x)
 	NOEUD *y = x->gauche;  // initialise y.
 	x->gauche = y->droite; // sous-arbre droit de y devient sous-arbre gauche de x.
 	if (y->droite != T->nil)
+	{
 		y->droite->p = x;
+	}
 	y->p = x->p; // relie parent de x à y.
 	if (x->p == T->nil)
+	{
 		T->racine = y;
+	}
 	else if (x == x->p->gauche)
+	{
 		x->p->gauche = y;
+	}
 	else
+	{
 		x->p->droite = y;
+	}
 	y->droite = x; // place x à droite de y.
 	x->p = y;
 }
@@ -142,33 +168,51 @@ void imprimer_suite(int *P, SEQUENCE *X, int ind)
 int plus_proche_inferieur(SEQUENCE *X, int *M, int e, int f, int c)
 {
 	if ((e == -1 && f == -1) || (e == -1 && X->entiers[M[f]] > c) || (f == -1 && X->entiers[M[e]] > c))
+	{
 		return -1;
+	}
 	if (e == -1 && X->entiers[M[f]] <= c)
+	{
 		return f;
+	}
 	if (f == -1 && X->entiers[M[e]] <= c)
+	{
 		return e;
+	}
 	if (X->entiers[M[e]] < X->entiers[M[f]])
 	{
 		if (X->entiers[M[f]] <= c)
+		{
 			return f;
+		}
 		else
 		{
 			if (X->entiers[M[e]] <= c)
+			{
 				return e;
+			}
 			else
+			{
 				return -1;
+			}
 		}
 	}
 	else
 	{
 		if (X->entiers[M[e]] <= c)
+		{
 			return e;
+		}
 		else
 		{
 			if (X->entiers[M[f]] <= c)
+			{
 				return f;
+			}
 			else
+			{
 				return -1;
+			}
 		}
 	}
 }
@@ -176,13 +220,19 @@ int plus_proche_inferieur(SEQUENCE *X, int *M, int e, int f, int c)
 int recherche_idoine(ARN *A, int *M, NOEUD *x, SEQUENCE *X, int c)
 {
 	if (x == A->nil)
+	{
 		return -1;
+	}
 	if (X->entiers[M[x->cle]] == c)
+	{
 		return x->cle;
+	}
 	else if (X->entiers[M[x->cle]] < c)
 	{
 		if (x->droite == A->nil)
+		{
 			return x->cle;
+		}
 		else
 		{
 			int e = recherche_idoine(A, M, x->droite, X, c);
@@ -192,7 +242,9 @@ int recherche_idoine(ARN *A, int *M, NOEUD *x, SEQUENCE *X, int c)
 	else
 	{
 		if (x->gauche == A->nil)
+		{
 			return (X->entiers[M[x->cle]] == c) ? x->cle : -1;
+		}
 		else
 		{
 			int e = recherche_idoine(A, M, x->gauche, X, c);

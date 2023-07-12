@@ -4,10 +4,11 @@
 #define NIL NULL
 #define INFINI 1000000
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-struct noeud_tas_binomial{
+struct noeud_tas_binomial
+{
 	int cle;
 	struct noeud_tas_binomial *frere;
 	struct noeud_tas_binomial *p;
@@ -17,7 +18,8 @@ struct noeud_tas_binomial{
 
 typedef struct noeud_tas_binomial NOEUD_TAS_BINOMIAL;
 
-struct tas_binomial{
+struct tas_binomial
+{
 	struct noeud_tas_binomial *tete;
 };
 
@@ -40,5 +42,3 @@ void tas_binomial_supprimer_sans_infini(TAS_BINOMIAL **T, NOEUD_TAS_BINOMIAL *x)
 void tas_binomial_inserer_direct(TAS_BINOMIAL *T, NOEUD_TAS_BINOMIAL *x);
 
 #endif
-
-

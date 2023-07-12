@@ -5,7 +5,9 @@ MATRICE *creerMatrice(int nl, int nc)
 	int **m = (int **)malloc(nl * sizeof(int *));
 	int i;
 	for (i = 0; i < nl; i++)
+	{
 		m[i] = (int *)calloc(nc, sizeof(int));
+	}
 	MATRICE *mat = (MATRICE *)malloc(sizeof(MATRICE));
 	mat->lignes = nl;
 	mat->colonnes = nc;
@@ -25,12 +27,16 @@ MATRICE *multiplier_matrices(MATRICE *A, MATRICE *B)
 		MATRICE *C = creerMatrice(A->lignes, B->colonnes);
 		int i, j, k;
 		for (i = 0; i < A->lignes; i++)
+		{
 			for (j = 0; j < B->colonnes; j++)
 			{
 				(C->tab)[i][j] = 0;
 				for (k = 0; k < A->colonnes; k++)
+				{
 					(C->tab)[i][j] = (C->tab)[i][j] + A->tab[i][k] * B->tab[k][j];
+				}
 			}
+		}
 		return C;
 	}
 }
@@ -41,7 +47,9 @@ void afficherMatrice(MATRICE *A)
 	for (i = 0; i < A->lignes; i++)
 	{
 		for (j = 0; j < A->colonnes; j++)
+		{
 			printf("%d\t", A->tab[i][j]);
+		}
 		printf("\n");
 	}
 }
@@ -53,7 +61,9 @@ DIM *creerDim(int n, int *t)
 	m->p = (int *)malloc(n * sizeof(int));
 	int i;
 	for (i = 0; i < n; i++)
+	{
 		m->p[i] = t[i];
+	}
 	return m;
 }
 
@@ -62,10 +72,16 @@ int **initTable(int n)
 	int **t = (int **)malloc(n * sizeof(int *));
 	int i, j;
 	for (i = 0; i < n; i++)
+	{
 		t[i] = (int *)malloc(n * sizeof(int));
+	}
 	for (i = 0; i < n; i++)
+	{
 		for (j = 0; j < n; j++)
+		{
 			t[i][j] = 0;
+		}
+	}
 	return t;
 }
 
@@ -102,7 +118,9 @@ void afficherTable(int **A, int n)
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < n; j++)
+		{
 			printf("%d\t", A[i][j]);
+		}
 		printf("\n");
 	}
 }
@@ -113,14 +131,18 @@ void initMatrice(MATRICE *A)
 	for (i = 0; i < A->lignes; i++)
 	{
 		for (j = 0; j < A->colonnes; j++)
+		{
 			A->tab[i][j] = rand() % LIM - LIM / 2;
+		}
 	}
 }
 
 int chaine_matrices_recursif(DIM *p, int i, int j, int **m)
 {
 	if (i == j)
+	{
 		return 0;
+	}
 	m[i][j] = INFINI;
 	int k, q;
 	for (k = i; k < j; k++)
@@ -128,7 +150,9 @@ int chaine_matrices_recursif(DIM *p, int i, int j, int **m)
 		q = chaine_matrices_recursif(p, i, k, m) + chaine_matrices_recursif(p, k + 1, j, m) +
 			p->p[i] * p->p[k + 1] * p->p[j + 1];
 		if (q < m[i][j])
+		{
 			m[i][j] = q;
+		}
 	}
 	return m[i][j];
 }

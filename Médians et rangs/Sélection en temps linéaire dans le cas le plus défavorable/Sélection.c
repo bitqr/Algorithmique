@@ -60,7 +60,9 @@ int selection(int *A, int p, int r, int rg)
         exit(EXIT_FAILURE);
     }
     if (n == 1)
+    {
         return A[p];
+    }
     int lmed = (n / 5) + (n % 5 != 0);
     int *R = (int *)malloc(lmed * sizeof(int));
     int B[5] = {0};
@@ -68,7 +70,9 @@ int selection(int *A, int p, int r, int rg)
     for (i = 0; i < n; i += 5)
     {
         for (j = 0; j < 5; j++)
+        {
             B[j] = 0;
+        }
         m = (i >= (n / 5) * 5) ? n % 5 : 5;
         for (j = 0; j < m; j++)
         {
@@ -82,11 +86,17 @@ int selection(int *A, int p, int r, int rg)
     int part = partition(A, p, r, median);
     int l = part + 1 - p;
     if (rg == l)
+    {
         return A[part];
+    }
     else if (rg < l)
+    {
         return selection(A, p, part - 1, rg);
+    }
     else
+    {
         return selection(A, part + 1, r, rg - l);
+    }
 }
 
 int main(int argc, char **argv)

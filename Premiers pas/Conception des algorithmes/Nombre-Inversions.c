@@ -12,9 +12,13 @@ int fusion_inv(int *A, int p, int q, int r)
      int *R = (int *)malloc((n2 + 1) * sizeof(int));
      int i, j;
      for (i = 0; i < n1; i++)
+     {
           L[i] = A[p + i];
+     }
      for (j = 0; j < n2; j++)
+     {
           R[j] = A[q + j + 1];
+     }
      L[n1] = infini;
      R[n2] = infini;
      for (i = 0; i < n1; i++)
@@ -22,7 +26,9 @@ int fusion_inv(int *A, int p, int q, int r)
           for (j = 0; j < n2; j++)
           {
                if (L[i] > R[j])
+               {
                     cpt++;
+               }
           }
      }
      free(L);

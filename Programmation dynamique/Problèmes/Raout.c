@@ -31,7 +31,7 @@ double calcul_solution(int *i, NOEUD *x, ARBRE *A, SOLUTION **C)
 	{
 		return C[p]->cout;
 	}
-	*i = *i + 1;
+	(*i)++;
 	int ind = *i;
 	C[ind]->employe = x;
 	if (x->fils_gauche == A->nil)
@@ -71,7 +71,9 @@ SOLUTION **raout(ARBRE *A, int nb)
 	SOLUTION **C = (SOLUTION **)malloc((nb + 1) * sizeof(SOLUTION *));
 	int j, i = 0;
 	for (j = 0; j < nb + 1; j++)
+	{
 		C[j] = creerSol(A->nil);
+	}
 	C[0] = creerSol(A->racine);
 	C[0]->cout = 0;
 	NOEUD *y = A->racine->fils_gauche;

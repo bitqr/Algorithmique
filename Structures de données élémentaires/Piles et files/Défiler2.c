@@ -26,7 +26,9 @@ FILES *creer_file(int taille)
 void afficher_file(FILES *F)
 {
     if (F->tete == F->queue)
+    {
         printf("La liste est vide\n\n");
+    }
     else
     {
         int i = F->tete;
@@ -35,7 +37,7 @@ void afficher_file(FILES *F)
         {
             printf("%d\t", F->tableau[i]);
             i++;
-            i = i % F->longueur;
+            i %= F->longueur;
         }
         printf("\n\n");
     }
@@ -43,22 +45,26 @@ void afficher_file(FILES *F)
 
 void enfiler2(FILES *F, int x)
 {
-    if (F->tete == (F->queue + 1) || ((F->queue == F->longueur - 1) && (F->tete == 0)))
+    if (F->tete == F->queue + 1 || (F->queue == F->longueur - 1 && F->tete == 0))
     {
         printf("File pleine: debordement\n\n");
         exit(EXIT_FAILURE);
     }
     F->tableau[F->queue] = x;
-    printf("%d a ete enfile \n\n", x);
+    printf("%d a été enfilé \n\n", x);
     if (F->queue + 1 == F->longueur)
     {
         if (F->tete != 0)
+        {
             F->queue = 0;
+        }
     }
     else
     {
         if (F->queue + 1 != F->tete)
+        {
             F->queue++;
+        }
     }
 }
 
@@ -72,11 +78,15 @@ int defiler2(FILES *F)
     else
     {
         int x = F->tableau[F->tete];
-        printf("%d a ete defile \n\n", x);
+        printf("%d a été défilé \n\n", x);
         if (F->tete + 1 == F->longueur)
+        {
             F->tete = 0;
+        }
         else
+        {
             F->tete++;
+        }
         return x;
     }
 }

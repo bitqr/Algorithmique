@@ -43,17 +43,23 @@ void entasser_max_iter(P_TAS tas, int i)
 {
     int n = tas->taille;
     int *A = tas->tableau;
-    while ((i <= n / 2) && ((A[i] < A[gauche(i)]) || (A[i] < A[droite(i)])))
+    while (i <= n / 2 && (A[i] < A[gauche(i)] || A[i] < A[droite(i)]))
     {
         int l = gauche(i);
         int r = droite(i);
         int max;
         if (A[i] < A[l])
+        {
             max = l;
+        }
         else
+        {
             max = i;
+        }
         if (A[r] > A[max])
+        {
             max = r;
+        }
         if (max != i)
         {
             echanger(A, i, max);

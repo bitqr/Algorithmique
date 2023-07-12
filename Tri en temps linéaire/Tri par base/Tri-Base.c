@@ -37,7 +37,9 @@ int *tri_base(int *A, int n, int d)
             C[base(A[j], i)]--;
         }
         for (j = 0; j < N; j++)
+        {
             A[j] = B[j];
+        }
     }
     return B;
 }
