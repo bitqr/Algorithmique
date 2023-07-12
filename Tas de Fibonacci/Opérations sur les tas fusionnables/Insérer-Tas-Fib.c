@@ -11,7 +11,7 @@ void inserer_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x)
 	concatenerListes(x, T->min);
 	if (T->min == NIL || x->cle < T->min->cle)
 		T->min = x;
-	T->n = T->n + 1;
+	T->n++;
 }
 
 void concatenerListes(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *r)
