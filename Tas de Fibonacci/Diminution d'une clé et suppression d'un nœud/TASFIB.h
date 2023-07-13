@@ -6,11 +6,12 @@
 #define VRAI 1
 #define INFINI 1000000
 
-#include<stdlib.h>
-#include<stdio.h>
-#include<math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
 
-struct noeud_tas_fibonacci{
+struct noeud_tas_fibonacci
+{
 	struct noeud_tas_fibonacci *p;
 	struct noeud_tas_fibonacci *gauche;
 	struct noeud_tas_fibonacci *droite;
@@ -22,7 +23,8 @@ struct noeud_tas_fibonacci{
 
 typedef struct noeud_tas_fibonacci NOEUD_TAS_FIBONACCI;
 
-struct tas_fibonacci{
+struct tas_fibonacci
+{
 	struct noeud_tas_fibonacci *min;
 	int n;
 };
@@ -47,5 +49,3 @@ void relier_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y, NOEUD_TAS_FIBONACC
 void ajouterNoeudListeRacines(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *r);
 
 #endif
-
-

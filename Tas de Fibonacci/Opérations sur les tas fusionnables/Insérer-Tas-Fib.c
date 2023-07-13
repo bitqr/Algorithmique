@@ -19,7 +19,7 @@ void concatenerListes(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *r)
 	if (r == NIL)
 	{
 		r = x;
-		printf("Nouvelle racine: %d\n", r->cle);
+		printf("Concaténation avec liste vide de %d\n", r->cle);
 	}
 	else
 	{
@@ -87,7 +87,9 @@ int afficherArbreTasFibonacci(NOEUD_TAS_FIBONACCI *x, int profondeur)
 void afficherTasFibonacci(TAS_FIBONACCI *T)
 {
 	if (T->n == 0)
+	{
 		printf("Tas vide.\n");
+	}
 	else
 	{
 		printf("Le tas a %d noeud(s)\n", T->n);

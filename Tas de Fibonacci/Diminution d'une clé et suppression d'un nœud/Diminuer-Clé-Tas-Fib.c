@@ -87,7 +87,9 @@ int afficherArbreTasFibonacci(NOEUD_TAS_FIBONACCI *x, int profondeur)
 void afficherTasFibonacci(TAS_FIBONACCI *T)
 {
 	if (T->n == 0)
+	{
 		printf("Tas vide.\n");
+	}
 	else
 	{
 		printf("Le tas a %d noeud(s)\n", T->n);

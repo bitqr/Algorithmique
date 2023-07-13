@@ -38,7 +38,7 @@ void consolider(TAS_FIBONACCI *T)
 			}
 			relier_tas_fib(T, y, x);
 			A[d] = NIL;
-			d = d + 1;
+			d++;
 		}
 		A[d] = x;
 	}
