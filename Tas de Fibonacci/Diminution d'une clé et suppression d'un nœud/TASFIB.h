@@ -31,21 +31,20 @@ struct tas_fibonacci
 
 typedef struct tas_fibonacci TAS_FIBONACCI;
 
-void diminuer_cle_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x, int k);
-void couper(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *y);
-void supprimerEnfant(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *y);
-void ajouterListeRacines(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x);
-void coupe_en_cascade(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y);
-NOEUD_TAS_FIBONACCI *creerNoeudTasFibonacci(int cle, NOEUD_TAS_FIBONACCI *enfant, NOEUD_TAS_FIBONACCI *pere, NOEUD_TAS_FIBONACCI *g, NOEUD_TAS_FIBONACCI *d, int m, int dg);
 int afficherArbreTasFibonacci(NOEUD_TAS_FIBONACCI *x, int profondeur);
 void afficherTasFibonacci(TAS_FIBONACCI *T);
-void supprimer_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x);
-NOEUD_TAS_FIBONACCI *extraire_min_tas_fib(TAS_FIBONACCI *T);
-void supprimerRacine(NOEUD_TAS_FIBONACCI *x);
+void ajouterListeRacines(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x);
 void concatenerListes(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *r);
 void consolider(TAS_FIBONACCI *T);
+void coupe_en_cascade(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y);
+void couper(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *y);
+NOEUD_TAS_FIBONACCI *creerNoeudTasFibonacci(int cle, NOEUD_TAS_FIBONACCI *enfant, NOEUD_TAS_FIBONACCI *pere, NOEUD_TAS_FIBONACCI *g, NOEUD_TAS_FIBONACCI *d, int m, int dg);
+void diminuer_cle_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x, int k);
+NOEUD_TAS_FIBONACCI *extraire_min_tas_fib(TAS_FIBONACCI *T);
 void permuter(NOEUD_TAS_FIBONACCI **x, NOEUD_TAS_FIBONACCI **y);
 void relier_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y, NOEUD_TAS_FIBONACCI *x);
-void ajouterNoeudListeRacines(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *r);
+void supprimerEnfant(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *y);
+void supprimerRacine(NOEUD_TAS_FIBONACCI *x);
+void supprimer_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x);
 
 #endif

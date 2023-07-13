@@ -111,11 +111,7 @@ int main(int argc, char **argv)
 	TAS_FIBONACCI *T = (TAS_FIBONACCI *)malloc(sizeof(TAS_FIBONACCI));
 	T->n = 0;
 	T->min = NIL;
-	if (T->min == NIL)
-	{
-		printf("T est vide.\n");
-	}
-	printf("T a %d noeud(s).\n\n\n", T->n);
+	printf("T est vide.\n");
 	NOEUD_TAS_FIBONACCI *x1 = creerNoeudTasFibonacci(7, NIL, NIL, NIL, NIL, FAUX, 3);
 	NOEUD_TAS_FIBONACCI *x2 = creerNoeudTasFibonacci(18, NIL, NIL, x1, NIL, VRAI, 2);
 	NOEUD_TAS_FIBONACCI *x3 = creerNoeudTasFibonacci(38, NIL, NIL, x2, x1, FAUX, 1);

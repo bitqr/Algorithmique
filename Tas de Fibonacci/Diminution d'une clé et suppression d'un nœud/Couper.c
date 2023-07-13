@@ -15,6 +15,7 @@ void supprimerEnfant(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *y)
 		y->enfant = x->droite;
 	}
 	x->gauche->droite = x->droite;
+	x->droite->gauche = x->gauche;
 	y->degre--;
 	if (y->degre == 0)
 	{

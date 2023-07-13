@@ -108,7 +108,7 @@ void consolider(TAS_FIBONACCI *T)
 	{
 		if (A[i] != NIL)
 		{
-			ajouterNoeudListeRacines(A[i], T->min);
+			ajouterListeRacines(T, A[i]);
 			if (T->min == NIL || A[i]->cle < T->min->cle)
 			{
 				T->min = A[i];
@@ -145,20 +145,4 @@ void relier_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y, NOEUD_TAS_FIBONACC
 	x->enfant = y;
 	x->degre = x->degre + 1;
 	y->marque = FAUX;
-}
-
-void ajouterNoeudListeRacines(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *r)
-{
-	if (r == NIL)
-	{
-		x->gauche = x;
-		x->droite = x;
-	}
-	else
-	{
-		r->gauche->droite = x;
-		x->gauche = r->gauche;
-		x->droite = r;
-		r->gauche = x;
-	}
 }

@@ -18,6 +18,6 @@ void relier_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y, NOEUD_TAS_FIBONACC
 		y->gauche = z;
 	}
 	x->enfant = y;
-	x->degre = x->degre + 1;
+	x->degre++;
 	y->marque = FAUX;
 }

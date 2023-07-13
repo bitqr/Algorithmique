@@ -47,7 +47,7 @@ void consolider(TAS_FIBONACCI *T)
 	{
 		if (A[i] != NIL)
 		{
-			ajouterNoeudListeRacines(A[i], T->min);
+			ajouterListeRacines(T, A[i]);
 			if (T->min == NIL || A[i]->cle < T->min->cle)
 			{
 				T->min = A[i];
@@ -64,12 +64,14 @@ void permuter(NOEUD_TAS_FIBONACCI **x, NOEUD_TAS_FIBONACCI **y)
 	*y = t;
 }
 
-void ajouterNoeudListeRacines(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *r)
+void ajouterListeRacines(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x)
 {
+	NOEUD_TAS_FIBONACCI *r = T->min;
 	if (r == NIL)
 	{
 		x->gauche = x;
 		x->droite = x;
+		T->min = x;
 	}
 	else
 	{
