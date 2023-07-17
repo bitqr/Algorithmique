@@ -10,7 +10,9 @@ void inserer_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x)
 	x->marque = FAUX;
 	concatenerListes(x, T->min);
 	if (T->min == NIL || x->cle < T->min->cle)
+	{
 		T->min = x;
+	}
 	T->n++;
 }
 
