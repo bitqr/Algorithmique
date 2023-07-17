@@ -40,6 +40,8 @@ void consolider(TAS_FIBONACCI *T);
 void coupe_en_cascade(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y);
 void couper(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *y);
 NOEUD_TAS_FIBONACCI *creerNoeudTasFibonacci(int cle, NOEUD_TAS_FIBONACCI *enfant, NOEUD_TAS_FIBONACCI *pere, NOEUD_TAS_FIBONACCI *g, NOEUD_TAS_FIBONACCI *d, int m, int dg);
+void diminuer_cle_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x, int k);
+void elaguer_tas_fib(TAS_FIBONACCI *T, int r);
 NOEUD_TAS_FIBONACCI *extraire_min_tas_fib(TAS_FIBONACCI *T);
 void permuter(NOEUD_TAS_FIBONACCI **x, NOEUD_TAS_FIBONACCI **y);
 void relier_tas_fib(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *y, NOEUD_TAS_FIBONACCI *x);
@@ -47,5 +49,6 @@ void supprimer_pisano(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x);
 void supprimerEnfant(NOEUD_TAS_FIBONACCI *x, NOEUD_TAS_FIBONACCI *y);
 void supprimerRacine(NOEUD_TAS_FIBONACCI *x);
 void supprimerRacinePisano(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x);
+void tas_fib_modifier_cle(TAS_FIBONACCI *T, NOEUD_TAS_FIBONACCI *x, int k);
 
 #endif

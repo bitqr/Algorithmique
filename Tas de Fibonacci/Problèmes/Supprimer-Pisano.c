@@ -388,6 +388,9 @@ int main(int argc, char **argv)
     supprimer_pisano(T, x10);
     printf("\n\nTas de Fibonacci T après suppression de la clé 26 :\n\n");
     afficherTasFibonacci(T);
+    tas_fib_modifier_cle(T, x4, 28);
+    printf("\n\nTas de Fibonacci T après modification de la clé 24 en 28 :\n\n");
+    afficherTasFibonacci(T);
     free(T);
     return 0;
 }
